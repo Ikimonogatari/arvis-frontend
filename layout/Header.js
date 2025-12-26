@@ -26,7 +26,7 @@ const Header1 = () => {
       <div className="topbar">
         <div className="container">
           <div className="topbar-inner d-flex align-items-center justify-content-between">
-            <ul>
+            {/* <ul>
               <li>
                 <i className="fal fa-phone-alt" />
                 <a href>+44 920 090 505 </a>
@@ -39,9 +39,9 @@ const Header1 = () => {
                 <i className="far fa-clock" />
                 <a href>8.00am - 10.00pm</a>
               </li>
-            </ul>
+            </ul> */}
             {/* /.topbar__info */}
-            <div className="social">
+            {/* <div className="social">
               <a href="#">
                 <i className="fab fa-facebook-f" />
               </a>
@@ -54,7 +54,7 @@ const Header1 = () => {
               <a href="#">
                 <i className="fab fa-instagram" />
               </a>
-            </div>
+            </div> */}
           </div>
           {/* /.topbar__inner */}
         </div>

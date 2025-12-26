@@ -1,4 +1,4 @@
-// File: /home/dicky/Projects/arvis/zotech/app/page.js
+// File: /home/dicky/Projects/arvis-frontend/app/page.js
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
