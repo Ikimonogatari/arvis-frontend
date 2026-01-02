@@ -89,3 +89,4 @@ Example:
 - Make sure all pages are moved to `app/[locale]/` directory for i18n to work
 - The `lang` attribute on the `<html>` tag should be set dynamically based on locale (currently set to "en" in root layout)
 
+

@@ -6,6 +6,7 @@ import CaseStudySlider from "@/components/slider/CaseStudySlider";
 import Testimonial from "@/components/slider/Testimonial";
 import { TeamMember2 } from "@/components/TeamMember";
 import ZotechLayout from "@/layout/ZotechLayout";
+import HomeServicesSlider from "@/components/HomeServicesSlider";
 import Link from "next/link";
 import { Fragment } from "react";
 const page = () => {
@@ -313,112 +314,7 @@ const page = () => {
                   </div>
                 </div>
               </div>
-              <div className="row mt-4">
-                <div
-                  className="col-xl-4 col-lg-4 col-md-6 col-12  wow fadeInUp"
-                  data-wow-delay="200ms"
-                >
-                  <div className="single-service-item ">
-                    <div className="shape">
-                      <img
-                        className="shape-3"
-                        src="assets/img/service/shape-1.png"
-                        alt
-                      />
-                      <img
-                        className="shape-4"
-                        src="assets/img/service/shape-2.png"
-                        alt
-                      />
-                    </div>
-                    <div className="image">
-                      <img src="assets/img/service/01.jpg" alt />
-                    </div>
-                    <div className="content">
-                      <div className="icon">
-                        <i className="flaticon-analysis" />
-                      </div>
-                      <h4>
-                        <Link href="services-details">
-                          Digital Data Analysis
-                        </Link>
-                      </h4>
-                      <p>
-                        We’ll match you to an entire remote team of incredible
-                        freelance talent
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-xl-4 col-lg-4 col-md-6 col-12  wow fadeInUp"
-                  data-wow-delay="400ms"
-                >
-                  <div className="single-service-item">
-                    <div className="shape">
-                      <img
-                        className="shape-3"
-                        src="assets/img/service/shape-1.png"
-                        alt
-                      />
-                      <img
-                        className="shape-4"
-                        src="assets/img/service/shape-2.png"
-                        alt
-                      />
-                    </div>
-                    <div className="image">
-                      <img src="assets/img/service/02.jpg" alt />
-                    </div>
-                    <div className="content">
-                      <div className="icon">
-                        <i className="flaticon-usability" />
-                      </div>
-                      <h4>
-                        <Link href="services-details">QA &amp; Testing</Link>
-                      </h4>
-                      <p>
-                        We’ll match you to an entire remote team of incredible
-                        freelance talent
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-xl-4 col-lg-4 col-md-6 col-12  wow fadeInUp"
-                  data-wow-delay="600ms"
-                >
-                  <div className="single-service-item">
-                    <div className="shape">
-                      <img
-                        className="shape-3"
-                        src="assets/img/service/shape-1.png"
-                        alt
-                      />
-                      <img
-                        className="shape-4"
-                        src="assets/img/service/shape-2.png"
-                        alt
-                      />
-                    </div>
-                    <div className="image">
-                      <img src="assets/img/service/03.jpg" alt />
-                    </div>
-                    <div className="content">
-                      <div className="icon">
-                        <i className="flaticon-vector" />
-                      </div>
-                      <h4>
-                        <Link href="services-details">UI/UX Design</Link>
-                      </h4>
-                      <p>
-                        We’ll match you to an entire remote team of incredible
-                        freelance talent
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <HomeServicesSlider />
             </div>
           </div>
         </section>

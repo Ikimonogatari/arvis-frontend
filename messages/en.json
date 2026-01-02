@@ -245,6 +245,103 @@
         ]
       }
     }
+  },
+  "services": {
+    "dataCenter": {
+      "title": "Data Center & Server Room",
+      "hero": "Turnkey Data Center & Server Room Solutions",
+      "sub": "From design to implementation, testing, commissioning, handover, and ongoing support—built to standards.",
+      "cta1": "Request a Quote",
+      "cta2": "Book a Call"
+    },
+    "ups": {
+      "title": "UPS & Power Protection",
+      "hero": "UPS & Power Protection You Can Trust",
+      "sub": "Proper sizing, supply, installation, and maintenance of UPS, batteries, and PDUs—built for uptime.",
+      "cta1": "Get Runtime Sizing",
+      "cta2": "Request a Quote"
+    },
+    "cooling": {
+      "title": "Industrial Cooling",
+      "hero": "Industrial Cooling & HVAC for Stable Operations",
+      "sub": "Right sizing, correct equipment selection, and quality installation for reliable cooling performance.",
+      "cta1": "Request Site Assessment",
+      "cta2": "Request a Quote"
+    },
+    "network": {
+      "title": "Network",
+      "hero": "Secure, High-Performance Enterprise Networking",
+      "sub": "Design, implement, and optimize LAN/WAN/Wi-Fi networks for reliability and performance.",
+      "cta1": "Network Assessment",
+      "cta2": "Request a Quote"
+    },
+    "cabling": {
+      "title": "Structured Cabling",
+      "hero": "Standards-Based Structured Cabling with Full Testing",
+      "sub": "Professional copper/fiber installation with labeling, testing, and complete documentation.",
+      "cta1": "Site Survey",
+      "cta2": "Request a Quote"
+    },
+    "cctv": {
+      "title": "CCTV & Surveillance",
+      "hero": "CCTV That Improves Visibility and Reduces Risk",
+      "sub": "IP CCTV, recording/storage, and remote monitoring—designed and implemented end-to-end.",
+      "cta1": "Request Camera Layout",
+      "cta2": "Request a Quote"
+    },
+    "security": {
+      "title": "IT Security",
+      "hero": "Practical Security That Reduces Cyber Risk",
+      "sub": "Improve security posture with firewall/UTM, endpoint protection, policy hardening, and assessments.",
+      "cta1": "Security Assessment",
+      "cta2": "Request a Quote"
+    }
+  },
+  "quote": {
+    "title": "Request a Quote",
+    "subtitle": "Get a customized quote for your project",
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "phone": "Phone",
+      "email": "Email",
+      "interestedSolution": "Interested Solution",
+      "projectDescription": "Project Description",
+      "siteLocation": "Site Location",
+      "targetTimeline": "Target Timeline",
+      "budgetRange": "Budget Range (Optional)",
+      "attachFile": "Attach File",
+      "filePlaceholder": "BOQ, drawings, floor plan, etc.",
+      "submit": "Submit Request",
+      "required": "Required",
+      "optional": "Optional",
+      "optionalFields": "Optional Fields"
+    },
+    "timelineOptions": {
+      "asap": "ASAP",
+      "1-2weeks": "1-2 weeks",
+      "1month": "1 month",
+      "2-3months": "2-3 months",
+      "3-6months": "3-6 months",
+      "6+months": "6+ months"
+    },
+    "budgetOptions": {
+      "under10k": "Under $10,000",
+      "10k-50k": "$10,000 - $50,000",
+      "50k-100k": "$50,000 - $100,000",
+      "100k-250k": "$100,000 - $250,000",
+      "250k-500k": "$250,000 - $500,000",
+      "500k+": "$500,000+",
+      "notDisclosed": "Prefer not to disclose"
+    },
+    "success": {
+      "title": "Thank You!",
+      "message": "Your quote request has been submitted successfully. We'll get back to you soon."
+    },
+    "error": {
+      "title": "Error",
+      "message": "Something went wrong. Please try again."
+    }
   }
 }
 
