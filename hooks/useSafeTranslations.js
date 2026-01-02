@@ -64,14 +64,25 @@ export function useSafeTranslations(namespace) {
     let value = namespace ? translations[namespace] : translations;
     
     for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k];
+      if (value && typeof value === 'object') {
+        // Handle array indices
+        if (Array.isArray(value) && !isNaN(k)) {
+          value = value[parseInt(k)];
+        } else if (k in value) {
+          value = value[k];
+        } else {
+          return key; // Return key if translation not found
+        }
       } else {
         return key; // Return key if translation not found
       }
     }
     
-    return typeof value === 'string' ? value : key;
+    // Return the value if it's a string, number, or boolean, otherwise return the key
+    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+      return value;
+    }
+    return key;
   };
 
   return t;

@@ -64,6 +64,187 @@
       "home03": "Home 03",
       "home04": "Home 04"
     }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions About Us",
+    "subtitle": "CONTACT US",
+    "categories": {
+      "dataCenter": {
+        "title": "Data Center & Server Room",
+        "questions": [
+          {
+            "q": "What does \"turnkey\" mean?",
+            "a": "We deliver everything from design to installation, testing/commissioning, documentation, and handover."
+          },
+          {
+            "q": "What inputs do you need to start?",
+            "a": "IT load (kW), rack count, room size, growth plan, and required uptime/redundancy."
+          },
+          {
+            "q": "How do you approach cooling?",
+            "a": "We calculate thermal load and design airflow (hot/cold aisle) with proper equipment selection."
+          },
+          {
+            "q": "Do you provide commissioning and acceptance testing?",
+            "a": "Yes—validated by test protocols and reports."
+          },
+          {
+            "q": "Do you offer ongoing support?",
+            "a": "Yes—preventive maintenance and SLA-based support are available."
+          }
+        ]
+      },
+      "ups": {
+        "title": "UPS & Power Protection",
+        "questions": [
+          {
+            "q": "How do you choose the right UPS?",
+            "a": "Based on load (kW/kVA), required runtime, and redundancy needs."
+          },
+          {
+            "q": "How is runtime calculated?",
+            "a": "We consider total load, battery capacity, efficiency, and future growth."
+          },
+          {
+            "q": "When should batteries be replaced?",
+            "a": "Depends on usage and environment—verified through scheduled inspections."
+          },
+          {
+            "q": "Do you perform load testing?",
+            "a": "Yes, where applicable, with test reports."
+          },
+          {
+            "q": "Do you provide maintenance?",
+            "a": "Yes—PM, battery replacement, emergency support, and SLA options."
+          }
+        ]
+      },
+      "cooling": {
+        "title": "Industrial Cooling",
+        "questions": [
+          {
+            "q": "Is industrial cooling different from data center cooling?",
+            "a": "Yes—different environments and requirements mean different calculations and designs."
+          },
+          {
+            "q": "What inputs do you need?",
+            "a": "Area/height, heat load, existing system details, and target temperature range."
+          },
+          {
+            "q": "How do you improve energy efficiency?",
+            "a": "Correct sizing, control tuning, balancing, and proper maintenance."
+          },
+          {
+            "q": "Do you include installation and tuning?",
+            "a": "Yes—installation, setup, testing, and documentation."
+          },
+          {
+            "q": "Do you provide service and spares support?",
+            "a": "Yes—scheduled service and consumables/spares planning."
+          }
+        ]
+      },
+      "network": {
+        "title": "Network",
+        "questions": [
+          {
+            "q": "Do you build new networks or optimize existing ones?",
+            "a": "Both—starting with an assessment to recommend the best path."
+          },
+          {
+            "q": "How do you ensure Wi-Fi coverage?",
+            "a": "By conducting a site survey where possible and optimizing AP placement/tuning."
+          },
+          {
+            "q": "How do you reduce downtime risk?",
+            "a": "Redundancy, solid design, monitoring, and correct configuration."
+          },
+          {
+            "q": "Do you provide documentation?",
+            "a": "Yes—topology diagrams, IP/VLAN plans, config backups."
+          },
+          {
+            "q": "Do you offer ongoing support?",
+            "a": "Yes—monitoring, PM, incident support, SLA."
+          }
+        ]
+      },
+      "cabling": {
+        "title": "Structured Cabling",
+        "questions": [
+          {
+            "q": "Cat6 vs Cat6A—what's better?",
+            "a": "Depends on needs—Cat6A is preferred for 10G and future growth."
+          },
+          {
+            "q": "When do you need fiber?",
+            "a": "For longer distances, higher speeds, and backbone links."
+          },
+          {
+            "q": "Do you provide test reports?",
+            "a": "Yes—copper (Fluke) and fiber (OTDR) reports."
+          },
+          {
+            "q": "Do you handle labeling and port schedules?",
+            "a": "Yes—standard labeling, port inventory, and as-built docs."
+          },
+          {
+            "q": "Do you offer warranty?",
+            "a": "Yes—project/material dependent, agreed upfront."
+          }
+        ]
+      },
+      "cctv": {
+        "title": "CCTV & Surveillance",
+        "questions": [
+          {
+            "q": "How many days of recording can you keep?",
+            "a": "We size storage based on your retention (7/14/30/60 days) and quality needs."
+          },
+          {
+            "q": "Can we access IP cameras remotely?",
+            "a": "Yes—configured securely for remote viewing."
+          },
+          {
+            "q": "What about night/low-light performance?",
+            "a": "We select IR/low-light cameras and plan placement/lighting accordingly."
+          },
+          {
+            "q": "NVR vs VMS—what's the difference?",
+            "a": "NVR is simpler recording; VMS suits multi-site and advanced management."
+          },
+          {
+            "q": "Do you provide maintenance?",
+            "a": "Yes—configuration checks, firmware updates, and device inspections."
+          }
+        ]
+      },
+      "security": {
+        "title": "IT Security",
+        "questions": [
+          {
+            "q": "Is a firewall alone enough?",
+            "a": "Usually not—policy, endpoint, access control, and monitoring are also needed."
+          },
+          {
+            "q": "What happens in a security assessment?",
+            "a": "We identify gaps and provide a prioritized improvement plan."
+          },
+          {
+            "q": "Do you set up VPN?",
+            "a": "Yes—remote access and site-to-site VPN."
+          },
+          {
+            "q": "Can you help with logging/monitoring?",
+            "a": "Yes—SIEM/logging integration or baseline monitoring."
+          },
+          {
+            "q": "Do you provide ongoing support?",
+            "a": "Yes—incident support, change requests, and SLA options."
+          }
+        ]
+      }
+    }
   }
 }
 
