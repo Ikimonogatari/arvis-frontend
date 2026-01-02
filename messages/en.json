@@ -1,0 +1,69 @@
+{
+  "footer": {
+    "description": "Mauris ut enim sit amet lacus ornare ullamcorper. Praesent placerat neque eu purus rhoncus",
+    "subscribeNow": "Subscribe Now",
+    "yourEmail": "Your Email",
+    "usefulLinks": "Useful Links",
+    "aboutCompany": "About Company",
+    "ourServices": "Our Services",
+    "blogNews": "Blog & News",
+    "contactUs": "Contact Us",
+    "ourProjects": "Our Projects",
+    "contactUsTitle": "Contact Us",
+    "mailUs": "Mail Us:",
+    "address": "Address:",
+    "phone": "Phone:",
+    "gallery": "Gallery",
+    "copyright": "Copyright 2025 Zotech All Rights Reserved",
+    "privacyPolicy": "Privacy policy",
+    "termsCondition": "Terms & Condition",
+    "aboutUs": "About Us",
+    "letsTalk": "Let's Talk",
+    "services": {
+      "blockchain": "Blockchain technology",
+      "advanced": "Advanced Technology",
+      "infrastructure": "Infrastructure Technology",
+      "dataManagement": "Data Management",
+      "securityManagement": "Security Management"
+    },
+    "cta": {
+      "title": "Looking for the Best IT Business Solutions?",
+      "description": "As a app web crawler expert, We will help to organize.",
+      "button": "Take a Consultant"
+    }
+  },
+  "header": {
+    "home": "Home",
+    "pages": "Pages",
+    "services": "Services",
+    "projects": "Projects",
+    "news": "News",
+    "contact": "Contact",
+    "getInTouch": "Get In Touch",
+    "viewDemo": "View Demo",
+    "phone": "Phone:",
+    "search": "Search...",
+    "contactInfo": "Contact Info",
+    "contactUs": "Contact Us",
+    "topbarText": "An Zotech or MSP who keeps your IT running smoothly at all times.",
+    "menu": {
+      "team": "Team",
+      "teamDetails": "Team Details",
+      "about": "About",
+      "pricing": "Pricing",
+      "faqs": "FAQS",
+      "servicesGrid": "Services Grid",
+      "serviceDetails": "Service Details",
+      "projectsGrid": "Projects Grid",
+      "projectDetails": "Project Details",
+      "blogGrid": "Blog Grid",
+      "blogNews": "Blog & News",
+      "blogDetails": "Blog Details",
+      "home01": "Home 01",
+      "home02": "Home 02",
+      "home03": "Home 03",
+      "home04": "Home 04"
+    }
+  }
+}
+

@@ -33,7 +33,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
       className={`${montserratFont.variable} ${dm_sansFont.variable}`}
     >
       <body>

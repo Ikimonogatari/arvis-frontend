@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Fragment } from "react";
+import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 
 const Footer = ({ footer, cta }) => {
   switch (footer) {
@@ -18,6 +21,7 @@ const Footer = ({ footer, cta }) => {
 export default Footer;
 
 const Footer1 = () => {
+  const t = useSafeTranslations("footer");
   return (
     <footer className="footer-wrapper ">
       <div className="container">
@@ -35,13 +39,11 @@ const Footer1 = () => {
                 </div>
                 <div className="footer-content">
                   <p>
-                    Mauris ut enim sit amet lacus ornare <br /> ullamcorper.
-                    Praesent placerat neque eu <br />
-                    purus rhoncus
+                    {t("description")}
                   </p>
-                  <h5>Subscribe Now</h5>
+                  <h5>{t("subscribeNow")}</h5>
                   <div className="footer-input border-radius-none">
-                    <input type="email" id="email2" placeholder="Your Email" />
+                    <input type="email" id="email2" placeholder={t("yourEmail")} />
                     <button
                       className="newsletter-btn border-radius-none"
                       type="submit"
@@ -72,37 +74,37 @@ const Footer1 = () => {
             >
               <div className="single-footer-widget ms-xxl-2">
                 <div className="widget-head">
-                  <h4>Useful Links</h4>
+                  <h4>{t("usefulLinks")}</h4>
                 </div>
                 <ul className="list-area">
                   <li>
                     <Link href="about">
                       <i className="fas fa-circle" />
-                      About Company
+                      {t("aboutCompany")}
                     </Link>
                   </li>
                   <li>
                     <Link href="services">
                       <i className="fas fa-circle" />
-                      Our Services
+                      {t("ourServices")}
                     </Link>
                   </li>
                   <li>
                     <Link href="blog-news">
                       <i className="fas fa-circle" />
-                      Blog &amp; News
+                      {t("blogNews")}
                     </Link>
                   </li>
                   <li>
                     <Link href="contact">
                       <i className="fas fa-circle" />
-                      Contact Us
+                      {t("contactUs")}
                     </Link>
                   </li>
                   <li>
                     <Link href="projects">
                       <i className="fas fa-circle" />
-                      Our Projects
+                      {t("ourProjects")}
                     </Link>
                   </li>
                 </ul>
@@ -114,37 +116,37 @@ const Footer1 = () => {
             >
               <div className="single-footer-widget ms-xxl-4 ps-xxl-3">
                 <div className="widget-head">
-                  <h4>Our Services</h4>
+                  <h4>{t("ourServices")}</h4>
                 </div>
                 <ul className="list-area">
                   <li>
                     <Link href="contact">
                       <i className="fas fa-circle" />
-                      Blockchain technology
+                      {t("services.blockchain")}
                     </Link>
                   </li>
                   <li>
                     <Link href="contact">
                       <i className="fas fa-circle" />
-                      Advanced Technology
+                      {t("services.advanced")}
                     </Link>
                   </li>
                   <li>
                     <Link href="contact">
                       <i className="fas fa-circle" />
-                      Infrastructure Technology
+                      {t("services.infrastructure")}
                     </Link>
                   </li>
                   <li>
                     <Link href="contact">
                       <i className="fas fa-circle" />
-                      Data Management
+                      {t("services.dataManagement")}
                     </Link>
                   </li>
                   <li>
                     <Link href="contact">
                       <i className="fas fa-circle" />
-                      Security Management
+                      {t("services.securityManagement")}
                     </Link>
                   </li>
                 </ul>
@@ -156,7 +158,7 @@ const Footer1 = () => {
             >
               <div className="single-footer-widget ms-xxl-3">
                 <div className="widget-head">
-                  <h4>Contact Us</h4>
+                  <h4>{t("contactUsTitle")}</h4>
                 </div>
                 <div className="footer-content">
                   <div className="contact-info-area">
@@ -165,7 +167,7 @@ const Footer1 = () => {
                         <i className="flaticon-email" />
                       </a>
                       <div className="contact-infu">
-                        <span>Mail Us:</span>
+                        <span>{t("mailUs")}</span>
                         <h5>zotech@gmail.com</h5>
                       </div>
                     </div>
@@ -174,7 +176,7 @@ const Footer1 = () => {
                         <i className="fal fa-map-marker-alt" />
                       </a>
                       <div className="contact-infu">
-                        <span>Address:</span>
+                        <span>{t("address")}</span>
                         <h5 className="text-lowercase">
                           3770 Hidden Meadow Drive Venturia, ND 58489
                         </h5>
@@ -185,7 +187,7 @@ const Footer1 = () => {
                         <i className="fal fa-phone-alt" />
                       </a>
                       <div className="contact-infu">
-                        <span>Phone:</span>
+                        <span>{t("phone")}</span>
                         <h5>(704) 555-0127</h5>
                       </div>
                     </div>
@@ -200,7 +202,7 @@ const Footer1 = () => {
         <div className="container">
           <div className="footer-bottom-wrapper">
             <p className="text-center">
-              ©Copyright 2025 Zotech All Rights Reserved
+              ©{t("copyright")}
             </p>
           </div>
         </div>
@@ -225,6 +227,7 @@ const Footer3 = () => {
 };
 
 const Footer4 = ({ cta }) => {
+  const t = useSafeTranslations("footer");
   return (
     <Fragment>
       {cta && (
@@ -236,12 +239,12 @@ const Footer4 = ({ cta }) => {
               </div>
               <div className="title">
                 <h3 className="split-text right">
-                  Looking for the Best IT Business Solutions?
+                  {t("cta.title")}
                 </h3>
-                <p>As a app web crawler expert, We will help to organize.</p>
+                <p>{t("cta.description")}</p>
               </div>
               <a href className="theme-btn white-btn">
-                Take a Consultant
+                {t("cta.button")}
               </a>
             </div>
           </div>
@@ -256,11 +259,11 @@ const Footer4 = ({ cta }) => {
                   .fill()
                   .map((_, index) => (
                     <Fragment key={index}>
-                      <div className="cmn-textslide color-2">Let’s Talk</div>
+                      <div className="cmn-textslide color-2">{t("letsTalk")}</div>
                       <div>
                         <img src="assets/img/marquee-box.png" alt="img" />
                       </div>
-                      <div className="cmn-textslide">Let’s Talk</div>
+                      <div className="cmn-textslide">{t("letsTalk")}</div>
                       <div>
                         <img src="assets/img/marquee-box-2.png" alt="img" />
                       </div>
@@ -268,35 +271,35 @@ const Footer4 = ({ cta }) => {
                   ))}
               </div>
               <div className="comm ms-3">
-                <div className="cmn-textslide">Let’s Talk</div>
+                <div className="cmn-textslide">{t("letsTalk")}</div>
                 <div>
                   <img src="assets/img/marquee-box.png" alt="img" />
                 </div>
-                <div className="cmn-textslide">Let’s Talk</div>
+                <div className="cmn-textslide">{t("letsTalk")}</div>
                 <div>
                   <img src="assets/img/marquee-box-2.png" alt="img" />
                 </div>
-                <div className="cmn-textslide color-2">Let’s Talk</div>
+                <div className="cmn-textslide color-2">{t("letsTalk")}</div>
                 <div>
                   <img src="assets/img/marquee-box.png" alt="img" />
                 </div>
-                <div className="cmn-textslide">Let’s Talk</div>
+                <div className="cmn-textslide">{t("letsTalk")}</div>
                 <div>
                   <img src="assets/img/marquee-box-2.png" alt="img" />
                 </div>
-                <div className="cmn-textslide color-2">Let’s Talk</div>
+                <div className="cmn-textslide color-2">{t("letsTalk")}</div>
                 <div>
                   <img src="assets/img/marquee-box.png" alt="img" />
                 </div>
-                <div className="cmn-textslide ">Let’s Talk</div>
+                <div className="cmn-textslide ">{t("letsTalk")}</div>
                 <div>
                   <img src="assets/img/marquee-box-2.png" alt="img" />
                 </div>
-                <div className="cmn-textslide color-2">Let’s Talk</div>
+                <div className="cmn-textslide color-2">{t("letsTalk")}</div>
                 <div>
                   <img src="assets/img/marquee-box.png" alt="img" />
                 </div>
-                <div className="cmn-textslide">Let’s Talk</div>
+                <div className="cmn-textslide">{t("letsTalk")}</div>
                 <div>
                   <img src="assets/img/marquee-box.png" alt="img" />
                 </div>
@@ -314,30 +317,32 @@ const FooterContent = ({
   logo = "assets/img/logo/black-logo.png",
   layout = "style-2",
 }) => {
+  const t = useSafeTranslations("footer");
+  
   const services = [
-    "Blockchain technology",
-    "Advanced Technology",
-    "Infrastructure Technology",
-    "Data Management",
-    "Security Management",
+    t("services.blockchain"),
+    t("services.advanced"),
+    t("services.infrastructure"),
+    t("services.dataManagement"),
+    t("services.securityManagement"),
   ];
 
   const contacts = [
     {
       icon: "flaticon-email",
-      title: "Mail Us:",
+      title: t("mailUs"),
       info: "zotech@gmail.com",
       href: "mailto:zotech@gmail.com",
     },
     {
       icon: "fal fa-map-marker-alt",
-      title: "Address:",
+      title: t("address"),
       info: "3770 Hidden Meadow Drive Venturia, ND 58489",
       href: "#",
     },
     {
       icon: "fal fa-phone-alt",
-      title: "Phone:",
+      title: t("phone"),
       info: "(704) 555-0127",
       href: "tel:(704) 555-0127",
     },
@@ -372,13 +377,11 @@ const FooterContent = ({
                 </div>
                 <div className="footer-content">
                   <p>
-                    Mauris ut enim sit amet lacus ornare <br /> ullamcorper.
-                    Praesent placerat neque eu <br />
-                    purus rhoncus
+                    {t("description")}
                   </p>
-                  <h5>Subscribe Now</h5>
+                  <h5>{t("subscribeNow")}</h5>
                   <div className="footer-input border-radius-none">
-                    <input type="email" id="email2" placeholder="Your Email" />
+                    <input type="email" id="email2" placeholder={t("yourEmail")} />
                     <button
                       className="newsletter-btn border-radius-none"
                       type="submit"
@@ -409,7 +412,7 @@ const FooterContent = ({
             >
               <div className="single-footer-widget ms-xxl-5 ps-xxl-3">
                 <div className="widget-head">
-                  <h4>Our Services</h4>
+                  <h4>{t("ourServices")}</h4>
                 </div>
                 <ul className="list-area">
                   {services.map((service) => (
@@ -429,7 +432,7 @@ const FooterContent = ({
             >
               <div className="single-footer-widget ms-xxl-3">
                 <div className="widget-head">
-                  <h4>Contact Us</h4>
+                  <h4>{t("contactUsTitle")}</h4>
                 </div>
                 <div className="footer-content">
                   <div className="contact-info-area">
@@ -454,7 +457,7 @@ const FooterContent = ({
             >
               <div className="single-footer-widget ms-xxl-5">
                 <div className="widget-head">
-                  <h4>Gallery</h4>
+                  <h4>{t("gallery")}</h4>
                 </div>
                 <div className="gallery">
                   {galleryImgs.map((img, index) => (
@@ -476,11 +479,11 @@ const FooterContent = ({
       <div className="footer-bottom style-2">
         <div className="container">
           <div className="footer-bottom-wrapper d-flex align-items-center justify-content-between">
-            <p>Copyright 2025 Zotech All Rights Reserved</p>
+            <p>{t("copyright")}</p>
             <div className="security ">
-              <Link href="/contact">Privacy policy</Link>/
-              <Link href="/contact">Terms &amp; Condition </Link>/
-              <Link href="/about"> About Us</Link>
+              <Link href="/contact">{t("privacyPolicy")}</Link>/
+              <Link href="/contact">{t("termsCondition")} </Link>/
+              <Link href="/about"> {t("aboutUs")}</Link>
             </div>
           </div>
         </div>
