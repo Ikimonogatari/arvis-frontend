@@ -72,9 +72,15 @@ const Header1 = () => {
                 <div className="header-left">
                   <div className="logo">
                     <Link href="/" className="header-logo">
-                      <img
+                      {/* <img
                         src="assets/img/logo/black-logo.png"
                         alt="logo-img"
+                      /> */}
+                      <img
+                        src="assets/img/arvis-logo.png"
+                        alt="logo-img"
+                        height={100}
+                        width={100}
                       />
                     </Link>
                   </div>
