@@ -20,20 +20,45 @@ const Preloader = () => {
     >
       <div className="animation-preloader">
         <div className="spinner"></div>
-        <div className="txt-loading">
-          <span data-text-preloader="A" className="letters-loading">
+        <div 
+          className="txt-loading"
+          style={{ 
+            fontFamily: 'var(--font-montserrat), "Montserrat", serif'
+          }}
+        >
+          <span 
+            data-text-preloader="A" 
+            className="letters-loading"
+            style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
+          >
             A
           </span>
-          <span data-text-preloader="R" className="letters-loading">
+          <span 
+            data-text-preloader="R" 
+            className="letters-loading"
+            style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
+          >
             R
           </span>
-          <span data-text-preloader="V" className="letters-loading">
+          <span 
+            data-text-preloader="V" 
+            className="letters-loading"
+            style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
+          >
             V
           </span>
-          <span data-text-preloader="I" className="letters-loading">
+          <span 
+            data-text-preloader="I" 
+            className="letters-loading"
+            style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
+          >
             I
           </span>
-          <span data-text-preloader="S" className="letters-loading">
+          <span 
+            data-text-preloader="S" 
+            className="letters-loading"
+            style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
+          >
             S
           </span>
         </div>

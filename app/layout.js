@@ -17,12 +17,18 @@ const montserratFont = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-montserrat",
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const dm_sansFont = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-dm-sans",
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata = {
@@ -32,11 +38,26 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const htmlStyle = {
+    '--font-montserrat': montserratFont.style.fontFamily,
+    '--font-dm-sans': dm_sansFont.style.fontFamily,
+  };
+  
   return (
     <html
       className={`${montserratFont.variable} ${dm_sansFont.variable}`}
+      style={htmlStyle}
     >
       <body>
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .preloader .animation-preloader .txt-loading,
+            .preloader .animation-preloader .txt-loading .letters-loading,
+            .preloader .animation-preloader .txt-loading .letters-loading::before {
+              font-family: ${montserratFont.style.fontFamily} !important;
+            }
+          `
+        }} />
         <Preloader />
         {children}
       </body>

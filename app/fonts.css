@@ -7,3 +7,23 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-montserrat), "Montserrat", serif !important;
 }
 
+/* Preloader font fix - must override main.css */
+.preloader .animation-preloader .txt-loading {
+  font-family: var(--font-montserrat), "Montserrat", serif !important;
+  font: bold 5em var(--font-montserrat), "Montserrat", serif !important;
+}
+
+@media (max-width: 767px) {
+  .preloader .animation-preloader .txt-loading {
+    font-size: 2.5em !important;
+  }
+}
+
+.preloader .animation-preloader .txt-loading .letters-loading {
+  font-family: var(--font-montserrat), "Montserrat", serif !important;
+}
+
+.preloader .animation-preloader .txt-loading .letters-loading::before {
+  font-family: var(--font-montserrat), "Montserrat", serif !important;
+}
+

@@ -93,14 +93,14 @@ const HomeServicesSlider = () => {
                   <div className="image">
                     <img src={service.image} alt />
                   </div>
-                  <div className="content">
+                  <div className="content mb-3">
                     <div className="icon">
                       <i className={service.icon} />
                     </div>
                     <h4>
                       {t(`${service.key}.title`)}
                     </h4>
-                    <p>{t(`${service.key}.sub`)}</p>
+                    <p className="!text-sm">{t(`${service.key}.sub`)}</p>
                   </div>
                 </div>
               </Link>
