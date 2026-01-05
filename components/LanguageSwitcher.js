@@ -2,11 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { locales, defaultLocale } from "@/i18n";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const LanguageSwitcher = () => {
   const router = useRouter();
   const [locale, setLocale] = useState(defaultLocale);
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     // Get locale from cookie
@@ -54,51 +57,138 @@ const LanguageSwitcher = () => {
     }
   };
 
+  const getLocaleLabel = (loc) => {
+    return loc === "en" ? "EN" : loc === "mn" ? "MN" : loc.toUpperCase();
+  };
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 200); // 200ms delay before closing
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="language-switcher d-flex align-items-center">
-      <div 
-        className="language-toggle"
+    <div 
+      className="language-switcher d-flex align-items-center"
+      style={{ position: "relative" }}
+      ref={dropdownRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div
+        className="language-dropdown"
         style={{
-          display: "flex",
-          gap: "4px",
-          backgroundColor: "rgba(0, 0, 0, 0.05)",
-          padding: "4px",
-          borderRadius: "6px",
-          border: "1px solid rgba(0, 0, 0, 0.1)"
+          position: "relative",
+          cursor: "pointer"
         }}
       >
-        {locales.map((loc) => (
-          <button
-            key={loc}
-            onClick={() => switchLocale(loc)}
-            className={`language-btn ${locale === loc ? "active" : ""}`}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            padding: "6px 12px",
+            backgroundColor: "rgba(63, 181, 253, 0.1)",
+            borderRadius: "6px",
+            border: "1px solid rgba(11, 110, 218, 0.2)",
+            fontSize: "13px",
+            fontWeight: "500",
+            color: "#0b6eda",
+            transition: "all 0.3s ease",
+            minWidth: "60px"
+          }}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span>{getLocaleLabel(locale)}</span>
+          <i 
+            className="fas fa-chevron-down"
             style={{
-              padding: "6px 12px",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              backgroundColor: locale === loc ? "#000" : "transparent",
-              color: locale === loc ? "#fff" : "#000",
-              fontSize: "14px",
-              fontWeight: locale === loc ? "600" : "400",
-              transition: "all 0.3s ease",
-              whiteSpace: "nowrap",
-              minWidth: "40px"
+              fontSize: "10px",
+              transition: "transform 0.3s ease",
+              transform: isOpen ? "rotate(180deg)" : "rotate(0deg)"
             }}
-            onMouseEnter={(e) => {
-              if (locale !== loc) {
-                e.target.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-              }
+          />
+        </div>
+        
+        {isOpen && (
+          <div
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              right: 0,
+              backgroundColor: "#fff",
+              borderRadius: "6px",
+              border: "1px solid rgba(11, 110, 218, 0.2)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+              zIndex: 1000,
+              overflow: "hidden",
+              minWidth: "100%",
+              marginTop: "2px"
             }}
-            onMouseLeave={(e) => {
-              if (locale !== loc) {
-                e.target.style.backgroundColor = "transparent";
-              }
-            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
-            {loc === "en" ? "EN" : loc === "mn" ? "MN" : loc.toUpperCase()}
-          </button>
-        ))}
+            {locales.map((loc) => (
+              <div
+                key={loc}
+                onClick={() => {
+                  switchLocale(loc);
+                  setIsOpen(false);
+                  if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                  }
+                }}
+                style={{
+                  padding: "10px 12px",
+                  fontSize: "13px",
+                  fontWeight: locale === loc ? "600" : "400",
+                  color: locale === loc ? "#0b6eda" : "#4a5568",
+                  backgroundColor: locale === loc 
+                    ? "rgba(63, 181, 253, 0.1)" 
+                    : "transparent",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  borderLeft: locale === loc 
+                    ? "3px solid #0b6eda" 
+                    : "3px solid transparent"
+                }}
+                onMouseEnter={(e) => {
+                  if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                    timeoutRef.current = null;
+                  }
+                  if (locale !== loc) {
+                    e.target.style.backgroundColor = "rgba(63, 181, 253, 0.05)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (locale !== loc) {
+                    e.target.style.backgroundColor = "transparent";
+                  }
+                }}
+              >
+                {getLocaleLabel(loc)}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
