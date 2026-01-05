@@ -8,6 +8,7 @@ import "@css/meanmenu.css";
 import "@css/nice-select.css";
 import "@css/swiper-bundle.min.css";
 import "@css/main.css";
+import "./fonts.css";
 
 import Preloader from "@/components/Preloader";
 import { DM_Sans, Montserrat } from "next/font/google";
