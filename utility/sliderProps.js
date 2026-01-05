@@ -221,9 +221,11 @@ export const sliderProps = {
     spaceBetween: 20,
     speed: 1000,
     loop: true,
+    simulateTouch: true,
+    allowTouchMove: true,
     navigation: {
-      nextEl: ".array-prev",
-      prevEl: ".array-next",
+      nextEl: ".array-next",
+      prevEl: ".array-prev",
     },
     pagination: {
       el: ".dot",

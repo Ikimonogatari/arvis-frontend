@@ -111,7 +111,37 @@ const QuoteForm = ({ preselectedService = null }) => {
   };
 
   return (
-    <div className="quote-form-wrapper">
+    <div className="quote-form-wrapper" style={{ 
+      background: '#fff', 
+      padding: '50px 60px', 
+      borderRadius: '12px',
+      boxShadow: '7px 11px 50px 52px rgba(2, 8, 66, 0.03)'
+    }}>
+      {/* Tag/Badge */}
+      <div style={{
+        background: 'linear-gradient(84deg, #3fb5fd 0%, #0b6eda 100%)',
+        color: '#fff',
+        padding: '8px 20px',
+        borderRadius: '4px',
+        display: 'inline-block',
+        marginBottom: '20px',
+        fontSize: '14px',
+        fontWeight: '500'
+      }}>
+        {t("subtitle")}
+      </div>
+
+      {/* Title */}
+      <h2 style={{
+        color: '#0b6eda',
+        fontSize: '36px',
+        fontWeight: '700',
+        marginBottom: '40px',
+        marginTop: '10px'
+      }}>
+        {t("title")}
+      </h2>
+
       {submitStatus === "success" && (
         <div className="alert alert-success mb-4" role="alert">
           <h4>{t("success.title")}</h4>
@@ -127,11 +157,17 @@ const QuoteForm = ({ preselectedService = null }) => {
       )}
 
       <form onSubmit={handleSubmit} id="quote-form" encType="multipart/form-data">
-        <div className="row g-3">
-          {/* Required Fields */}
+        <div className="row g-4">
+          {/* Required Fields - Two Column Layout */}
           <div className="col-lg-6">
             <div className="form-clt">
-              <label htmlFor="name">
+              <label htmlFor="name" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
                 {t("form.name")} <span className="text-danger">*</span>
               </label>
               <input
@@ -142,13 +178,31 @@ const QuoteForm = ({ preselectedService = null }) => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder={t("form.name")}
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
           </div>
           
           <div className="col-lg-6">
             <div className="form-clt">
-              <label htmlFor="company">
+              <label htmlFor="company" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
                 {t("form.company")} <span className="text-danger">*</span>
               </label>
               <input
@@ -159,13 +213,31 @@ const QuoteForm = ({ preselectedService = null }) => {
                 value={formData.company}
                 onChange={handleChange}
                 placeholder={t("form.company")}
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-clt">
-              <label htmlFor="phone">
+              <label htmlFor="phone" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
                 {t("form.phone")} <span className="text-danger">*</span>
               </label>
               <input
@@ -176,13 +248,31 @@ const QuoteForm = ({ preselectedService = null }) => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder={t("form.phone")}
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-clt">
-              <label htmlFor="email">
+              <label htmlFor="email" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
                 {t("form.email")} <span className="text-danger">*</span>
               </label>
               <input
@@ -193,13 +283,31 @@ const QuoteForm = ({ preselectedService = null }) => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder={t("form.email")}
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
           </div>
 
           <div className="col-lg-12">
             <div className="form-clt">
-              <label htmlFor="interestedSolution">
+              <label htmlFor="interestedSolution" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
                 {t("form.interestedSolution")} <span className="text-danger">*</span>
               </label>
               <select
@@ -208,7 +316,23 @@ const QuoteForm = ({ preselectedService = null }) => {
                 required
                 value={formData.interestedSolution}
                 onChange={handleChange}
-                className="form-select"
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff',
+                  appearance: 'none',
+                  backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 12 12\'%3E%3Cpath fill=\'%23333\' d=\'M6 9L1 4h10z\'/%3E%3C/svg%3E")',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 15px center',
+                  paddingRight: '40px'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               >
                 <option value="">{t("form.interestedSolution")}</option>
                 {serviceOptions.map((option) => (
@@ -222,7 +346,13 @@ const QuoteForm = ({ preselectedService = null }) => {
 
           <div className="col-lg-12">
             <div className="form-clt-big form-clt">
-              <label htmlFor="projectDescription">
+              <label htmlFor="projectDescription" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
                 {t("form.projectDescription")} <span className="text-danger">*</span>
               </label>
               <textarea
@@ -233,20 +363,48 @@ const QuoteForm = ({ preselectedService = null }) => {
                 value={formData.projectDescription}
                 onChange={handleChange}
                 placeholder={t("form.projectDescription")}
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff',
+                  resize: 'vertical',
+                  minHeight: '120px',
+                  fontFamily: 'inherit'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
           </div>
 
           {/* Optional Fields */}
           <div className="col-lg-12">
-            <hr className="my-4" />
-            <h5 className="mb-3 text-muted">{t("form.optionalFields")}</h5>
+            <hr style={{ margin: '40px 0 30px', borderColor: '#e2e8f0' }} />
+            <h5 style={{
+              fontWeight: '700',
+              color: '#4a5568',
+              marginBottom: '30px',
+              fontSize: '18px'
+            }}>
+              {t("form.optionalFields")}
+            </h5>
           </div>
 
           <div className="col-lg-6">
             <div className="form-clt">
-              <label htmlFor="siteLocation">
-                {t("form.siteLocation")} <span className="text-muted">({t("form.optional")})</span>
+              <label htmlFor="siteLocation" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
+                {t("form.siteLocation")} <span style={{ color: '#718096', fontSize: '13px' }}>({t("form.optional")})</span>
               </label>
               <input
                 type="text"
@@ -255,21 +413,55 @@ const QuoteForm = ({ preselectedService = null }) => {
                 value={formData.siteLocation}
                 onChange={handleChange}
                 placeholder={t("form.siteLocation")}
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
           </div>
 
           <div className="col-lg-6">
             <div className="form-clt">
-              <label htmlFor="targetTimeline">
-                {t("form.targetTimeline")} <span className="text-muted">({t("form.optional")})</span>
+              <label htmlFor="targetTimeline" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
+                {t("form.targetTimeline")} <span style={{ color: '#718096', fontSize: '13px' }}>({t("form.optional")})</span>
               </label>
               <select
                 name="targetTimeline"
                 id="targetTimeline"
                 value={formData.targetTimeline}
                 onChange={handleChange}
-                className="form-select"
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff',
+                  appearance: 'none',
+                  backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 12 12\'%3E%3Cpath fill=\'%23333\' d=\'M6 9L1 4h10z\'/%3E%3C/svg%3E")',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 15px center',
+                  paddingRight: '40px'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               >
                 <option value="">{t("form.targetTimeline")}</option>
                 {timelineOptions.map((option) => (
@@ -281,17 +473,39 @@ const QuoteForm = ({ preselectedService = null }) => {
             </div>
           </div>
 
-          <div className="col-lg-12">
+          <div className="col-lg-6">
             <div className="form-clt">
-              <label htmlFor="budgetRange">
-                {t("form.budgetRange")}
+              <label htmlFor="budgetRange" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
+                {t("form.budgetRange")} <span style={{ color: '#718096', fontSize: '13px' }}>({t("form.optional")})</span>
               </label>
               <select
                 name="budgetRange"
                 id="budgetRange"
                 value={formData.budgetRange}
                 onChange={handleChange}
-                className="form-select"
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff',
+                  appearance: 'none',
+                  backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 12 12\'%3E%3Cpath fill=\'%23333\' d=\'M6 9L1 4h10z\'/%3E%3C/svg%3E")',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 15px center',
+                  paddingRight: '40px'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3fb5fd'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               >
                 <option value="">{t("form.budgetRange")}</option>
                 {budgetOptions.map((option) => (
@@ -303,10 +517,16 @@ const QuoteForm = ({ preselectedService = null }) => {
             </div>
           </div>
 
-          <div className="col-lg-12">
+          <div className="col-lg-6">
             <div className="form-clt">
-              <label htmlFor="file">
-                {t("form.attachFile")} <span className="text-muted">({t("form.optional")})</span>
+              <label htmlFor="file" style={{
+                display: 'block',
+                marginBottom: '8px',
+                fontWeight: '500',
+                color: '#1a202c',
+                fontSize: '15px'
+              }}>
+                {t("form.attachFile")} <span style={{ color: '#718096', fontSize: '13px' }}>({t("form.optional")})</span>
               </label>
               <input
                 type="file"
@@ -314,12 +534,35 @@ const QuoteForm = ({ preselectedService = null }) => {
                 id="file"
                 accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.dwg,.dxf"
                 onChange={handleChange}
-                className="form-control"
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                  fontSize: '15px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: '#fff'
+                }}
               />
-              <small className="text-muted">{t("form.filePlaceholder")}</small>
+              <small style={{ 
+                display: 'block', 
+                marginTop: '8px', 
+                color: '#718096', 
+                fontSize: '13px' 
+              }}>
+                {t("form.filePlaceholder")}
+              </small>
               {formData.file && (
-                <div className="mt-2">
-                  <span className="badge bg-secondary">
+                <div style={{ marginTop: '10px' }}>
+                  <span style={{
+                    display: 'inline-block',
+                    padding: '4px 12px',
+                    backgroundColor: '#e2e8f0',
+                    borderRadius: '4px',
+                    fontSize: '13px',
+                    color: '#4a5568'
+                  }}>
                     {formData.file.name} ({(formData.file.size / 1024).toFixed(2)} KB)
                   </span>
                 </div>
@@ -327,11 +570,24 @@ const QuoteForm = ({ preselectedService = null }) => {
             </div>
           </div>
 
-          <div className="col-lg-12">
+          <div className="col-lg-12" style={{ marginTop: '30px' }}>
             <button
               type="submit"
-              className="theme-btn black-btn"
               disabled={isSubmitting}
+              style={{
+                background: 'linear-gradient(84deg, #3fb5fd 0%, #0b6eda 100%)',
+                color: '#fff',
+                border: 'none',
+                padding: '14px 40px',
+                borderRadius: '4px',
+                fontSize: '16px',
+                fontWeight: '600',
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                opacity: isSubmitting ? 0.7 : 1,
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => !isSubmitting && (e.target.style.opacity = '0.9')}
+              onMouseLeave={(e) => !isSubmitting && (e.target.style.opacity = '1')}
             >
               {isSubmitting ? "Submitting..." : t("form.submit")}
             </button>
