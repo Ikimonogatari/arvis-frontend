@@ -59,31 +59,27 @@ export function useSafeTranslations(namespace) {
   // Return translation function
   const t = (key) => {
     if (!translations) return key;
-    
+  
     const keys = key.split('.');
     let value = namespace ? translations[namespace] : translations;
-    
+  
     for (const k of keys) {
-      if (value && typeof value === 'object') {
-        // Handle array indices
+      if (value && typeof value === "object") {
         if (Array.isArray(value) && !isNaN(k)) {
           value = value[parseInt(k)];
         } else if (k in value) {
           value = value[k];
         } else {
-          return key; // Return key if translation not found
+          return key;
         }
       } else {
-        return key; // Return key if translation not found
+        return key;
       }
     }
-    
-    // Return the value if it's a string, number, or boolean, otherwise return the key
-    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
-      return value;
-    }
-    return key;
+  
+    return value; // ✅ allow arrays, objects, strings
   };
+  
 
   return t;
 }

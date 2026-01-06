@@ -342,6 +342,19 @@
       "title": "Error",
       "message": "Something went wrong. Please try again."
     }
+  },
+  "home-aboutUs": {
+    "aboutUs":"About Us",
+    "title": "Bringing technological advancements to your business",
+    "description": "Since 20XX, our company has been offering engineering solutions in sectors such as information technology, telecommunications, and power supply. We provide comprehensive, turnkey solutions that fully meet the needs and requirements of our customers, adhering to international standards. Our services include design, installation, and maintenance, all performed with the highest quality standards.",
+    "statistics": [
+      "Over 10 years of experience",
+      "50+ successful projects",
+      "20+ specialized engineers",
+      "100% Customer satisfaction"
+    ],
+    "moreAboutUs": "More About Us",
+    "callToAsk": "Call to ask any question"    
   }
 }
 

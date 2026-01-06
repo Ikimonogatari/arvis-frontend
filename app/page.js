@@ -1,3 +1,4 @@
+"use client"
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Counter from "@/components/Counter";
@@ -9,7 +10,9 @@ import ZotechLayout from "@/layout/ZotechLayout";
 import HomeServicesSlider from "@/components/HomeServicesSlider";
 import Link from "next/link";
 import { Fragment } from "react";
+import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 const page = () => {
+  const t = useSafeTranslations("home-aboutUs");
   return (
     <Fragment>
       <ZotechLayout header={1} footer={1}>
@@ -205,41 +208,33 @@ const page = () => {
                 <div className="about-content mt-4 ms-xxl-4">
                   <div className="section-title">
                     <div className="sub-title">
-                      <span>ABOUT OUR COMPANY</span>
+                      <span>{t("aboutUs")}</span>
                     </div>
                     <h2 className="split-text right">
-                      Highly Tailored Technology, Develop <br /> &amp; Support
-                      Services.
+                      {t("title")}
                     </h2>
                   </div>
                   <p>
-                    Accelerate innovation with world-class tech teams We’ll
-                    match you to an entire remote team of incredible freelance
-                    talent for all your software development needs.
+                    {t("description")}
                   </p>
                   <ul>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Website &amp; Mobile application design &amp; Development
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Dramatically re-engineer value added IT systems via
-                      mission
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Professional User Experince &amp; Interface researching
-                    </li>
+                    {Array.isArray(t("statistics")) &&
+                      t("statistics").map((item, index) => (
+                        <li key={index}>
+                          <i className="fas fa-check-circle" />
+                          {item}
+                        </li>
+                      ))}
                   </ul>
+
                   <div className="about-infu">
                     <a href className="theme-btn black-btn">
-                      More About Us
+                      {t("moreAboutUs")}
                     </a>
                     <div className="contact-us">
                       <img src="assets/img/about/03.png" alt />
                       <div className="text">
-                        <span>Call to ask any question</span>
+                        <span>{t("callToAsk")}</span>
                         <h4>0123-456-7890</h4>
                       </div>
                     </div>
@@ -250,7 +245,13 @@ const page = () => {
           </div>
         </section>
         {/* Service Section Start */}
-        <section className="service-wrapper service-1 section-bg section-padding">
+        <section className=
+        
+        
+        
+        
+        
+        "service-wrapper service-1 section-bg section-padding">
           <div className="shapes">
             <img className="shape-1" src="assets/img/shape/shape-1.png" alt />
             <img className="shape-2" src="assets/img/world.png" alt />
