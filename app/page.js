@@ -13,6 +13,8 @@ import { Fragment } from "react";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 const page = () => {
   const t = useSafeTranslations("home-aboutUs");
+  const tHero = useSafeTranslations("hero");
+  const tFeatures = useSafeTranslations("features");
   return (
     <Fragment>
       <ZotechLayout header={1} footer={1}>
@@ -31,15 +33,16 @@ const page = () => {
             <div className="row">
               <div className="col-xl-6 col-lg-6 col-md-12 col-12">
                 <div className="hero-content pe-xl-3 text-lg-start text-center ">
-                  <h1>Empowering Ideas with Technological Excellence</h1>
+                  <h1>{tHero("title")}</h1>
                   <p>
-                    In today's competitive business, the demand for efficient
-                    and cost-effective IT solutions has never been more
-                    critical.
+                    {tHero("subtitle")}
                   </p>
                   <div className="hero-button mt-4">
-                    <Link href="causes" className="theme-btn">
-                      Explore More
+                    <Link href="/quote" className="theme-btn">
+                      {tHero("cta1")}
+                    </Link>
+                    <Link href="/contact" className="theme-btn trasparent-btn ms-3">
+                      {tHero("cta2")}
                     </Link>
                   </div>
                   <div className="feedback d-flex mt-xl-5">
@@ -72,6 +75,9 @@ const page = () => {
         {/* features Section Start */}
         <section className="features-wrapper features-1">
           <div className="container">
+            <div className="section-title text-center mb-5">
+              <h2>{tFeatures("title")}</h2>
+            </div>
             <div className="row">
               <div
                 className="col-xl-3 col-lg-6 col-md-6 col-12 wow fadeInUp"
@@ -79,23 +85,22 @@ const page = () => {
               >
                 <div className="single-feature-item">
                   <div className="icon">
-                    <i className="flaticon-web-development" />
+                    <i className="flaticon-engineering" />
                   </div>
                   <h4>
-                    <Link href="services-details">
-                      Custom Software Development
+                    <Link href="/quote?service=dataCenter">
+                      {tFeatures("dataCenter.title")}
                     </Link>
                   </h4>
-                  <p>At Zotech, our mission is to you empower businesses.</p>
+                  <p>{tFeatures("dataCenter.description")}</p>
                   <ul>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Career progression
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Career progression
-                    </li>
+                    {Array.isArray(tFeatures("dataCenter.items")) &&
+                      tFeatures("dataCenter.items").map((item, index) => (
+                        <li key={index}>
+                          <i className="fas fa-check-circle" />
+                          {item}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </div>
@@ -105,23 +110,22 @@ const page = () => {
               >
                 <div className="single-feature-item">
                   <div className="icon">
-                    <i className="flaticon-mobile-app" />
+                    <i className="flaticon-engineering" />
                   </div>
                   <h4>
-                    <Link href="services-details">
-                      Web and Mobile Development
+                    <Link href="/quote?service=ups">
+                      {tFeatures("ups.title")}
                     </Link>
                   </h4>
-                  <p>At Zotech, our mission is to you empower businesses.</p>
+                  <p>{tFeatures("ups.description")}</p>
                   <ul>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Career progression
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Career progression
-                    </li>
+                    {Array.isArray(tFeatures("ups.items")) &&
+                      tFeatures("ups.items").map((item, index) => (
+                        <li key={index}>
+                          <i className="fas fa-check-circle" />
+                          {item}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </div>
@@ -131,23 +135,22 @@ const page = () => {
               >
                 <div className="single-feature-item">
                   <div className="icon">
-                    <i className="flaticon-cms" />
+                    <i className="flaticon-maintenance" />
                   </div>
                   <h4>
-                    <Link href="services-details">
-                      Business and IT Consultancy
+                    <Link href="/quote?service=cooling">
+                      {tFeatures("cooling.title")}
                     </Link>
                   </h4>
-                  <p>At Zotech, our mission is to you empower businesses.</p>
+                  <p>{tFeatures("cooling.description")}</p>
                   <ul>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Career progression
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Career progression
-                    </li>
+                    {Array.isArray(tFeatures("cooling.items")) &&
+                      tFeatures("cooling.items").map((item, index) => (
+                        <li key={index}>
+                          <i className="fas fa-check-circle" />
+                          {item}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </div>
@@ -157,21 +160,22 @@ const page = () => {
               >
                 <div className="single-feature-item">
                   <div className="icon">
-                    <i className="flaticon-graphic-design" />
+                    <i className="flaticon-connection" />
                   </div>
                   <h4>
-                    <Link href="services-details">Advance Tool and Design</Link>
+                    <Link href="/quote?service=network">
+                      {tFeatures("network.title")}
+                    </Link>
                   </h4>
-                  <p>At Zotech, our mission is to you empower businesses.</p>
+                  <p>{tFeatures("network.description")}</p>
                   <ul>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Career progression
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle" />
-                      Career progression
-                    </li>
+                    {Array.isArray(tFeatures("network.items")) &&
+                      tFeatures("network.items").map((item, index) => (
+                        <li key={index}>
+                          <i className="fas fa-check-circle" />
+                          {item}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </div>

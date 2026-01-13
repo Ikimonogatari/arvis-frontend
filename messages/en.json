@@ -34,12 +34,14 @@
   },
   "header": {
     "home": "Home",
-    "pages": "Pages",
-    "services": "Services",
+    "about": "About Us",
+    "solutionsServices": "Solutions & Services",
+    "products": "Products",
     "projects": "Projects",
-    "news": "News",
-    "contact": "Contact",
-    "getInTouch": "Get In Touch",
+    "eshop": "E-shop",
+    "newsResources": "News & Resources",
+    "contact": "Contact Us",
+    "getInTouch": "Request a Quote",
     "viewDemo": "View Demo",
     "phone": "Phone:",
     "search": "Search...",
@@ -63,6 +65,55 @@
       "home02": "Home 02",
       "home03": "Home 03",
       "home04": "Home 04"
+    }
+  },
+  "hero": {
+    "title": "Turnkey Data Center & Server Room Solutions",
+    "subtitle": "From design to implementation, testing, commissioning, handover, and ongoing support—built to standards.",
+    "cta1": "Request a Quote",
+    "cta2": "Book a Call"
+  },
+  "features": {
+    "title": "Our Core Services",
+    "dataCenter": {
+      "title": "Data Center & Server Room",
+      "description": "Turnkey solutions from design to handover",
+      "items": [
+        "Requirement discovery",
+        "Layout planning",
+        "Power chain architecture",
+        "Cooling solutions"
+      ]
+    },
+    "ups": {
+      "title": "UPS & Power Protection",
+      "description": "Reliable power solutions for uptime",
+      "items": [
+        "Load assessment",
+        "UPS selection",
+        "Battery capacity sizing",
+        "Maintenance support"
+      ]
+    },
+    "cooling": {
+      "title": "Industrial Cooling",
+      "description": "Stable cooling and HVAC solutions",
+      "items": [
+        "Thermal load calculation",
+        "Equipment selection",
+        "Installation & tuning",
+        "Energy efficiency"
+      ]
+    },
+    "network": {
+      "title": "Network",
+      "description": "Secure enterprise networking",
+      "items": [
+        "Network assessment",
+        "LAN/WAN/Wi-Fi design",
+        "Configuration & optimization",
+        "Ongoing support"
+      ]
     }
   },
   "faq": {
@@ -252,49 +303,119 @@
       "hero": "Turnkey Data Center & Server Room Solutions",
       "sub": "From design to implementation, testing, commissioning, handover, and ongoing support—built to standards.",
       "cta1": "Request a Quote",
-      "cta2": "Book a Call"
+      "cta2": "Book a Call",
+      "scope": [
+        "Requirement discovery and capacity sizing (IT load, growth)",
+        "Layout planning and rack/containment design",
+        "Power chain architecture (UPS, PDU, redundancy)",
+        "Cooling concept and airflow planning (hot/cold aisle)",
+        "Cable management, labeling, and documentation",
+        "Environmental monitoring (temp/humidity, leak, smoke, access)",
+        "Testing, commissioning, acceptance, and handover",
+        "Maintenance and SLA-based support"
+      ]
     },
     "ups": {
       "title": "UPS & Power Protection",
       "hero": "UPS & Power Protection You Can Trust",
       "sub": "Proper sizing, supply, installation, and maintenance of UPS, batteries, and PDUs—built for uptime.",
       "cta1": "Get Runtime Sizing",
-      "cta2": "Request a Quote"
+      "cta2": "Request a Quote",
+      "scope": [
+        "Load assessment and runtime requirement definition",
+        "UPS selection (online/double conversion, etc.)",
+        "Battery capacity and backup time sizing",
+        "PDU, bypass, and distribution design",
+        "Installation, grounding, and cabling",
+        "Startup/commissioning and alarm configuration",
+        "Load testing (where applicable) with reports",
+        "Preventive maintenance, battery replacement, SLA"
+      ]
     },
     "cooling": {
       "title": "Industrial Cooling",
       "hero": "Industrial Cooling & HVAC for Stable Operations",
       "sub": "Right sizing, correct equipment selection, and quality installation for reliable cooling performance.",
       "cta1": "Request Site Assessment",
-      "cta2": "Request a Quote"
+      "cta2": "Request a Quote",
+      "scope": [
+        "Site condition review and thermal load calculation",
+        "Cooling/HVAC concept and equipment selection",
+        "Installation design (placement, piping, drainage)",
+        "Basic controls/automation configuration",
+        "Testing and tuning (balancing, setpoints)",
+        "Energy efficiency improvement recommendations",
+        "Service plan and consumables/spares planning",
+        "Safety, documentation, and handover"
+      ]
     },
     "network": {
       "title": "Network",
       "hero": "Secure, High-Performance Enterprise Networking",
       "sub": "Design, implement, and optimize LAN/WAN/Wi-Fi networks for reliability and performance.",
       "cta1": "Network Assessment",
-      "cta2": "Request a Quote"
+      "cta2": "Request a Quote",
+      "scope": [
+        "Current network assessment and requirement discovery",
+        "Topology, VLAN, IP plan, routing design",
+        "Switch/router deployment and configuration",
+        "Wi-Fi survey (if applicable), AP placement and tuning",
+        "Redundancy and high availability (as required)",
+        "Monitoring/alerting setup (optional)",
+        "Documentation (diagrams, config backups)",
+        "Testing, handover, training/support"
+      ]
     },
     "cabling": {
       "title": "Structured Cabling",
       "hero": "Standards-Based Structured Cabling with Full Testing",
       "sub": "Professional copper/fiber installation with labeling, testing, and complete documentation.",
       "cta1": "Site Survey",
-      "cta2": "Request a Quote"
+      "cta2": "Request a Quote",
+      "scope": [
+        "Site survey and cable route planning",
+        "Cat6/6A copper cabling installation",
+        "Fiber optic (SM/MM) pulling and termination/splicing",
+        "Patch panels, rack organization, cable dressing",
+        "Standard labeling and port inventory",
+        "Testing (Fluke/OTDR) with reports",
+        "As-built drawings and link schedules",
+        "Handover and warranty support"
+      ]
     },
     "cctv": {
       "title": "CCTV & Surveillance",
       "hero": "CCTV That Improves Visibility and Reduces Risk",
       "sub": "IP CCTV, recording/storage, and remote monitoring—designed and implemented end-to-end.",
       "cta1": "Request Camera Layout",
-      "cta2": "Request a Quote"
+      "cta2": "Request a Quote",
+      "scope": [
+        "Site risk review and coverage planning",
+        "Camera placement, angles, and lens selection",
+        "NVR/VMS and storage sizing (days/quality)",
+        "Network/PoE and cabling design (if needed)",
+        "Installation, configuration, and user permissions",
+        "Remote access and mobile monitoring setup",
+        "Day/night testing and recording verification",
+        "Documentation, training, and support"
+      ]
     },
     "security": {
       "title": "IT Security",
       "hero": "Practical Security That Reduces Cyber Risk",
       "sub": "Improve security posture with firewall/UTM, endpoint protection, policy hardening, and assessments.",
       "cta1": "Security Assessment",
-      "cta2": "Request a Quote"
+      "cta2": "Request a Quote",
+      "scope": [
+        "Current security posture assessment (gap analysis)",
+        "Firewall/UTM architecture and policy/rule configuration",
+        "VPN deployment (site-to-site/remote access)",
+        "Endpoint protection (EDR/AV) rollout (optional)",
+        "Web filtering, IPS/IDS, threat prevention",
+        "Logging/SIEM integration (where applicable)",
+        "Security baseline hardening recommendations",
+        "Documentation, training, and SLA support"
+      ]
     }
   },
   "quote": {

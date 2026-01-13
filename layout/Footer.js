@@ -120,33 +120,45 @@ const Footer1 = () => {
                 </div>
                 <ul className="list-area">
                   <li>
-                    <Link href="contact">
+                    <Link href="/quote?service=dataCenter">
                       <i className="fas fa-circle" />
-                      {t("services.blockchain")}
+                      Data Center & Server Room
                     </Link>
                   </li>
                   <li>
-                    <Link href="contact">
+                    <Link href="/quote?service=ups">
                       <i className="fas fa-circle" />
-                      {t("services.advanced")}
+                      UPS & Power Protection
                     </Link>
                   </li>
                   <li>
-                    <Link href="contact">
+                    <Link href="/quote?service=cooling">
                       <i className="fas fa-circle" />
-                      {t("services.infrastructure")}
+                      Industrial Cooling
                     </Link>
                   </li>
                   <li>
-                    <Link href="contact">
+                    <Link href="/quote?service=network">
                       <i className="fas fa-circle" />
-                      {t("services.dataManagement")}
+                      Network
                     </Link>
                   </li>
                   <li>
-                    <Link href="contact">
+                    <Link href="/quote?service=cabling">
                       <i className="fas fa-circle" />
-                      {t("services.securityManagement")}
+                      Structured Cabling
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/quote?service=cctv">
+                      <i className="fas fa-circle" />
+                      CCTV & Surveillance
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/quote?service=security">
+                      <i className="fas fa-circle" />
+                      IT Security
                     </Link>
                   </li>
                 </ul>
