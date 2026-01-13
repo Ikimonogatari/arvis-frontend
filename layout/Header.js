@@ -96,9 +96,9 @@ const Header1 = () => {
                     <i className="fal fa-search" />
                   </a>
                   <div className="header-button  d-none d-sm-block">
-                    <Link href="/quote" className="theme-btn black-btn">
+                    <a href className="theme-btn black-btn">
                       {t("getInTouch")}
-                    </Link>
+                    </a>
                   </div>
                   <div className="header__hamburger d-xl-none my-auto">
                     <div className="sidebar__toggle">
@@ -243,9 +243,9 @@ const Header3 = () => {
                     <i className="fal fa-search" />
                   </a>
                   <div className="header-button d-none d-md-block">
-                    <Link href="/quote" className="theme-btn black-btn">
+                    <a href className="theme-btn black-btn">
                       {t("getInTouch")}
-                    </Link>
+                    </a>
                   </div>
                   <div className="header__hamburger d-xl-none my-auto">
                     <div className="sidebar__toggle">
@@ -304,9 +304,9 @@ const Header4 = () => {
                   <i className="fal fa-search" />
                 </a>
                 <div className="header-button d-none d-sm-block">
-                  <Link href="/quote" className="theme-btn black-btn theme-btn-2">
+                  <a href className="theme-btn black-btn theme-btn-2">
                     {t("getInTouch")}
-                  </Link>
+                  </a>
                 </div>
                 <div className="header__hamburger d-xl-none my-auto">
                   <div className="sidebar__toggle">
@@ -332,49 +332,62 @@ const Menu = () => {
             <Link href="/">{t("home")}</Link>
           </li>
           <li>
-            <Link href="/about">{t("about")}</Link>
-          </li>
-          <li>
             <a href="#">
-              {t("solutionsServices")}
+              {t("pages")}
               <i className="fas fa-angle-down" />
             </a>
             <ul className="submenu">
               <li>
-                <Link href="/quote?service=dataCenter">Data Center & Server Room</Link>
+                <Link href="/team">{t("menu.team")}</Link>
               </li>
               <li>
-                <Link href="/quote?service=ups">UPS & Power Protection</Link>
+                <Link href="/teams-details">{t("menu.teamDetails")}</Link>
               </li>
               <li>
-                <Link href="/quote?service=cooling">Industrial Cooling</Link>
+                <Link href="/about">{t("menu.about")}</Link>
               </li>
               <li>
-                <Link href="/quote?service=network">Network</Link>
+                <Link href="/pricing">{t("menu.pricing")}</Link>
               </li>
               <li>
-                <Link href="/quote?service=cabling">Structured Cabling</Link>
+                <Link href="/faqs">{t("menu.faqs")}</Link>
               </li>
               <li>
-                <Link href="/quote?service=cctv">CCTV & Surveillance</Link>
-              </li>
-              <li>
-                <Link href="/quote?service=security">IT Security</Link>
+                <Link href="/404">404</Link>
               </li>
             </ul>
           </li>
           <li>
-            <Link href="/products">{t("products")}</Link>
+            <a href="#">
+              {t("services")}
+              <i className="fas fa-angle-down" />
+            </a>
+            <ul className="submenu">
+              <li>
+                <Link href="/services">{t("menu.servicesGrid")}</Link>
+              </li>
+              <li>
+                <Link href="/services-details">{t("menu.serviceDetails")}</Link>
+              </li>
+            </ul>
           </li>
-          <li>
-            <Link href="/projects">{t("projects")}</Link>
-          </li>
-          <li>
-            <Link href="/eshop">{t("eshop")}</Link>
+          <li className="has-dropdown">
+            <a href="#">
+              {t("projects")}
+              <i className="fas fa-angle-down" />
+            </a>
+            <ul className="submenu">
+              <li>
+                <Link href="/projects">{t("menu.projectsGrid")}</Link>
+              </li>
+              <li>
+                <Link href="/projects-details">{t("menu.projectDetails")}</Link>
+              </li>
+            </ul>
           </li>
           <li>
             <a href="#">
-              {t("newsResources")}
+              {t("news")}
               <i className="fas fa-angle-down" />
             </a>
             <ul className="submenu">
