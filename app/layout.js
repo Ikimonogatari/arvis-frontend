@@ -11,6 +11,7 @@ import "@css/main.css";
 import "./fonts.css";
 
 import Preloader from "@/components/Preloader";
+import { ReduxProvider } from "@/lib/ReduxProvider";
 import { DM_Sans, Montserrat } from "next/font/google";
 
 const montserratFont = Montserrat({
@@ -59,7 +60,9 @@ export default function RootLayout({ children }) {
           `
         }} />
         <Preloader />
-        {children}
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   );
