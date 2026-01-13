@@ -4,8 +4,9 @@ import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-const page = () => {
+const QuoteContent = () => {
   const t = useSafeTranslations("quote");
   const searchParams = useSearchParams();
   const preselectedService = searchParams.get("service") || null;
@@ -26,6 +27,29 @@ const page = () => {
         </div>
       </section>
     </ZotechLayout>
+  );
+};
+
+const page = () => {
+  return (
+    <Suspense fallback={
+      <ZotechLayout>
+        <Pagebanner pageName="Quote" />
+        <section className="quote-wrapper section-padding">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-10 col-lg-12">
+                <div className="quote-form-container">
+                  <p>Loading...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ZotechLayout>
+    }>
+      <QuoteContent />
+    </Suspense>
   );
 };
 
