@@ -6,7 +6,7 @@
             width: 56px;
             height: 56px;
             @include icon;
-            background: linear-gradient(84deg, #3FB5FD 0%, #0B6EDA 100%);
+            background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
             font-size: 17px;
             color: var(--white);
             position: absolute;
@@ -30,7 +30,7 @@
             }
 
             &::before {
-                border: 1px solid rgba(63, 181, 253, 0.20);
+                border: 1px solid rgba(0, 102, 204, 0.20);
                 width: calc(100% + 40px);
                 height: calc(100% + 40px);
                 opacity: 100%;
@@ -412,7 +412,7 @@
             transform: translate(-50%, -50%);
 
             h2 {
-                background: linear-gradient(84deg, #3FB5FD 0%, #0B6EDA 100%);
+                background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
                 @include clip;
                 font-size: 120px;
                 letter-spacing: -2.4px;
@@ -482,7 +482,7 @@
             &::after {
                 @include after;
                 border-radius: 4px;
-                background: linear-gradient(84deg, #3FB5FD 0%, #0B6EDA 100%);
+                background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
                 left: -3px;
                 z-index: -1;
             }
@@ -560,7 +560,7 @@
 
             .icon {
                 font-size: 55px;
-                background-image: linear-gradient(84deg, $theme-color 0%, $theme-color-4 100%);
+                background-image: linear-gradient(84deg, $theme-color 0%, $theme-color-5 100%);
                 @include clip;
 
             }

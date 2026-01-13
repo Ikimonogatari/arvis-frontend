@@ -251,62 +251,6 @@ const Footer4 = ({ cta }) => {
         </section>
       )}
       <footer className="footer-wrapper section-bg-2 section-padding pb-0">
-        <div className="marquee-section mt-5 pt-5">
-          <div className="mycustom-marque">
-            <div className="scrolling-wrap">
-              <div className="comm">
-                {Array(4)
-                  .fill()
-                  .map((_, index) => (
-                    <Fragment key={index}>
-                      <div className="cmn-textslide color-2">{t("letsTalk")}</div>
-                      <div>
-                        <img src="assets/img/marquee-box.png" alt="img" />
-                      </div>
-                      <div className="cmn-textslide">{t("letsTalk")}</div>
-                      <div>
-                        <img src="assets/img/marquee-box-2.png" alt="img" />
-                      </div>
-                    </Fragment>
-                  ))}
-              </div>
-              <div className="comm ms-3">
-                <div className="cmn-textslide">{t("letsTalk")}</div>
-                <div>
-                  <img src="assets/img/marquee-box.png" alt="img" />
-                </div>
-                <div className="cmn-textslide">{t("letsTalk")}</div>
-                <div>
-                  <img src="assets/img/marquee-box-2.png" alt="img" />
-                </div>
-                <div className="cmn-textslide color-2">{t("letsTalk")}</div>
-                <div>
-                  <img src="assets/img/marquee-box.png" alt="img" />
-                </div>
-                <div className="cmn-textslide">{t("letsTalk")}</div>
-                <div>
-                  <img src="assets/img/marquee-box-2.png" alt="img" />
-                </div>
-                <div className="cmn-textslide color-2">{t("letsTalk")}</div>
-                <div>
-                  <img src="assets/img/marquee-box.png" alt="img" />
-                </div>
-                <div className="cmn-textslide ">{t("letsTalk")}</div>
-                <div>
-                  <img src="assets/img/marquee-box-2.png" alt="img" />
-                </div>
-                <div className="cmn-textslide color-2">{t("letsTalk")}</div>
-                <div>
-                  <img src="assets/img/marquee-box.png" alt="img" />
-                </div>
-                <div className="cmn-textslide">{t("letsTalk")}</div>
-                <div>
-                  <img src="assets/img/marquee-box.png" alt="img" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <FooterContent logo="assets/img/logo/white-logo.png" />
       </footer>
     </Fragment>

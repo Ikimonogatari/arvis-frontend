@@ -23,7 +23,7 @@
     cursor: pointer;
 
     &.theme-btn-2 {
-        background: linear-gradient(84deg, $theme-color 0%, $theme-color-4 100%);
+        background: linear-gradient(84deg, $theme-color 0%, $theme-color-5 100%);
 
     }
 
@@ -45,8 +45,8 @@
 
     &.trasparent-btn-2 {
         background: transparent;
-        border: 1px solid $theme-color-4;
-        color: $theme-color-4;
+        border: 1px solid $theme-color-5;
+        color: $theme-color-5;
         border-image-slice: 1;
         border-radius: 4px;
     }
@@ -85,7 +85,7 @@
         width: 50%;
         height: 0%;
         position: absolute;
-        background-color: $white;
+        background: linear-gradient(84deg, $theme-color-5 0%, $theme-color 100%);
         transition: 0.4s;
         -webkit-transition: 0.4s;
         -moz-transition: 0.4s;
@@ -111,7 +111,8 @@
     }
 
     &:hover {
-        color: $theme-color-2;
+        color: $white;
+        background: linear-gradient(84deg, $theme-color-5 0%, $theme-color 100%);
     }
 
 

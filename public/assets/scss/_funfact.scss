@@ -3,7 +3,7 @@
     margin-top: -110px;
 
     .funfact-inner {
-        background: linear-gradient(84deg, #3FB5FD 0%, #0B6EDA 100%);
+        background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
         padding: 50px 70px;
         border-radius: 20px;
         @include flex;
@@ -168,7 +168,7 @@
                 font-size: 49px;
 
                 i {
-                    background: linear-gradient(84deg, #3FB5FD 0%, #0B6EDA 100%);
+                    background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
                     @include clip;
                 }
             }
@@ -249,7 +249,7 @@
                     }
 
                     h2 {
-                        color: $theme-color-4;
+                        color: $theme-color-5;
                         font-size: 48px;
                         font-weight: 600;
                     }

@@ -119,7 +119,7 @@ const QuoteForm = ({ preselectedService = null }) => {
     }}>
       {/* Tag/Badge */}
       <div style={{
-        background: 'linear-gradient(84deg, #003399 0%, #002266 100%)',
+        background: 'linear-gradient(84deg, #0066CC 0%, #004499 100%)',
         color: '#fff',
         padding: '8px 20px',
         borderRadius: '4px',
@@ -133,7 +133,7 @@ const QuoteForm = ({ preselectedService = null }) => {
 
       {/* Title */}
       <h2 style={{
-        color: '#002266',
+        color: '#004499',
         fontSize: '36px',
         fontWeight: '700',
         marginBottom: '40px',
@@ -188,7 +188,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   transition: 'all 0.3s ease',
                   backgroundColor: '#fff'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
@@ -223,7 +223,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   transition: 'all 0.3s ease',
                   backgroundColor: '#fff'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
@@ -258,7 +258,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   transition: 'all 0.3s ease',
                   backgroundColor: '#fff'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
@@ -293,7 +293,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   transition: 'all 0.3s ease',
                   backgroundColor: '#fff'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
@@ -331,7 +331,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   backgroundPosition: 'right 15px center',
                   paddingRight: '40px'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               >
                 <option value="">{t("form.interestedSolution")}</option>
@@ -376,7 +376,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   minHeight: '120px',
                   fontFamily: 'inherit'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
@@ -423,7 +423,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   transition: 'all 0.3s ease',
                   backgroundColor: '#fff'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               />
             </div>
@@ -460,7 +460,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   backgroundPosition: 'right 15px center',
                   paddingRight: '40px'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               >
                 <option value="">{t("form.targetTimeline")}</option>
@@ -504,7 +504,7 @@ const QuoteForm = ({ preselectedService = null }) => {
                   backgroundPosition: 'right 15px center',
                   paddingRight: '40px'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#003399'}
+                onFocus={(e) => e.target.style.borderColor = '#0066CC'}
                 onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
               >
                 <option value="">{t("form.budgetRange")}</option>
@@ -575,7 +575,7 @@ const QuoteForm = ({ preselectedService = null }) => {
               type="submit"
               disabled={isSubmitting}
               style={{
-                background: 'linear-gradient(84deg, #003399 0%, #002266 100%)',
+                background: 'linear-gradient(84deg, #0066CC 0%, #004499 100%)',
                 color: '#fff',
                 border: 'none',
                 padding: '14px 40px',

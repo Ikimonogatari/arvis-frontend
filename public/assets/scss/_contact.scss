@@ -197,7 +197,7 @@
         @include after;
         max-width: 1500px;
         height: 642px;
-        background: rgba(0, 85, 255, 0.08);
+        background: rgba(0, 102, 204, 0.08);
         margin: 0 auto;
         z-index: -1;
         border-radius: 20px;
@@ -427,7 +427,7 @@
 
     &::after {
         @include after;
-        background: linear-gradient(84deg, $theme-color 0%, $theme-color-4 100%);
+        background: linear-gradient(84deg, $theme-color 0%, $theme-color-5 100%);
         z-index: -1;
         border-radius: 12px;
         width: 0;

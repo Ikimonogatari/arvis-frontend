@@ -15,8 +15,8 @@ Version: 1.0.0
   --white: #fff;
   --white-2: #eaf0ff;
   --white-3: rgba(255, 255, 255, 0.75);
-  --theme: #003399;
-  --theme-2: #002266;
+  --theme: #0066CC;
+  --theme-2: #004499;
   --theme-3: #0e1449;
   --theme-4: #a347ff;
   --theme-5: #ff0404;
@@ -54,7 +54,7 @@ Version: 1.0.0
   cursor: pointer;
 }
 .theme-btn.theme-btn-2 {
-  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-4) 100%);
+  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-5) 100%);
 }
 .theme-btn.trasparent-btn {
   background: transparent;
@@ -71,8 +71,8 @@ Version: 1.0.0
 }
 .theme-btn.trasparent-btn-2 {
   background: transparent;
-  border: 1px solid var(--theme-4);
-  color: var(--theme-4);
+  border: 1px solid var(--theme-5);
+  color: var(--theme-5);
   border-image-slice: 1;
   border-radius: 4px;
 }
@@ -100,7 +100,7 @@ Version: 1.0.0
   width: 50%;
   height: 0%;
   position: absolute;
-  background-color: var(--white);
+  background: linear-gradient(84deg, var(--theme-5) 0%, var(--theme) 100%);
   transition: 0.4s;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -122,7 +122,8 @@ Version: 1.0.0
   height: 100%;
 }
 .theme-btn:hover {
-  color: var(--theme-2);
+  color: var(--white);
+  background: linear-gradient(84deg, var(--theme-5) 0%, var(--theme) 100%);
 }
 
 /* --------------------------------------------
@@ -613,7 +614,7 @@ input.main-search-input::placeholder {
   padding: 6px 19px;
   background: linear-gradient(
     84deg,
-    rgba(0, 51, 153, 0.12) 0%,
+    rgba(0, 102, 204, 0.12) 0%,
     rgba(255, 4, 4, 0.12) 100%
   );
   margin-bottom: 15px;
@@ -622,7 +623,7 @@ input.main-search-input::placeholder {
 .section-title .sub-title.sub-title2 {
   background: linear-gradient(
     84deg,
-    rgba(0, 51, 153, 0.12) 0%,
+    rgba(0, 102, 204, 0.12) 0%,
     rgba(255, 4, 4, 0.12) 100%
   );
 }
@@ -634,7 +635,7 @@ input.main-search-input::placeholder {
   font-weight: 600;
   line-height: 22px;
   letter-spacing: 0.26px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -2022,8 +2023,8 @@ input.main-search-input::placeholder {
   content: "";
   background: linear-gradient(
     89deg,
-    rgba(0, 85, 255, 0.75) 15.79%,
-    rgba(163, 71, 255, 0.75) 91.12%
+    rgba(0, 102, 204, 0.75) 15.79%,
+    rgba(255, 4, 4, 0.75) 91.12%
   );
   z-index: -1;
 }
@@ -3131,7 +3132,7 @@ input.main-search-input::placeholder {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   font-size: 17px;
   color: var(--white);
   position: absolute;
@@ -3155,7 +3156,7 @@ input.main-search-input::placeholder {
   animation: pulse-border 1.5s linear infinite;
 }
 .about-1 .about-images .icon::before {
-  border: 1px solid rgba(63, 181, 253, 0.2);
+  border: 1px solid rgba(0, 102, 204, 0.2);
   width: calc(100% + 40px);
   height: calc(100% + 40px);
   opacity: 100%;
@@ -3490,7 +3491,7 @@ input.main-search-input::placeholder {
   transform: translate(-50%, -50%);
 }
 .about-3 .about-images .experience h2 {
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -3564,7 +3565,7 @@ input.main-search-input::placeholder {
   height: 100%;
   content: "";
   border-radius: 4px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   left: -3px;
   z-index: -1;
 }
@@ -3638,7 +3639,7 @@ input.main-search-input::placeholder {
   background-image: linear-gradient(
     84deg,
     var(--theme) 0%,
-    var(--theme-4) 100%
+    var(--theme-5) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -3690,7 +3691,7 @@ input.main-search-input::placeholder {
   font-weight: 700;
   line-height: 120px;
   letter-spacing: -2.8px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -3957,7 +3958,7 @@ input.main-search-input::placeholder {
   padding-left: 60px;
   font-size: 17px;
   font-weight: 700;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4013,7 +4014,7 @@ input.main-search-input::placeholder {
 }
 .service-3 .single-service-item .icon {
   font-size: 50px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4042,7 +4043,7 @@ input.main-search-input::placeholder {
 .service-3 .single-service-item:hover h2 {
   -webkit-text-stroke-width: 0;
   -webkit-text-stroke-color: transparent;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4122,7 +4123,7 @@ input.main-search-input::placeholder {
   height: 70px;
   transform: rotate(-45deg);
   border-radius: 12px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4147,10 +4148,10 @@ input.main-search-input::placeholder {
   width: 130px;
   height: 4px;
   margin: 0 auto;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
 }
 .service-4 .signle-service-item .infu-btn {
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4393,7 +4394,7 @@ input.main-search-input::placeholder {
   cursor: pointer;
   width: 80px;
   height: 80px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   transition: all 0.4s ease-in-out;
   color: var(--white);
   z-index: 11;
@@ -4644,7 +4645,7 @@ input.main-search-input::placeholder {
   }
 }
 .choose-us-2 .choose-us-images .experience h2 {
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4699,7 +4700,7 @@ input.main-search-input::placeholder {
 }
 .choose-us-3 .choose-us-content .reviews .infu .head .icon {
   font-size: 40px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4746,7 +4747,7 @@ input.main-search-input::placeholder {
 }
 .choose-us-3 .choose-us-images .single-choose-item .icon {
   font-size: 43px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -5289,7 +5290,7 @@ input.main-search-input::placeholder {
   width: 100%;
   border-radius: 0;
   border-radius: 46px;
-  border: 1px solid rgba(11, 110, 218, 0.53);
+  border: 1px solid rgba(0, 102, 204, 0.53);
   padding-left: 3px;
 }
 .progress-items .progress .progress-value {
@@ -5436,7 +5437,7 @@ input.main-search-input::placeholder {
 .case-study-1.style-2 .single-case-item .content .icon {
   position: absolute;
   right: -21px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   color: var(--white);
 }
 .case-study-1.style-2 .swiper-dot .swiper-pagination-bullet {
@@ -5534,7 +5535,7 @@ input.main-search-input::placeholder {
 }
 .case-study-2 .case-study-grid .single-case-item .hover .title h4 {
   border-radius: 0px 4px 4px 0px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   color: var(--white);
   padding: 5px 15px 5px 25px;
   margin-top: 6px;
@@ -5548,7 +5549,7 @@ input.main-search-input::placeholder {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   color: var(--white);
   margin-right: 45px;
   margin-top: 45px;
@@ -5590,10 +5591,10 @@ input.main-search-input::placeholder {
   border: 1px solid var(--theme);
 }
 .case-study-2 .nav .nav-link.active {
-  border-image: linear-gradient(84deg, #003399 0%, #002266 100%);
+  border-image: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   border-image-slice: 1;
   color: var(--white) !important;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
 }
 
 .page-nav-wrap ul li {
@@ -6027,7 +6028,7 @@ input.main-search-input::placeholder {
   margin-bottom: 30px;
   border-radius: 12px;
   border-radius: 12px;
-  border-left: 2px solid #002266;
+  border-left: 2px solid #004499;
   background: #fff;
   box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
 }
@@ -6442,7 +6443,7 @@ input.main-search-input::placeholder {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   font-size: 20px;
   font-weight: 700;
   color: var(--white);
@@ -6636,7 +6637,7 @@ input.main-search-input::placeholder {
   cursor: pointer;
   width: 100px;
   height: 100px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   transition: all 0.4s ease-in-out;
   z-index: 11;
   left: 50%;
@@ -7796,7 +7797,7 @@ p.sticky-label {
 }
 .blog-1 .blog-inner .single-blog-item .content ul li {
   font-weight: 500;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -8065,7 +8066,7 @@ p.sticky-label {
 }
 .pricing-1 .icon-box .icon {
   font-size: 43px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -8102,7 +8103,7 @@ p.sticky-label {
   font-weight: 800;
   line-height: 69px;
   letter-spacing: -1.2px;
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -8172,14 +8173,14 @@ p.sticky-label {
   width: 100%;
   height: 100%;
   content: "";
-  border: 1px solid var(--theme-4);
+  border: 1px solid var(--theme-5);
   height: 0;
   opacity: 0;
   transition: all 0.4s ease-in-out;
   border-radius: 4px;
 }
 .pricing-1.style-2 .single-pricing-item.border-style {
-  border: 1px solid var(--theme-4);
+  border: 1px solid var(--theme-5);
   height: 660px;
   justify-content: space-between;
 }
@@ -8250,7 +8251,7 @@ p.sticky-label {
   width: 100%;
   height: 100%;
   content: "";
-  border: 1px solid var(--theme-4);
+  border: 1px solid var(--theme-5);
   height: 100%;
   opacity: 1;
 }
@@ -8260,7 +8261,7 @@ p.sticky-label {
   margin-top: -110px;
 }
 .funfact-1 .funfact-inner {
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   padding: 50px 70px;
   border-radius: 20px;
   display: flex;
@@ -8432,7 +8433,7 @@ p.sticky-label {
   font-size: 49px;
 }
 .funfact-2 .funfact-inner .signle-funfact-item .icon i {
-  background: linear-gradient(84deg, #003399 0%, #002266 100%);
+  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -8520,7 +8521,7 @@ p.sticky-label {
   .funfact-items
   .signle-funfact-item
   h2 {
-  color: var(--theme-4);
+  color: var(--theme-5);
   font-size: 48px;
   font-weight: 600;
 }
@@ -8736,7 +8737,7 @@ p.sticky-label {
   width: 100%;
   height: 100%;
   content: "";
-  background-color: var(--theme-4);
+  background-color: var(--theme-5);
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s ease-in-out;
@@ -8914,7 +8915,7 @@ p.sticky-label {
   margin-bottom: -105px;
 }
 .cta-2.style-3 .cta-inner {
-  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-4) 100%);
+  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-5) 100%);
 }
 
 .apps-wrapper {
@@ -9020,7 +9021,7 @@ p.sticky-label {
   background-image: linear-gradient(
     84deg,
     var(--theme) 0%,
-    var(--theme-4) 100%
+    var(--theme-5) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -9057,7 +9058,7 @@ p.sticky-label {
   display: inline-block;
 }
 .marque-wrapper .brand-slide-element .marque-text {
-  background-color: var(--theme-4);
+  background-color: var(--theme-5);
   display: inline-flex;
   padding: 15px 35px;
   border-radius: 4px;
@@ -9270,7 +9271,7 @@ p.sticky-label {
   content: "";
   max-width: 1500px;
   height: 642px;
-  background: rgba(0, 85, 255, 0.08);
+  background: rgba(0, 102, 204, 0.08);
   margin: 0 auto;
   z-index: -1;
   border-radius: 20px;
@@ -9517,7 +9518,7 @@ p.sticky-label {
   width: 100%;
   height: 100%;
   content: "";
-  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-4) 100%);
+  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-5) 100%);
   z-index: -1;
   border-radius: 12px;
   width: 0;
@@ -9759,8 +9760,8 @@ p.sticky-label {
   color: var(--white);
   background: linear-gradient(
     84deg,
-    rgba(63, 181, 253, 0.5) 0%,
-    rgba(11, 110, 218, 0.5) 100%
+    rgba(0, 102, 204, 0.5) 0%,
+    rgba(255, 4, 4, 0.5) 100%
   );
   -webkit-transform: rotateX(90deg);
   transform: rotateX(90deg);

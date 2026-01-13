@@ -18,7 +18,7 @@
             color: $white;
 
             &.color-2 {
-                background-image: linear-gradient(84deg, $theme-color 0%, $theme-color-4 100%);
+                background-image: linear-gradient(84deg, $theme-color 0%, $theme-color-5 100%);
                 @include clip;
             }
         }
@@ -69,7 +69,7 @@
 
 
         .marque-text {
-            background-color: $theme-color-4;
+            background-color: $theme-color-5;
             display: inline-flex;
             padding: 15px 35px;
             border-radius: 4px;

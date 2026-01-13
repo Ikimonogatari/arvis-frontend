@@ -109,7 +109,7 @@ const LanguageSwitcher = () => {
             border: "1px solid rgba(11, 110, 218, 0.2)",
             fontSize: "13px",
             fontWeight: "500",
-            color: "#002266",
+            color: "#004499",
             transition: "all 0.3s ease",
             minWidth: "60px"
           }}
@@ -159,14 +159,14 @@ const LanguageSwitcher = () => {
                   padding: "10px 12px",
                   fontSize: "13px",
                   fontWeight: locale === loc ? "600" : "400",
-                  color: locale === loc ? "#002266" : "#4a5568",
+                  color: locale === loc ? "#004499" : "#4a5568",
                   backgroundColor: locale === loc 
                     ? "rgba(63, 181, 253, 0.1)" 
                     : "transparent",
                   cursor: "pointer",
                   transition: "all 0.2s ease",
                   borderLeft: locale === loc 
-                    ? "3px solid #002266" 
+                    ? "3px solid #004499" 
                     : "3px solid transparent"
                 }}
                 onMouseEnter={(e) => {

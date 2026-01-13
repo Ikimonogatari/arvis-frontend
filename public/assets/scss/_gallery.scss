@@ -4,7 +4,7 @@
 
     &::before {
         @include before;
-        background-color: $theme-color-4;
+        background-color: $theme-color-5;
         opacity: 0;
         visibility: hidden;
         @include transition;
