@@ -174,7 +174,7 @@ img.mfp-img {
 /* Header Navigation Fixes - UNIFIED STYLES FOR ALL LANGUAGES */
 /* Consistent spacing for everyone */
 .header-1 .main-menu nav ul li {
-  margin-right: 10px !important;
+  margin-right: 15px !important;
 }
 
 .header-1 .main-menu nav ul li:last-child {
@@ -203,7 +203,7 @@ img.mfp-img {
 .header-right {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 12px !important;
 }
 
 /* Adjust language switcher spacing */
