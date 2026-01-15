@@ -1,6 +1,12 @@
+"use client";
+
+import Link from "next/link";
+import { useSafeTranslations } from "@/hooks/useSafeTranslations";
+
 const CTA = ({
   wrapperClass = "cta-wrapper cta-2 style-3 section-padding pb-0 section-bg",
 }) => {
+  const t = useSafeTranslations("footer");
   return (
     <section className={wrapperClass}>
       <div className="container">
@@ -10,13 +16,13 @@ const CTA = ({
           </div>
           <div className="title">
             <h3 className="split-text right">
-              Looking for the Best IT Business Solutions?
+              {t("cta.title")}
             </h3>
-            <p>As a app web crawler expert, We will help to organize.</p>
+            <p>{t("cta.description")}</p>
           </div>
-          <a href className="theme-btn white-btn">
-            Take a Consultant
-          </a>
+          <Link href="/contact" className="theme-btn white-btn">
+            {t("cta.button")}
+          </Link>
         </div>
       </div>
     </section>

@@ -243,15 +243,15 @@ const Footer4 = ({ cta }) => {
                 </h3>
                 <p>{t("cta.description")}</p>
               </div>
-              <a href className="theme-btn white-btn">
+              <Link href="/contact" className="theme-btn white-btn">
                 {t("cta.button")}
-              </a>
+              </Link>
             </div>
           </div>
         </section>
       )}
-      <footer className="footer-wrapper section-bg-2 section-padding pb-0">
-        <FooterContent logo="assets/img/logo/white-logo.png" />
+      <footer className="footer-wrapper section-padding pb-0">
+        <FooterContent logo="assets/img/logo/black-logo.png" footerBottomClass="section-bg-2" />
       </footer>
     </Fragment>
   );
@@ -260,6 +260,7 @@ const Footer4 = ({ cta }) => {
 const FooterContent = ({
   logo = "assets/img/logo/black-logo.png",
   layout = "style-2",
+  footerBottomClass = "style-2",
 }) => {
   const t = useSafeTranslations("footer");
   
@@ -422,15 +423,17 @@ const FooterContent = ({
           </div>
         </div>
       </div>
-      <div className="footer-bottom style-2">
+      <div className={`footer-bottom ${footerBottomClass}`}>
         <div className="container">
-          <div className="footer-bottom-wrapper d-flex align-items-center justify-content-between">
-            <p>{t("copyright")}</p>
-            <div className="security ">
-              <Link href="/contact">{t("privacyPolicy")}</Link>/
-              <Link href="/contact">{t("termsCondition")} </Link>/
-              <Link href="/about"> {t("aboutUs")}</Link>
-            </div>
+          <div className={`footer-bottom-wrapper ${footerBottomClass === "section-bg-2" ? "" : "d-flex align-items-center justify-content-between"}`}>
+            <p className={footerBottomClass === "section-bg-2" ? "text-center" : ""}>{t("copyright")}</p>
+            {footerBottomClass !== "section-bg-2" && (
+              <div className="security ">
+                <Link href="/contact">{t("privacyPolicy")}</Link>/
+                <Link href="/contact">{t("termsCondition")} </Link>/
+                <Link href="/about"> {t("aboutUs")}</Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

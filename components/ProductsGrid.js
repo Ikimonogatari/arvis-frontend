@@ -35,6 +35,14 @@ const getImageUrl = (product) => {
   return "assets/img/service/01.jpg";
 };
 
+const getBrandLogoUrl = (product) => {
+  const logoId = resolveImageId(product.brand_logo);
+  if (logoId) {
+    return `${baseUrl}/assets/${logoId}`;
+  }
+  return null;
+};
+
 const formatPrice = (price, currency) => {
   if (price === null || price === undefined || price === "") return null;
   // If price is already a formatted string (e.g., "1,200,000"), return it with currency symbol
@@ -89,6 +97,16 @@ const getProductDescription = (product) =>
   ) || "";
 
 const getProductCategory = (product) => {
+  if (Array.isArray(product.category) && product.category.length > 0) {
+    const firstCategory = product.category[0];
+    if (typeof firstCategory === "object" && firstCategory !== null) {
+      return (
+        normalizeText(firstCategory.name) ||
+        normalizeText(firstCategory.title) ||
+        normalizeText(firstCategory.label)
+      );
+    }
+  }
   // Handle category as array of numbers (from Directus relation)
   if (Array.isArray(product.category) && product.category.length > 0) {
     return `Category ${product.category[0]}`;
@@ -115,7 +133,7 @@ const getProductPrice = (product) => {
 const ProductsGrid = () => {
   const { data, error, isLoading } = useGetProductsQuery({
     sort: ["-date_created"],
-    fields: ["*"],
+    fields: ["*", "category.*"],
   });
 
   const products = data?.data || data || [];
@@ -202,6 +220,7 @@ const ProductsGrid = () => {
           product.sku || product.code || product.product_code
         );
         const imageUrl = getImageUrl(product);
+        const brandLogoUrl = getBrandLogoUrl(product);
         return (
           <div
             key={productId}
@@ -216,7 +235,16 @@ const ProductsGrid = () => {
                 <img src={imageUrl} alt={title} />
               </div>
               <div className="product-content">
-                <h4 className="product-title">{title}</h4>
+                <div className="product-title-row">
+                  {brandLogoUrl ? (
+                    <img
+                      src={brandLogoUrl}
+                      alt={`${title} brand logo`}
+                      className="product-brand-inline"
+                    />
+                  ) : null}
+                  <h4 className="product-title">{title}</h4>
+                </div>
                 {description ? (
                   <p className="product-description">{description}</p>
                 ) : (
