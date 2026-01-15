@@ -1,10 +1,11 @@
 "use client";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useSafeLocale, useSafeTranslations } from "@/hooks/useSafeTranslations";
 import { zotechUtility } from "@/utility";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 const Header = ({ header }) => {
+  const locale = useSafeLocale();
   useEffect(() => {
     zotechUtility.serarchpopup();
   }, []);
@@ -12,11 +13,10 @@ const Header = ({ header }) => {
   const HeaderComponent =
     [Header1, Header2, Header3, Header4][header - 1] || Header1;
   return (
-    <>
+    <div className={locale === 'mn' ? 'language-mn' : ''}>
       <HeaderComponent />
       <MobileMenu />
-      <SearchPoppup />
-    </>
+    </div>
   );
 };
 export default Header;
@@ -85,20 +85,17 @@ const Header1 = () => {
                     </Link>
                   </div>
                 </div>
+                <div className="mean__menu-wrapper d-none d-xl-block">
+                  <Menu />
+                </div>
                 <div className="header-right">
-                  <div className="mean__menu-wrapper">
-                    <Menu />
-                  </div>
                   <div className="language-switcher-wrapper me-3">
                     <LanguageSwitcher />
                   </div>
-                  <a href="#0" className="search-trigger search-icon">
-                    <i className="fal fa-search" />
-                  </a>
                   <div className="header-button  d-none d-sm-block">
-                    <a href className="theme-btn black-btn">
-                      {t("getInTouch")}
-                    </a>
+                    <Link href="/quote" className="theme-btn black-btn">
+                      {t("requestQuote")}
+                    </Link>
                   </div>
                   <div className="header__hamburger d-xl-none my-auto">
                     <div className="sidebar__toggle">
@@ -141,9 +138,6 @@ const Header2 = () => {
                 <div className="language-switcher-wrapper me-3">
                   <LanguageSwitcher />
                 </div>
-                <a href="#0" className="search-trigger search-icon">
-                  <i className="fal fa-search" />
-                </a>
                 <div className="header-button  d-none d-sm-block">
                   <div className="contact-us ">
                     <a href className="icon">
@@ -239,9 +233,6 @@ const Header3 = () => {
                   <div className="language-switcher-wrapper me-3">
                     <LanguageSwitcher />
                   </div>
-                  <a href="#0" className="search-trigger search-icon">
-                    <i className="fal fa-search" />
-                  </a>
                   <div className="header-button d-none d-md-block">
                     <a href className="theme-btn black-btn">
                       {t("getInTouch")}
@@ -300,9 +291,6 @@ const Header4 = () => {
                 <div className="language-switcher-wrapper me-3">
                   <LanguageSwitcher />
                 </div>
-                <a href="#0" className="search-trigger search-icon">
-                  <i className="fal fa-search" />
-                </a>
                 <div className="header-button d-none d-sm-block">
                   <a href className="theme-btn black-btn theme-btn-2">
                     {t("getInTouch")}
@@ -332,34 +320,11 @@ const Menu = () => {
             <Link href="/">{t("home")}</Link>
           </li>
           <li>
-            <a href="#">
-              {t("pages")}
-              <i className="fas fa-angle-down" />
-            </a>
-            <ul className="submenu">
-              <li>
-                <Link href="/team">{t("menu.team")}</Link>
-              </li>
-              <li>
-                <Link href="/teams-details">{t("menu.teamDetails")}</Link>
-              </li>
-              <li>
-                <Link href="/about">{t("menu.about")}</Link>
-              </li>
-              <li>
-                <Link href="/pricing">{t("menu.pricing")}</Link>
-              </li>
-              <li>
-                <Link href="/faqs">{t("menu.faqs")}</Link>
-              </li>
-              <li>
-                <Link href="/404">404</Link>
-              </li>
-            </ul>
+            <Link href="/about">{t("aboutUs")}</Link>
           </li>
           <li>
             <a href="#">
-              {t("services")}
+              {t("solutionsServices")}
               <i className="fas fa-angle-down" />
             </a>
             <ul className="submenu">
@@ -370,6 +335,9 @@ const Menu = () => {
                 <Link href="/services-details">{t("menu.serviceDetails")}</Link>
               </li>
             </ul>
+          </li>
+          <li>
+            <Link href="/products">{t("products")}</Link>
           </li>
           <li className="has-dropdown">
             <a href="#">
@@ -386,8 +354,11 @@ const Menu = () => {
             </ul>
           </li>
           <li>
+            <Link href="/eshop">{t("eshop")}</Link>
+          </li>
+          <li>
             <a href="#">
-              {t("news")}
+              {t("newsResources")}
               <i className="fas fa-angle-down" />
             </a>
             <ul className="submenu">
@@ -457,58 +428,31 @@ const MobileMenu = () => {
                         <Link href="/">{t("home")}</Link>
                       </li>
                       <li>
-                        <a href="#" onClick={() => activeMenuSet("Pages")}>
-                          {t("pages")}
+                        <Link href="/about">{t("aboutUs")}</Link>
+                      </li>
+                      <li>
+                        <a href="#" onClick={() => activeMenuSet("SolutionsServices")}>
+                          {t("solutionsServices")}
                           <i className="fas fa-angle-down" />
                         </a>
-                        <ul className="submenu" style={activeLi("Pages")}>
+                        <ul className="submenu" style={activeLi("SolutionsServices")}>
                           <li>
-                            <Link href="team">{t("menu.team")}</Link>
+                            <Link href="/services">{t("menu.servicesGrid")}</Link>
                           </li>
                           <li>
-                            <Link href="teams-details">{t("menu.teamDetails")}</Link>
-                          </li>
-                          <li>
-                            <Link href="about">{t("menu.about")}</Link>
-                          </li>
-                          <li>
-                            <Link href="pricing">{t("menu.pricing")}</Link>
-                          </li>
-                          <li>
-                            <Link href="faqs">{t("menu.faqs")}</Link>
-                          </li>
-                          <li>
-                            <Link href="404">404</Link>
+                            <Link href="/services-details">{t("menu.serviceDetails")}</Link>
                           </li>
                         </ul>
                         <a
                           className="mean-expand"
                           href="#"
-                          onClick={() => activeMenuSet("Pages")}
+                          onClick={() => activeMenuSet("SolutionsServices")}
                         >
                           <i className="far fa-plus" />
                         </a>
                       </li>
                       <li>
-                        <a href="#" onClick={() => activeMenuSet("Services")}>
-                          {t("services")}
-                          <i className="fas fa-angle-down" />
-                        </a>
-                        <ul className="submenu" style={activeLi("Services")}>
-                          <li>
-                            <Link href="services">{t("menu.servicesGrid")}</Link>
-                          </li>
-                          <li>
-                            <Link href="services-details">{t("menu.serviceDetails")}</Link>
-                          </li>
-                        </ul>
-                        <a
-                          className="mean-expand"
-                          href="#"
-                          onClick={() => activeMenuSet("Services")}
-                        >
-                          <i className="far fa-plus" />
-                        </a>
+                        <Link href="/products">{t("products")}</Link>
                       </li>
                       <li className="has-dropdown">
                         <a href="#" onClick={() => activeMenuSet("Projects")}>
@@ -517,10 +461,10 @@ const MobileMenu = () => {
                         </a>
                         <ul className="submenu" style={activeLi("Projects")}>
                           <li>
-                            <Link href="projects">{t("menu.projectsGrid")}</Link>
+                            <Link href="/projects">{t("menu.projectsGrid")}</Link>
                           </li>
                           <li>
-                            <Link href="projects-details">{t("menu.projectDetails")}</Link>
+                            <Link href="/projects-details">{t("menu.projectDetails")}</Link>
                           </li>
                         </ul>
                         <a
@@ -532,31 +476,34 @@ const MobileMenu = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="#" onClick={() => activeMenuSet("News")}>
-                          {t("news")}
+                        <Link href="/eshop">{t("eshop")}</Link>
+                      </li>
+                      <li>
+                        <a href="#" onClick={() => activeMenuSet("NewsResources")}>
+                          {t("newsResources")}
                           <i className="fas fa-angle-down" />
                         </a>
-                        <ul className="submenu" style={activeLi("News")}>
+                        <ul className="submenu" style={activeLi("NewsResources")}>
                           <li>
-                            <Link href="blogs-grid">{t("menu.blogGrid")}</Link>
+                            <Link href="/blogs-grid">{t("menu.blogGrid")}</Link>
                           </li>
                           <li>
-                            <Link href="blog-news">{t("menu.blogNews")}</Link>
+                            <Link href="/blog-news">{t("menu.blogNews")}</Link>
                           </li>
                           <li>
-                            <Link href="blogs-details">{t("menu.blogDetails")}</Link>
+                            <Link href="/blogs-details">{t("menu.blogDetails")}</Link>
                           </li>
                         </ul>
                         <a
                           className="mean-expand"
                           href="#"
-                          onClick={() => activeMenuSet("News")}
+                          onClick={() => activeMenuSet("NewsResources")}
                         >
                           <i className="far fa-plus" />
                         </a>
                       </li>
                       <li className="mean-last">
-                        <Link href="contact">{t("contact")}</Link>
+                        <Link href="/contact">{t("contact")}</Link>
                       </li>
                     </ul>
                   </nav>
@@ -637,24 +584,4 @@ const MobileMenu = () => {
   );
 };
 
-const SearchPoppup = () => {
-  const t = useSafeTranslations("header");
-  return (
-    <div className="search-wrap">
-      <div className="search-inner">
-        <i className="fas fa-times search-close" id="search-close" />
-        <div className="search-cell">
-          <form method="get">
-            <div className="search-field-holder">
-              <input
-                type="search"
-                className="main-search-input"
-                placeholder={t("search")}
-              />
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
-};
+

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { locales, defaultLocale } from "@/i18n";
+import { defaultLocale, locales } from "@/i18n";
+import { useEffect, useState } from "react";
 
 // Pre-import translations to avoid dynamic import issues
 import enMessages from "@/messages/en.json";
@@ -82,5 +82,37 @@ export function useSafeTranslations(namespace) {
   
 
   return t;
+}
+
+export function useSafeLocale() {
+  const [locale, setLocale] = useState(defaultLocale);
+
+  const getCookieLocale = () => {
+    if (typeof document === 'undefined') return defaultLocale;
+    const cookies = document.cookie.split(';');
+    const localeCookie = cookies.find(c => c.trim().startsWith('NEXT_LOCALE='));
+    if (localeCookie) {
+      const localeValue = localeCookie.split('=')[1]?.trim();
+      if (localeValue && locales.includes(localeValue)) {
+        return localeValue;
+      }
+    }
+    return defaultLocale;
+  };
+
+  useEffect(() => {
+    setLocale(getCookieLocale());
+
+    const handleLocaleChange = (event) => {
+      setLocale(event.detail.locale);
+    };
+
+    window.addEventListener('localechange', handleLocaleChange);
+    return () => {
+      window.removeEventListener('localechange', handleLocaleChange);
+    };
+  }, []);
+
+  return locale;
 }
 

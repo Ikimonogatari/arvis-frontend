@@ -1,8 +1,8 @@
 "use client";
 
+import { defaultLocale, locales } from "@/i18n";
 import { useRouter } from "next/navigation";
-import { locales, defaultLocale } from "@/i18n";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const LanguageSwitcher = () => {
   const router = useRouter();
@@ -103,25 +103,33 @@ const LanguageSwitcher = () => {
             display: "flex",
             alignItems: "center",
             gap: "6px",
-            padding: "6px 12px",
-            backgroundColor: "rgba(63, 181, 253, 0.1)",
-            borderRadius: "6px",
-            border: "1px solid rgba(11, 110, 218, 0.2)",
-            fontSize: "13px",
+            padding: "8px 14px",
+            backgroundColor: "transparent",
+            borderRadius: "4px",
+            border: "1px solid rgba(0, 0, 0, 0.15)",
+            fontSize: "14px",
             fontWeight: "500",
-            color: "#004499",
+            color: "#1a1a1a",
             transition: "all 0.3s ease",
-            minWidth: "60px"
+            minWidth: "65px",
+            justifyContent: "space-between"
           }}
           onClick={() => setIsOpen(!isOpen)}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.25)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.15)";
+          }}
         >
           <span>{getLocaleLabel(locale)}</span>
           <i 
             className="fas fa-chevron-down"
             style={{
-              fontSize: "10px",
+              fontSize: "9px",
               transition: "transform 0.3s ease",
-              transform: isOpen ? "rotate(180deg)" : "rotate(0deg)"
+              transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+              opacity: 0.6
             }}
           />
         </div>
@@ -134,13 +142,13 @@ const LanguageSwitcher = () => {
               left: 0,
               right: 0,
               backgroundColor: "#fff",
-              borderRadius: "6px",
+              borderRadius: "4px",
               border: "1px solid rgba(11, 110, 218, 0.2)",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
               zIndex: 1000,
               overflow: "hidden",
               minWidth: "100%",
-              marginTop: "2px"
+              marginTop: "4px"
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -156,17 +164,17 @@ const LanguageSwitcher = () => {
                   }
                 }}
                 style={{
-                  padding: "10px 12px",
-                  fontSize: "13px",
+                  padding: "10px 14px",
+                  fontSize: "14px",
                   fontWeight: locale === loc ? "600" : "400",
-                  color: locale === loc ? "#004499" : "#4a5568",
+                  color: locale === loc ? "#0B6EDA" : "#4a5568",
                   backgroundColor: locale === loc 
-                    ? "rgba(63, 181, 253, 0.1)" 
+                    ? "rgba(11, 110, 218, 0.08)" 
                     : "transparent",
                   cursor: "pointer",
                   transition: "all 0.2s ease",
                   borderLeft: locale === loc 
-                    ? "3px solid #004499" 
+                    ? "3px solid #0B6EDA" 
                     : "3px solid transparent"
                 }}
                 onMouseEnter={(e) => {
@@ -175,7 +183,7 @@ const LanguageSwitcher = () => {
                     timeoutRef.current = null;
                   }
                   if (locale !== loc) {
-                    e.target.style.backgroundColor = "rgba(63, 181, 253, 0.05)";
+                    e.target.style.backgroundColor = "rgba(11, 110, 218, 0.04)";
                   }
                 }}
                 onMouseLeave={(e) => {

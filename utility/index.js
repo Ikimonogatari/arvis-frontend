@@ -304,14 +304,17 @@ export const zotechUtility = {
     const searchClose = document.getElementById("search-close");
     const searchTrigger = document.querySelector(".search-trigger");
 
-    searchTrigger.addEventListener("click", function () {
-      searchWrap.style.display = "block";
-      searchClose.classList.add("active");
-    });
-    searchClose.addEventListener("click", function () {
-      searchWrap.style.display = "none";
-      searchClose.classList.remove("active");
-    });
+    // Only add event listeners if search elements exist
+    if (searchTrigger && searchWrap && searchClose) {
+      searchTrigger.addEventListener("click", function () {
+        searchWrap.style.display = "block";
+        searchClose.classList.add("active");
+      });
+      searchClose.addEventListener("click", function () {
+        searchWrap.style.display = "none";
+        searchClose.classList.remove("active");
+      });
+    }
   },
   scrollTop: () => {
     const scrollPath = document.querySelector(".scroll-up path");

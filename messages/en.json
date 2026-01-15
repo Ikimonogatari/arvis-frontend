@@ -1,6 +1,6 @@
 {
   "footer": {
-    "description": "Mauris ut enim sit amet lacus ornare ullamcorper. Praesent placerat neque eu purus rhoncus",
+    "description": "Professional IT infrastructure solutions for data centers, power protection, cooling, networking, and security. Delivering reliable, standards-based implementations from design to support.",
     "subscribeNow": "Subscribe Now",
     "yourEmail": "Your Email",
     "usefulLinks": "Useful Links",
@@ -20,11 +20,13 @@
     "aboutUs": "About Us",
     "letsTalk": "Let's Talk",
     "services": {
-      "blockchain": "Blockchain technology",
-      "advanced": "Advanced Technology",
-      "infrastructure": "Infrastructure Technology",
-      "dataManagement": "Data Management",
-      "securityManagement": "Security Management"
+      "dataCenter": "Data Center & Server Room",
+      "ups": "UPS & Power Protection",
+      "cooling": "Industrial Cooling",
+      "network": "Network",
+      "cabling": "Structured Cabling",
+      "cctv": "CCTV & Surveillance",
+      "security": "IT Security"
     },
     "cta": {
       "title": "Looking for the Best IT Business Solutions?",
@@ -34,11 +36,17 @@
   },
   "header": {
     "home": "Home",
+    "aboutUs": "About Us",
+    "solutionsServices": "Solutions & Services",
+    "products": "Products",
+    "projects": "Projects",
+    "eshop": "E-shop",
+    "newsResources": "News & Resources",
+    "contact": "Contact Us",
+    "requestQuote": "Request a Quote",
     "pages": "Pages",
     "services": "Services",
-    "projects": "Projects",
     "news": "News",
-    "contact": "Contact",
     "getInTouch": "Get In Touch",
     "viewDemo": "View Demo",
     "phone": "Phone:",

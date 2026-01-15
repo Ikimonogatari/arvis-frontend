@@ -1,8 +1,8 @@
 "use client";
 
+import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 import Link from "next/link";
 import { Fragment } from "react";
-import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 
 const Footer = ({ footer, cta }) => {
   switch (footer) {
@@ -264,11 +264,13 @@ const FooterContent = ({
   const t = useSafeTranslations("footer");
   
   const services = [
-    t("services.blockchain"),
-    t("services.advanced"),
-    t("services.infrastructure"),
-    t("services.dataManagement"),
-    t("services.securityManagement"),
+    t("services.dataCenter"),
+    t("services.ups"),
+    t("services.cooling"),
+    t("services.network"),
+    t("services.cabling"),
+    t("services.cctv"),
+    t("services.security"),
   ];
 
   const contacts = [

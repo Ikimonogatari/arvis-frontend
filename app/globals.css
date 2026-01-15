@@ -168,3 +168,118 @@ img.mfp-img {
   top: -110px;
   right: -24px;
 }
+
+/* Header Navigation Fixes */
+/* Reduce spacing between navigation items to prevent wrapping */
+/* Header Navigation Fixes - UNIFIED STYLES FOR ALL LANGUAGES */
+/* Consistent spacing for everyone */
+.header-1 .main-menu nav ul li {
+  margin-right: 10px !important;
+}
+
+.header-1 .main-menu nav ul li:last-child {
+  margin-right: 0 !important;
+}
+
+/* Consistent font size for everyone (English & Mongolian) */
+.header-1 .main-menu nav ul li a {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.3px !important;
+  padding: 10px 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Consistent button style */
+.header-button .theme-btn {
+  white-space: nowrap !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+}
+
+/* Ensure header right section has proper spacing */
+.header-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Adjust language switcher spacing */
+.language-switcher-wrapper {
+  margin-right: 0 !important;
+  transform: scale(0.95); /* Slight scale down for everyone */
+  transform-origin: center;
+}
+
+/* Fix dropdown submenu styling */
+.header-1 .main-menu nav ul li .submenu {
+  min-width: 220px !important;
+  width: auto !important;
+}
+
+.header-1 .main-menu nav ul li .submenu li {
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+
+.header-1 .main-menu nav ul li .submenu li a {
+  font-size: 13.5px !important; /* Slightly larger in dropdown is fine */
+  padding: 12px 20px !important;
+  display: block !important;
+  width: 100% !important;
+  letter-spacing: normal !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1400px) {
+  .header-1 .main-menu nav ul li {
+    margin-right: 10px !important;
+  }
+  
+  .header-1 .main-menu nav ul li a {
+    font-size: 12px !important;
+  }
+  
+  .header-button .theme-btn {
+    font-size: 12px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .header-1 .main-menu nav ul li {
+    margin-right: 8px !important;
+  }
+  
+  .header-1 .main-menu nav ul li a {
+    font-size: 11.5px !important;
+  }
+}
+
+
+/* Layout Rules for Centered Navigation */
+.header-main {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.header-left {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.header-right {
+  flex: 1 !important;
+  justify-content: flex-end !important;
+}
+
+
+
+
+
+
