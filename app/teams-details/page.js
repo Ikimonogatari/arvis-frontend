@@ -1,6 +1,11 @@
+"use client";
+
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
+import { useSafeTranslations } from "@/hooks/useSafeTranslations";
+
 const page = () => {
+  const t = useSafeTranslations("footer");
   return (
     <ZotechLayout>
       <Pagebanner pageName="Team Details" />
