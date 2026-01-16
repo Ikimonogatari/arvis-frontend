@@ -386,7 +386,12 @@ const MobileMenu = () => {
               <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                 <div className="offcanvas__logo">
                   <Link href="/">
-                    <img src="assets/img/arvis-logo.png" alt="logo-img" height={28} width={118} />
+                    <img
+                      src="assets/img/arvis-logo.png"
+                      alt="logo-img"
+                      height={28}
+                      width={118}
+                    />
                   </Link>
                 </div>
                 <div className="offcanvas__close">

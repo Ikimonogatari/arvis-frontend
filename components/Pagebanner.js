@@ -1,6 +1,15 @@
+"use client";
+
 import Link from "next/link";
+import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 
 const Pagebanner = ({ pageName }) => {
+  const t = useSafeTranslations("header");
+  const tBreadcrumb = useSafeTranslations("breadcrumb");
+  
+  // Get translated page name if it exists, otherwise use the provided pageName
+  const translatedPageName = tBreadcrumb(pageName) || pageName;
+  
   return (
     <div
       className="breadcrumb-wrapper bg-cover"
@@ -10,16 +19,16 @@ const Pagebanner = ({ pageName }) => {
         <div className="page-heading">
           <div className="breadcrumb-sub-title">
             <h1 className="wow fadeInUp" data-wow-delay=".3s">
-              {pageName}
+              {translatedPageName}
             </h1>
             <ul className="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
               <li>
-                <Link href="/">Home</Link>
+                <Link href="/">{t("home")}</Link>
               </li>
               <li>
                 <i className="far fa-angle-double-right" />
               </li>
-              <li>{pageName}</li>
+              <li>{translatedPageName}</li>
             </ul>
           </div>
         </div>

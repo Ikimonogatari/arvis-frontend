@@ -394,6 +394,25 @@
     "moreAboutUs": "Дэлгэрэнгүй",
     "callToAsk": "Асуух зүйл байвал залгаарай"
   },
+  "breadcrumb": {
+    "About Company": "Компанийн тухай",
+    "Our Services": "Манай үйлчилгээнүүд",
+    "Products": "Бүтээгдэхүүн",
+    "Our Projects": "Манай төслүүд",
+    "Projects Details": "Төслийн дэлгэрэнгүй",
+    "E-shop": "Онлайн дэлгүүр",
+    "Blog Grid": "Блогийн сүлжээ",
+    "Blog and News": "Блог & Мэдээ",
+    "Blog Details": "Блогийн дэлгэрэнгүй",
+    "Contact Us": "Холбогдох",
+    "Our Pricing": "Манай үнэ",
+    "FAQ's Page": "Түгээмэл асуултууд",
+    "Our Team": "Манай баг",
+    "Team Details": "Багийн дэлгэрэнгүй",
+    "Service Details": "Үйлчилгээний дэлгэрэнгүй",
+    "Quote": "Үнийн санал",
+    "404 Page": "404 Хуудас"
+  },
   "contact": {
     "title": "Манай IT Мэргэжилтнүүдтэй Холбогдох",
     "subtitle": "ХОЛБОГДОХ",

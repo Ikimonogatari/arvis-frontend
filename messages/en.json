@@ -394,6 +394,25 @@
     "moreAboutUs": "More About Us",
     "callToAsk": "Call to ask any question"    
   },
+  "breadcrumb": {
+    "About Company": "About Company",
+    "Our Services": "Our Services",
+    "Products": "Products",
+    "Our Projects": "Our Projects",
+    "Projects Details": "Projects Details",
+    "E-shop": "E-shop",
+    "Blog Grid": "Blog Grid",
+    "Blog and News": "Blog and News",
+    "Blog Details": "Blog Details",
+    "Contact Us": "Contact Us",
+    "Our Pricing": "Our Pricing",
+    "FAQ's Page": "FAQ's Page",
+    "Our Team": "Our Team",
+    "Team Details": "Team Details",
+    "Service Details": "Service Details",
+    "Quote": "Quote",
+    "404 Page": "404 Page"
+  },
   "contact": {
     "title": "Get in Touch with Our IT Experts",
     "subtitle": "CONTACT US",
