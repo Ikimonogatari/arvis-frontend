@@ -1,17 +1,31 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Preloader = () => {
   const [load, setLoad] = useState(true);
   const [displayLoaded, setDisplayLoaded] = useState(true);
+  const pathname = usePathname();
+
   useEffect(() => {
-    setTimeout(() => {
+    // Show loader on route change
+    setLoad(true);
+    setDisplayLoaded(true);
+
+    // Hide loader after animation
+    const timer1 = setTimeout(() => {
       setLoad(false);
     }, 1000);
-    setTimeout(() => {
+    
+    const timer2 = setTimeout(() => {
       setDisplayLoaded(false);
     }, 1500);
-  }, []);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, [pathname]);
   return (
     <div
       id="preloader"

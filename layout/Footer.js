@@ -102,7 +102,7 @@ const FooterContent = ({
               <div className="single-footer-widget">
                 <div className="widget-head">
                   <Link href="/">
-                    <img src={logo} alt="logo-img" height={100} width={100} />
+                    <img src={logo} alt="logo-img" height={28} width={118} />
                   </Link>
                 </div>
                 <div className="footer-content">

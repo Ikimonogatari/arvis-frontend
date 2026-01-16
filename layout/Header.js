@@ -334,35 +334,13 @@ const Menu = () => {
             <Link href="/about">{t("aboutUs")}</Link>
           </li>
           <li>
-            <a href="#">
-              {t("solutionsServices")}
-              <i className="fas fa-angle-down" />
-            </a>
-            <ul className="submenu">
-              <li>
-                <Link href="/services">{t("menu.servicesGrid")}</Link>
-              </li>
-              <li>
-                <Link href="/services-details">{t("menu.serviceDetails")}</Link>
-              </li>
-            </ul>
+            <Link href="/services">{t("solutionsServices")}</Link>
           </li>
           <li>
             <Link href="/products">{t("products")}</Link>
           </li>
-          <li className="has-dropdown">
-            <a href="#">
-              {t("projects")}
-              <i className="fas fa-angle-down" />
-            </a>
-            <ul className="submenu">
-              <li>
-                <Link href="/projects">{t("menu.projectsGrid")}</Link>
-              </li>
-              <li>
-                <Link href="/projects-details">{t("menu.projectDetails")}</Link>
-              </li>
-            </ul>
+          <li>
+            <Link href="/projects">{t("projects")}</Link>
           </li>
           <li>
             <Link href="/eshop">{t("eshop")}</Link>
@@ -378,9 +356,6 @@ const Menu = () => {
               </li>
               <li>
                 <Link href="/blog-news">{t("menu.blogNews")}</Link>
-              </li>
-              <li>
-                <Link href="/blogs-details">{t("menu.blogDetails")}</Link>
               </li>
             </ul>
           </li>
@@ -411,7 +386,7 @@ const MobileMenu = () => {
               <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                 <div className="offcanvas__logo">
                   <Link href="/">
-                    <img src="assets/img/logo/black-logo.png" alt="logo-img" />
+                    <img src="assets/img/arvis-logo.png" alt="logo-img" height={28} width={118} />
                   </Link>
                 </div>
                 <div className="offcanvas__close">
@@ -459,11 +434,6 @@ const MobileMenu = () => {
                               {t("menu.servicesGrid")}
                             </Link>
                           </li>
-                          <li>
-                            <Link href="/services-details">
-                              {t("menu.serviceDetails")}
-                            </Link>
-                          </li>
                         </ul>
                         <a
                           className="mean-expand"
@@ -476,30 +446,8 @@ const MobileMenu = () => {
                       <li>
                         <Link href="/products">{t("products")}</Link>
                       </li>
-                      <li className="has-dropdown">
-                        <a href="#" onClick={() => activeMenuSet("Projects")}>
-                          {t("projects")}
-                          <i className="fas fa-angle-down" />
-                        </a>
-                        <ul className="submenu" style={activeLi("Projects")}>
-                          <li>
-                            <Link href="/projects">
-                              {t("menu.projectsGrid")}
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/projects-details">
-                              {t("menu.projectDetails")}
-                            </Link>
-                          </li>
-                        </ul>
-                        <a
-                          className="mean-expand"
-                          href="#"
-                          onClick={() => activeMenuSet("Projects")}
-                        >
-                          <i className="far fa-plus" />
-                        </a>
+                      <li>
+                        <Link href="/projects">{t("projects")}</Link>
                       </li>
                       <li>
                         <Link href="/eshop">{t("eshop")}</Link>
@@ -521,11 +469,6 @@ const MobileMenu = () => {
                           </li>
                           <li>
                             <Link href="/blog-news">{t("menu.blogNews")}</Link>
-                          </li>
-                          <li>
-                            <Link href="/blogs-details">
-                              {t("menu.blogDetails")}
-                            </Link>
                           </li>
                         </ul>
                         <a
