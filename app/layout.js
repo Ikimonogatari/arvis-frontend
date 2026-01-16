@@ -11,6 +11,7 @@ import "@css/main.css";
 import "./fonts.css";
 
 import Preloader from "@/components/Preloader";
+import DynamicTitle from "@/components/DynamicTitle";
 import { ReduxProvider } from "@/lib/ReduxProvider";
 import { DM_Sans, Montserrat } from "next/font/google";
 
@@ -33,7 +34,7 @@ const dm_sansFont = DM_Sans({
 });
 
 export const metadata = {
-  title: "Arvis - IT Solutions",
+  title: "Arvis Systems LLC",
   description:
     "IT Solutions",
 };
@@ -50,6 +51,7 @@ export default function RootLayout({ children }) {
       style={htmlStyle}
     >
       <body>
+        <DynamicTitle />
         <style dangerouslySetInnerHTML={{
           __html: `
             .preloader .animation-preloader .txt-loading,

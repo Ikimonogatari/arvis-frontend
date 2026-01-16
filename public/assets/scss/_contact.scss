@@ -440,6 +440,23 @@
     .icon {
         font-size: 30px;
         color: $theme-color;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .phone-numbers {
+        .phone-item {
+            p, h5, h5 a, a {
+                transition: color 0.3s ease;
+            }
+        }
     }
 
     &:hover {
@@ -455,8 +472,15 @@
 
         p,
         span,
-        h4 {
-            color: #fff;
+        h4,
+        h5,
+        h5 a,
+        a,
+        .phone-item p,
+        .phone-item h5,
+        .phone-item h5 a,
+        .phone-item a {
+            color: #fff !important;
         }
     }
 

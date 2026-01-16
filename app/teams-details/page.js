@@ -43,7 +43,7 @@ const page = () => {
                       </li>
                       <li className="d-flex align-items-center gap-4">
                         <span className="white-clr">Email:</span>
-                        <span className="white-clr">zotech@gmail.com</span>
+                        <span className="white-clr">info@arvisys.com</span>
                       </li>
                       <li className="d-flex align-items-center gap-4">
                         <span className="white-clr">Phone:</span>
@@ -56,7 +56,7 @@ const page = () => {
                       <li className="d-flex align-items-center gap-4">
                         <span className="white-clr">Location:</span>
                         <span className="white-clr">
-                          60 East 65th Street, NY
+                          {t("addressText")}
                         </span>
                       </li>
                     </ul>

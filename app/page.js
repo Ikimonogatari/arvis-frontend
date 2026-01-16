@@ -235,7 +235,7 @@ const page = () => {
                       <img src="assets/img/about/03.png" alt />
                       <div className="text">
                         <span>{t("callToAsk")}</span>
-                        <h4>0123-456-7890</h4>
+                        <h4>+976-75750077</h4>
                       </div>
                     </div>
                   </div>
@@ -353,7 +353,7 @@ const page = () => {
                   </a>
                   <div className="text text-start">
                     <span>Our Gmail</span>
-                    <h4>zotech@gmail.com</h4>
+                    <h4>info@arvisys.com</h4>
                   </div>
                 </div>
               </div>

@@ -28,35 +28,35 @@ const Preloader = () => {
         >
           <span 
             data-text-preloader="A" 
-            className="letters-loading"
+            className="letters-loading letter-a"
             style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
           >
             A
           </span>
           <span 
             data-text-preloader="R" 
-            className="letters-loading"
+            className="letters-loading letter-rvis"
             style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
           >
             R
           </span>
           <span 
             data-text-preloader="V" 
-            className="letters-loading"
+            className="letters-loading letter-rvis"
             style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
           >
             V
           </span>
           <span 
             data-text-preloader="I" 
-            className="letters-loading"
+            className="letters-loading letter-rvis"
             style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
           >
             I
           </span>
           <span 
             data-text-preloader="S" 
-            className="letters-loading"
+            className="letters-loading letter-rvis"
             style={{ fontFamily: 'var(--font-montserrat), "Montserrat", serif' }}
           >
             S

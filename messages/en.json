@@ -10,9 +10,39 @@
     "contactUs": "Contact Us",
     "ourProjects": "Our Projects",
     "contactUsTitle": "Contact Us",
+    "callUs": "Call Us",
+    "ourLocation": "Our Location",
     "mailUs": "Mail Us:",
+    "mailUsLabel": "Mail us",
     "address": "Address:",
+    "addressText": "SBD, 7th Khoroo, Erkhuugiin Street 33, Orient Center",
     "phone": "Phone:",
+    "phones": {
+      "equipmentSales": {
+        "label": "Equipment, Sales:",
+        "number": "+976-99091175"
+      },
+      "dataCenterNetwork": {
+        "label": "Data Center, Network, Other Services:",
+        "number": "+976-99095220"
+      },
+      "businessPartnership": {
+        "label": "Business Partnership:",
+        "number": "+976-99991889"
+      },
+      "automation": {
+        "label": "Automation:",
+        "number": "+976-94620099"
+      },
+      "ups": {
+        "label": "Uninterruptible Power Supply:",
+        "number": "+976-99105056"
+      },
+      "itServices": {
+        "label": "IT Services:",
+        "number": "+976-94840099"
+      }
+    },
     "gallery": "Gallery",
     "copyright": "Copyright 2025 Zotech All Rights Reserved",
     "privacyPolicy": "Privacy policy",
@@ -363,6 +393,51 @@
     ],
     "moreAboutUs": "More About Us",
     "callToAsk": "Call to ask any question"    
+  },
+  "contact": {
+    "title": "Get in Touch with Our IT Experts",
+    "subtitle": "CONTACT US",
+    "description": "Have questions about our IT infrastructure solutions? We're here to help. Reach out to discuss your data center, network, security, or any other IT needs.",
+    "heading1": "To Make Requests for Further Information, Contact Us",
+    "heading2": "Dealing in All Professional IT Services",
+    "form": {
+      "sendMessage": "Send Your Message!",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "yourEmail": "Your Email",
+      "phoneNumber": "Phone Number",
+      "country": "Country",
+      "subject": "Subject",
+      "yourMessage": "Your Message",
+      "writeMessage": "Write a Message",
+      "sendMessageBtn": "Send Your Message",
+      "sendBtn": "Send Message",
+      "companyType": "What's the type of your company?",
+      "needFromUs": "What you need from us?",
+      "agreeTerms": "Click the box and agree to our terms and conditions",
+      "meetExpert": "Meet With Expert"
+    },
+    "subjects": {
+      "general": "General Inquiry",
+      "dataCenter": "Data Center & Server Room",
+      "ups": "UPS & Power Protection",
+      "cooling": "Industrial Cooling",
+      "network": "Network Solutions",
+      "cabling": "Structured Cabling",
+      "cctv": "CCTV & Surveillance",
+      "security": "IT Security",
+      "quote": "Request a Quote",
+      "support": "Technical Support"
+    },
+    "companyTypes": {
+      "itCompany": "IT Company",
+      "manufacturing": "Manufacturing",
+      "retail": "Retail",
+      "healthcare": "Healthcare",
+      "education": "Education",
+      "government": "Government",
+      "other": "Other"
+    }
   }
 }
 

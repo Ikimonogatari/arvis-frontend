@@ -1,8 +1,14 @@
+"use client";
+
 import { Contact2 } from "@/components/Contact";
 import CTA from "@/components/CTA";
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
+import { useSafeTranslations } from "@/hooks/useSafeTranslations";
+
 const page = () => {
+  const t = useSafeTranslations("footer");
+  const tContact = useSafeTranslations("contact");
   return (
     <ZotechLayout cta={false}>
       <Pagebanner pageName="Contact Us" />
@@ -10,36 +16,77 @@ const page = () => {
       <section className="contact-page-wrap section-padding">
         <div className="container">
           <div className="row g-4">
-            <div className="col-lg-4 col-md-6 col-12">
-              <div className="single-contact-card d-flex align-items-center">
-                <div className="icon">
-                  <i className="flaticon-telephone" />
+            <div className="col-lg-12 col-md-12 col-12">
+              <div className="single-contact-card">
+                <div className="d-flex align-items-center mb-3 gap-3">
+                  <div className="icon">
+                    <i className="flaticon-telephone" />
+                  </div>
+                  <div className="title">
+                    <span>{t("contactUs")}</span>
+                  </div>
                 </div>
-                <div className="title">
-                  <span>Call Us</span>
-                  <h4>+69 009 494 094</h4>
+                <div className="phone-numbers">
+                  <div className="row g-3">
+                    <div className="col-lg-6 col-md-6 col-12">
+                      <div className="phone-item">
+                        <p className="mb-1">{t("phones.equipmentSales.label")}</p>
+                        <h5><a href={`tel:${t("phones.equipmentSales.number").replace(/[‐-]/g, "")}`}>{t("phones.equipmentSales.number")}</a></h5>
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-12">
+                      <div className="phone-item">
+                        <p className="mb-1">{t("phones.dataCenterNetwork.label")}</p>
+                        <h5><a href={`tel:${t("phones.dataCenterNetwork.number").replace(/[‐-]/g, "")}`}>{t("phones.dataCenterNetwork.number")}</a></h5>
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-12">
+                      <div className="phone-item">
+                        <p className="mb-1">{t("phones.businessPartnership.label")}</p>
+                        <h5><a href={`tel:${t("phones.businessPartnership.number").replace(/[‐-]/g, "")}`}>{t("phones.businessPartnership.number")}</a></h5>
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-12">
+                      <div className="phone-item">
+                        <p className="mb-1">{t("phones.automation.label")}</p>
+                        <h5><a href={`tel:${t("phones.automation.number").replace(/[‐-]/g, "")}`}>{t("phones.automation.number")}</a></h5>
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-12">
+                      <div className="phone-item">
+                        <p className="mb-1">{t("phones.ups.label")}</p>
+                        <h5><a href={`tel:${t("phones.ups.number").replace(/[‐-]/g, "")}`}>{t("phones.ups.number")}</a></h5>
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-12">
+                      <div className="phone-item">
+                        <p className="mb-1">{t("phones.itServices.label")}</p>
+                        <h5><a href={`tel:${t("phones.itServices.number").replace(/[‐-]/g, "")}`}>{t("phones.itServices.number")}</a></h5>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-12">
+            <div className="col-lg-6 col-md-6 col-12">
               <div className="single-contact-card d-flex align-items-center">
                 <div className="icon">
                   <i className="flaticon-location" />
                 </div>
                 <div className="title">
-                  <span>Our Location</span>
-                  <h4>147 New Yors, NY RD 123</h4>
+                  <span>{t("ourLocation")}</span>
+                  <h4>{t("addressText")}</h4>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-12">
+            <div className="col-lg-6 col-md-6 col-12">
               <div className="single-contact-card d-flex align-items-center">
                 <div className="icon">
                   <i className="flaticon-email" />
                 </div>
                 <div className="title">
-                  <span>Mail us</span>
-                  <h4>hello@zotech.com</h4>
+                  <span>{t("mailUsLabel")}</span>
+                  <h4>info@arvisys.com</h4>
                 </div>
               </div>
             </div>
@@ -51,10 +98,12 @@ const page = () => {
       {/* Map Section Start */}
       <div className="office-google-map-wrapper wow fadeInUp">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd"
+          src="https://www.google.com/maps?q=47.925744,106.9269199&hl=en&z=17&output=embed"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Arvis IT Store Location"
         />
       </div>
       <CTA wrapperClass="cta-wrapper cta-2 style-3 section-bg" />

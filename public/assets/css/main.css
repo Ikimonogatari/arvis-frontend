@@ -312,6 +312,18 @@ p {
   color: var(--theme-2);
   position: relative;
 }
+.preloader .animation-preloader .txt-loading .letters-loading.letter-a {
+  color: var(--theme);
+}
+.preloader .animation-preloader .txt-loading .letters-loading.letter-a::before {
+  color: var(--theme);
+}
+.preloader .animation-preloader .txt-loading .letters-loading.letter-rvis {
+  color: var(--theme-5);
+}
+.preloader .animation-preloader .txt-loading .letters-loading.letter-rvis::before {
+  color: var(--theme-5);
+}
 .preloader
   .animation-preloader
   .txt-loading
@@ -9540,8 +9552,15 @@ p.sticky-label {
 }
 .single-contact-card:hover p,
 .single-contact-card:hover span,
-.single-contact-card:hover h4 {
-  color: #fff;
+.single-contact-card:hover h4,
+.single-contact-card:hover h5,
+.single-contact-card:hover h5 a,
+.single-contact-card:hover a,
+.single-contact-card:hover .phone-item p,
+.single-contact-card:hover .phone-item h5,
+.single-contact-card:hover .phone-item h5 a,
+.single-contact-card:hover .phone-item a {
+  color: #fff !important;
 }
 
 .office-google-map-wrapper iframe {
@@ -9793,6 +9812,50 @@ p.sticky-label {
 }
 .footer-widgets-1.style-3 .single-footer-widget .widget-head h4 {
   color: var(--black-2);
+}
+.footer-widgets-1.style-3 .single-footer-widget .gallery {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+}
+.footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+@media (max-width: 1199px) {
+  .footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img img {
+    width: 100%;
+    display: block;
+  }
+}
+.footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background: linear-gradient(84deg, rgba(0, 102, 204, 0.5) 0%, rgba(255, 4, 4, 0.5) 100%);
+  -webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+  -webkit-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  transition: all 500ms ease;
+  border-radius: 5px;
+}
+.footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img:hover .content {
+  -webkit-transform: rotateX(0);
+  transform: rotateX(0);
 }
 
 .footer-bottom {

@@ -1,6 +1,9 @@
 "use client";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { useSafeLocale, useSafeTranslations } from "@/hooks/useSafeTranslations";
+import {
+  useSafeLocale,
+  useSafeTranslations,
+} from "@/hooks/useSafeTranslations";
 import { zotechUtility } from "@/utility";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
@@ -13,7 +16,7 @@ const Header = ({ header }) => {
   const HeaderComponent =
     [Header1, Header2, Header3, Header4][header - 1] || Header1;
   return (
-    <div className={locale === 'mn' ? 'language-mn' : ''}>
+    <div className={locale === "mn" ? "language-mn" : ""}>
       <HeaderComponent />
       <MobileMenu />
     </div>
@@ -23,6 +26,7 @@ export default Header;
 
 const Header1 = () => {
   const t = useSafeTranslations("header");
+  const tFooter = useSafeTranslations("footer");
   return (
     <Fragment>
       {/* Topbar Section Start */}
@@ -32,11 +36,11 @@ const Header1 = () => {
             {/* <ul>
               <li>
                 <i className="fal fa-phone-alt" />
-                <a href>+44 920 090 505 </a>
+                <a href>+976-75750077</a>
               </li>
               <li>
                 <i className="fal fa-map-marker-alt" />
-                <a href>60 East 65th Street, NY</a>
+                <a href>{tFooter("addressText")}</a>
               </li>
               <li>
                 <i className="far fa-clock" />
@@ -145,7 +149,7 @@ const Header2 = () => {
                     </a>
                     <div className="title">
                       <p>{t("phone")}</p>
-                      <span>(704) 555-0127</span>
+                      <span>+976-75750077</span>
                     </div>
                   </div>
                 </div>
@@ -165,24 +169,23 @@ const Header2 = () => {
 
 const Header3 = () => {
   const t = useSafeTranslations("header");
+  const tFooter = useSafeTranslations("footer");
   return (
     <Fragment>
       {/* Topbar Section Start */}
       <div className="topbar style-2">
         <div className="container-fluid">
           <div className="topbar-inner d-flex align-items-center justify-content-between">
-            <p>
-              {t("topbarText")}
-            </p>
+            <p>{t("topbarText")}</p>
             <div className="topbar-right d-flex align-items-center">
               <ul>
                 <li>
                   <i className="fal fa-phone-alt" />
-                  <a href>+44 920 090 505 </a>
+                  <a href>+976-75750077</a>
                 </li>
                 <li>
                   <i className="fal fa-map-marker-alt" />
-                  <a href>60 East 65th Street, NY</a>
+                  <a href>{tFooter("addressText")}</a>
                 </li>
                 <li>
                   <i className="far fa-clock" />
@@ -191,10 +194,18 @@ const Header3 = () => {
               </ul>
               {/* /.topbar__info */}
               <div className="social">
-                <a href="#">
+                <a
+                  href="https://www.facebook.com/Arvis.Systems"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-facebook-f" />
                 </a>
-                <a href="#">
+                <a
+                  href="https://x.com/ArvisSystems"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-twitter" />
                 </a>
                 <a href="#">
@@ -283,10 +294,10 @@ const Header4 = () => {
                   <a href className="icon">
                     <i className="far fa-phone-alt" />
                   </a>
-                    <div className="title">
-                      <p>{t("phone")}</p>
-                      <span>(704) 555-0127</span>
-                    </div>
+                  <div className="title">
+                    <p>{t("phone")}</p>
+                    <span>+976-75750077</span>
+                  </div>
                 </div>
                 <div className="language-switcher-wrapper me-3">
                   <LanguageSwitcher />
@@ -384,6 +395,7 @@ const Menu = () => {
 
 const MobileMenu = () => {
   const t = useSafeTranslations("header");
+  const tFooter = useSafeTranslations("footer");
   const [activeMenu, setActiveMenu] = useState("");
   const [multiMenu, setMultiMenu] = useState("");
   const activeMenuSet = (value) =>
@@ -431,16 +443,26 @@ const MobileMenu = () => {
                         <Link href="/about">{t("aboutUs")}</Link>
                       </li>
                       <li>
-                        <a href="#" onClick={() => activeMenuSet("SolutionsServices")}>
+                        <a
+                          href="#"
+                          onClick={() => activeMenuSet("SolutionsServices")}
+                        >
                           {t("solutionsServices")}
                           <i className="fas fa-angle-down" />
                         </a>
-                        <ul className="submenu" style={activeLi("SolutionsServices")}>
+                        <ul
+                          className="submenu"
+                          style={activeLi("SolutionsServices")}
+                        >
                           <li>
-                            <Link href="/services">{t("menu.servicesGrid")}</Link>
+                            <Link href="/services">
+                              {t("menu.servicesGrid")}
+                            </Link>
                           </li>
                           <li>
-                            <Link href="/services-details">{t("menu.serviceDetails")}</Link>
+                            <Link href="/services-details">
+                              {t("menu.serviceDetails")}
+                            </Link>
                           </li>
                         </ul>
                         <a
@@ -461,10 +483,14 @@ const MobileMenu = () => {
                         </a>
                         <ul className="submenu" style={activeLi("Projects")}>
                           <li>
-                            <Link href="/projects">{t("menu.projectsGrid")}</Link>
+                            <Link href="/projects">
+                              {t("menu.projectsGrid")}
+                            </Link>
                           </li>
                           <li>
-                            <Link href="/projects-details">{t("menu.projectDetails")}</Link>
+                            <Link href="/projects-details">
+                              {t("menu.projectDetails")}
+                            </Link>
                           </li>
                         </ul>
                         <a
@@ -479,11 +505,17 @@ const MobileMenu = () => {
                         <Link href="/eshop">{t("eshop")}</Link>
                       </li>
                       <li>
-                        <a href="#" onClick={() => activeMenuSet("NewsResources")}>
+                        <a
+                          href="#"
+                          onClick={() => activeMenuSet("NewsResources")}
+                        >
                           {t("newsResources")}
                           <i className="fas fa-angle-down" />
                         </a>
-                        <ul className="submenu" style={activeLi("NewsResources")}>
+                        <ul
+                          className="submenu"
+                          style={activeLi("NewsResources")}
+                        >
                           <li>
                             <Link href="/blogs-grid">{t("menu.blogGrid")}</Link>
                           </li>
@@ -491,7 +523,9 @@ const MobileMenu = () => {
                             <Link href="/blog-news">{t("menu.blogNews")}</Link>
                           </li>
                           <li>
-                            <Link href="/blogs-details">{t("menu.blogDetails")}</Link>
+                            <Link href="/blogs-details">
+                              {t("menu.blogDetails")}
+                            </Link>
                           </li>
                         </ul>
                         <a
@@ -519,7 +553,7 @@ const MobileMenu = () => {
                     </div>
                     <div className="offcanvas__contact-text">
                       <a target="_blank" href="#">
-                        Main Street, Melbourne, Australia
+                        {tFooter("addressText")}
                       </a>
                     </div>
                   </li>
@@ -528,9 +562,9 @@ const MobileMenu = () => {
                       <i className="fal fa-envelope" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="mailto:info@azent.com">
-                        <span className="mailto:info@example.com">
-                          info@example.com
+                      <a href="mailto:info@arvisys.com">
+                        <span className="mailto:info@arvisys.com">
+                          info@arvisys.com
                         </span>
                       </a>
                     </div>
@@ -550,7 +584,7 @@ const MobileMenu = () => {
                       <i className="far fa-phone" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="tel:+11002345909">+11002345909</a>
+                      <a href="tel:+97675750077">+976-75750077</a>
                     </div>
                   </li>
                 </ul>
@@ -560,10 +594,18 @@ const MobileMenu = () => {
                   </a>
                 </div>
                 <div className="social-icon d-flex align-items-center">
-                  <a href="#">
+                  <a
+                    href="https://www.facebook.com/Arvis.Systems"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-facebook-f" />
                   </a>
-                  <a href="#">
+                  <a
+                    href="https://x.com/ArvisSystems"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-twitter" />
                   </a>
                   <a href="#">
@@ -583,5 +625,3 @@ const MobileMenu = () => {
     </Fragment>
   );
 };
-
-

@@ -42,6 +42,24 @@
                 color: $theme-color-2;
                 position: relative;
 
+                // First letter "A" - Primary branding color
+                &.letter-a {
+                    color: $theme-color;
+                    
+                    &::before {
+                        color: $theme-color;
+                    }
+                }
+
+                // Letters "RVIS" - Secondary reddish branding color
+                &.letter-rvis {
+                    color: $theme-color-5;
+                    
+                    &::before {
+                        color: $theme-color-5;
+                    }
+                }
+
                 &:nth-child(2):before {
                     animation-delay: 0.2s;
                 }

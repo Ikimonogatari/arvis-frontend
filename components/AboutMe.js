@@ -85,7 +85,7 @@ const AboutMe = ({
                     <span className="text-white opacity-50">
                       Call to ask any question
                     </span>
-                    <h4 className="text-white">0123-456-7890</h4>
+                    <h4 className="text-white">+976-75750077</h4>
                   </div>
                 </div>
               </div>
