@@ -1,12 +1,13 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 import { useGetTeamMemberByIdQuery } from "@/lib/api/articlesApi";
 
-const page = () => {
+const TeamDetailsContent = () => {
   const t = useSafeTranslations("footer");
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -144,4 +145,22 @@ const page = () => {
     </ZotechLayout>
   );
 };
+
+const page = () => {
+  return (
+    <Suspense fallback={
+      <ZotechLayout>
+        <Pagebanner pageName="Team Details" />
+        <section className="team-details-section fix section-padding pb-0">
+          <div className="container">
+            <p>Loading...</p>
+          </div>
+        </section>
+      </ZotechLayout>
+    }>
+      <TeamDetailsContent />
+    </Suspense>
+  );
+};
+
 export default page;

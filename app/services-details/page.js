@@ -1,12 +1,13 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
 import WorkingProcess from "@/components/WorkingProcess";
 import ZotechLayout from "@/layout/ZotechLayout";
 import { useGetServiceByIdQuery } from "@/lib/api/articlesApi";
 
-const page = () => {
+const ServiceDetailsContent = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
@@ -132,4 +133,22 @@ const page = () => {
     </ZotechLayout>
   );
 };
+
+const page = () => {
+  return (
+    <Suspense fallback={
+      <ZotechLayout>
+        <Pagebanner pageName="Service Details" />
+        <section className="service-details-section fix section-padding">
+          <div className="container">
+            <p>Loading...</p>
+          </div>
+        </section>
+      </ZotechLayout>
+    }>
+      <ServiceDetailsContent />
+    </Suspense>
+  );
+};
+
 export default page;

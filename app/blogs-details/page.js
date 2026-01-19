@@ -1,12 +1,13 @@
 "use client";
 
+import { Suspense } from "react";
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useGetArticleByIdQuery } from "@/lib/api/articlesApi";
 
-const page = () => {
+const BlogDetailsContent = () => {
   const searchParams = useSearchParams();
   const articleId = searchParams.get("id");
   
@@ -228,4 +229,22 @@ const page = () => {
     </ZotechLayout>
   );
 };
+
+const page = () => {
+  return (
+    <Suspense fallback={
+      <ZotechLayout>
+        <Pagebanner pageName="Blog Details" />
+        <section className="blog-details-section fix section-padding">
+          <div className="container">
+            <p>Loading...</p>
+          </div>
+        </section>
+      </ZotechLayout>
+    }>
+      <BlogDetailsContent />
+    </Suspense>
+  );
+};
+
 export default page;
