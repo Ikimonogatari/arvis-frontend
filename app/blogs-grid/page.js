@@ -1,7 +1,29 @@
+"use client";
+
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import Link from "next/link";
+import { useGetArticlesQuery } from "@/lib/api/articlesApi";
+
 const page = () => {
+  const { data: articles, error, isLoading } = useGetArticlesQuery();
+
+  // Helper function to get image URL from GraphQL response
+  const getImageUrl = (imageData) => {
+    if (!imageData) {
+      console.log("No imageData provided");
+      return "assets/img/blog/01.jpg"; // Fallback image
+    }
+    if (!imageData.id) {
+      console.log("ImageData exists but no id:", imageData);
+      return "assets/img/blog/01.jpg"; // Fallback image
+    }
+    const imageUrl = `http://217.154.145.65:8055/assets/${imageData.id}`;
+    console.log("Image data:", imageData);
+    console.log("Constructed image URL:", imageUrl);
+    return imageUrl;
+  };
+
   return (
     <ZotechLayout>
       <Pagebanner pageName="Blog Grid" />
@@ -22,242 +44,108 @@ const page = () => {
             <h2>Our Latest Insights &amp; Blog</h2>
           </div>
           <p className="text-center mt-3">
-            Accelerate innovation with world-class tech teams We’ll match <br />
+            Accelerate innovation with world-class tech teams We'll match <br />
             you to an entire remote team of incredible
           </p>
           <div className="blog-inner">
-            <div className="row">
-              <div
-                className="col-xl-4 col-lg-6 col-md-12 wow fadeInUp"
-                data-wow-delay="200ms"
-              >
-                <div className="single-blog-item">
-                  <div className="image">
-                    <img src="assets/img/blog/01.jpg" alt="" />
-                    <img src="assets/img/blog/01.jpg" alt="" />
-                  </div>
-                  <div className="content">
-                    <ul>
-                      <li>Technology</li>
-                      <li>
-                        {" "}
-                        <i className="fas fa-circle" />
-                      </li>
-                      <li>12 January, 2025</li>
-                    </ul>
-                    <h3>
-                      <Link href="/blogs-details">
-                        Planning your online business goals with a specialist
-                      </Link>
-                    </h3>
-                    <p>
-                      Accelerate innovation with world-class tech teams We’ll
-                      match you to an entire remote team of incredible
-                    </p>
-                    <Link href="/blogs-details" className="link-btn">
-                      Read More <i className="far fa-long-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
+            {isLoading ? (
+              <div className="text-center py-5">
+                <p>Loading articles...</p>
               </div>
-              <div
-                className="col-xl-4 col-lg-6 col-md-12 wow fadeInUp"
-                data-wow-delay="400ms"
-              >
-                <div className="single-blog-item">
-                  <div className="image">
-                    <img src="assets/img/blog/02.jpg" alt="" />
-                    <img src="assets/img/blog/02.jpg" alt="" />
-                  </div>
-                  <div className="content">
-                    <ul>
-                      <li>Technology</li>
-                      <li>
-                        {" "}
-                        <i className="fas fa-circle" />
-                      </li>
-                      <li>12 January, 2025</li>
-                    </ul>
-                    <h3>
-                      <Link href="/blogs-details">
-                        Holistic Healing: Exploring Health Coaching Techniques
-                      </Link>
-                    </h3>
-                    <p>
-                      Accelerate innovation with world-class tech teams We’ll
-                      match you to an entire remote team of incredible
-                    </p>
-                    <Link href="/blogs-details" className="link-btn">
-                      Read More <i className="far fa-long-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
+            ) : error ? (
+              <div className="text-center py-5">
+                <p>Error loading articles. Please try again later.</p>
               </div>
-              <div
-                className="col-xl-4 col-lg-6 col-md-12 wow fadeInUp"
-                data-wow-delay="600ms"
-              >
-                <div className="single-blog-item">
-                  <div className="image">
-                    <img src="assets/img/blog/03.jpg" alt="" />
-                    <img src="assets/img/blog/03.jpg" alt="" />
+            ) : (
+              <div className="row">
+                {articles && articles.length > 0 ? (
+                  articles.map((article, index) => {
+                    const delay = `${(index % 3 + 1) * 200}ms`;
+                    const description = article.description || "";
+                    const truncatedDescription = description.length > 100 
+                      ? description.substring(0, 100) + "..." 
+                      : description;
+                    
+                    // Use image field for list pages
+                    const imageToUse = article.image;
+                    const imageUrl = getImageUrl(imageToUse);
+                    
+                    // Debug for first article
+                    if (index === 0 && typeof window !== "undefined") {
+                      console.log("=== Article Image Debug ===");
+                      console.log("Article:", article);
+                      console.log("cover_image:", article.cover_image);
+                      console.log("image:", article.image);
+                      console.log("imageToUse:", imageToUse);
+                      console.log("Final imageUrl:", imageUrl);
+                    }
+
+                    return (
+                      <div
+                        key={article.id}
+                        className="col-xl-4 col-lg-6 col-md-12 wow fadeInUp"
+                        data-wow-delay={delay}
+                      >
+                        <div className="single-blog-item">
+                          <div className="image">
+                            <img 
+                              src={imageUrl} 
+                              alt={article.title}
+                              style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                objectPosition: 'center'
+                              }}
+                              onError={(e) => {
+                                console.error("Image failed to load:", imageUrl);
+                                e.target.src = "assets/img/blog/01.jpg";
+                              }}
+                            />
+                            <img 
+                              src={imageUrl} 
+                              alt={article.title}
+                              style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                objectPosition: 'center'
+                              }}
+                              onError={(e) => {
+                                e.target.src = "assets/img/blog/01.jpg";
+                              }}
+                            />
+                          </div>
+                          <div className="content">
+                            <ul>
+                              <li>Technology</li>
+                              <li>
+                                {" "}
+                                <i className="fas fa-circle" />
+                              </li>
+                              <li>Latest</li>
+                            </ul>
+                            <h3>
+                              <Link href={`/blogs-details?id=${article.id}`}>
+                                {article.title}
+                              </Link>
+                            </h3>
+                            <p>{truncatedDescription || "Read more about this article..."}</p>
+                            <Link href={`/blogs-details?id=${article.id}`} className="link-btn">
+                              Read More <i className="far fa-long-arrow-right" />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className="col-12 text-center py-5">
+                    <p>No articles found.</p>
                   </div>
-                  <div className="content">
-                    <ul>
-                      <li>Technology</li>
-                      <li>
-                        {" "}
-                        <i className="fas fa-circle" />
-                      </li>
-                      <li>12 January, 2025</li>
-                    </ul>
-                    <h3>
-                      <Link href="/blogs-details">
-                        The Art of Self-Care: Lessons from Health Coaching
-                      </Link>
-                    </h3>
-                    <p>
-                      Accelerate innovation with world-class tech teams We’ll
-                      match you to an entire remote team of incredible
-                    </p>
-                    <Link href="/blogs-details" className="link-btn">
-                      Read More <i className="far fa-long-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
+                )}
               </div>
-              <div
-                className="col-xl-4 col-lg-6 col-md-12 wow fadeInUp"
-                data-wow-delay="200ms"
-              >
-                <div className="single-blog-item">
-                  <div className="image">
-                    <img src="assets/img/blog/04.jpg" alt="" />
-                    <img src="assets/img/blog/04.jpg" alt="" />
-                  </div>
-                  <div className="content">
-                    <ul>
-                      <li>Technology</li>
-                      <li>
-                        {" "}
-                        <i className="fas fa-circle" />
-                      </li>
-                      <li>12 January, 2025</li>
-                    </ul>
-                    <h3>
-                      <Link href="/blogs-details">
-                        Planning your online business goals with a specialist
-                      </Link>
-                    </h3>
-                    <p>
-                      Accelerate innovation with world-class tech teams We’ll
-                      match you to an entire remote team of incredible
-                    </p>
-                    <Link href="/blogs-details" className="link-btn">
-                      Read More <i className="far fa-long-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-xl-4 col-lg-6 col-md-12 wow fadeInUp"
-                data-wow-delay="400ms"
-              >
-                <div className="single-blog-item">
-                  <div className="image">
-                    <img src="assets/img/blog/05.jpg" alt="" />
-                    <img src="assets/img/blog/05.jpg" alt="" />
-                  </div>
-                  <div className="content">
-                    <ul>
-                      <li>Technology</li>
-                      <li>
-                        {" "}
-                        <i className="fas fa-circle" />
-                      </li>
-                      <li>12 January, 2025</li>
-                    </ul>
-                    <h3>
-                      <Link href="/blogs-details">
-                        Holistic Healing: Exploring Health Coaching Techniques
-                      </Link>
-                    </h3>
-                    <p>
-                      Accelerate innovation with world-class tech teams We’ll
-                      match you to an entire remote team of incredible
-                    </p>
-                    <Link href="/blogs-details" className="link-btn">
-                      Read More <i className="far fa-long-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-xl-4 col-lg-6 col-md-12 wow fadeInUp"
-                data-wow-delay="600ms"
-              >
-                <div className="single-blog-item">
-                  <div className="image">
-                    <img src="assets/img/blog/06.jpg" alt="" />
-                    <img src="assets/img/blog/06.jpg" alt="" />
-                  </div>
-                  <div className="content">
-                    <ul>
-                      <li>Technology</li>
-                      <li>
-                        {" "}
-                        <i className="fas fa-circle" />
-                      </li>
-                      <li>12 January, 2025</li>
-                    </ul>
-                    <h3>
-                      <Link href="/blogs-details">
-                        The Art of Self-Care: Lessons from Health Coaching
-                      </Link>
-                    </h3>
-                    <p>
-                      Accelerate innovation with world-class tech teams We’ll
-                      match you to an entire remote team of incredible
-                    </p>
-                    <Link href="/blogs-details" className="link-btn">
-                      Read More <i className="far fa-long-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="page-nav-wrap mt-5 text-center wow fadeInUp"
-            data-wow-delay=".3s"
-          >
-            <ul>
-              <li>
-                <a className="page-numbers" href="#">
-                  <i className="far fa-angle-right" />
-                </a>
-              </li>
-              <li>
-                <a className="page-numbers" href="#">
-                  01
-                </a>
-              </li>
-              <li>
-                <a className="page-numbers" href="#">
-                  02
-                </a>
-              </li>
-              <li>
-                <a className="page-numbers" href="#">
-                  03
-                </a>
-              </li>
-              <li>
-                <a className="page-numbers" href="#">
-                  <i className="far fa-angle-right" />
-                </a>
-              </li>
-            </ul>
+            )}
           </div>
         </div>
       </section>

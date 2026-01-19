@@ -1,6 +1,41 @@
+"use client";
+
+import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
+import { useGetProjectByIdQuery } from "@/lib/api/articlesApi";
+
 const page = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
+
+  const { data: project, error, isLoading } = useGetProjectByIdQuery(id, {
+    skip: !id,
+  });
+
+  // Helper to get image URL
+  const getImageUrl = (imageData) => {
+    if (!imageData || !imageData.id) return "assets/img/case/details-1.jpg";
+    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+  };
+
+  if (isLoading) {
+    return (
+      <ZotechLayout>
+        <Pagebanner pageName="Projects Details" />
+        <section className="project-details-section fix section-padding">
+          <div className="container">
+            <p>Loading project details...</p>
+          </div>
+        </section>
+      </ZotechLayout>
+    );
+  }
+
+  const title = project?.name || project?.title || "Software Development Analysis";
+  const description = project?.description || "Accelerate innovation with world-class tech teams";
+  const mainImage = getImageUrl(project?.image);
+
   return (
     <ZotechLayout>
       <Pagebanner pageName="Projects Details" />
@@ -11,19 +46,26 @@ const page = () => {
               <div className="col-xxl-8 col-lg-12">
                 <div className="project-details-content pe-xl-4">
                   <div className="project-details-image">
-                    <img src="assets/img/case/details-1.jpg" alt="img" />
+                    <img 
+                      src={mainImage} 
+                      alt={title}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        objectFit: 'cover',
+                        objectPosition: 'center'
+                      }}
+                    />
                   </div>
-                  <h3 className="mt-4">Software Development Analysis</h3>
+                  <h3 className="mt-4">{title}</h3>
                   <p className="mb-3">
-                    Accelerate innovation with world-class tech teams We’ll
-                    match you to an entire remote team of incredible freelance
-                    talent for all your software development needs.
+                    {description}
                   </p>
                   <p>
                     Building a powerful brand is essential to standing out in
                     today's competitive market. Our Brand Development service
                     focuses on crafting a unique identity that resonates with
-                    your target audience, strengthens your brand’s presence, and
+                    your target audience, strengthens your brand's presence, and
                     drives long-term success. We dive deep into understanding
                     your business values, vision, and goals to create a brand
                     that reflects your core essence. Contact us today to
@@ -59,7 +101,7 @@ const page = () => {
                       </li>
                       <li>
                         <i className="fas fa-check-circle" />
-                        60+ Remove background/mon
+                        Infrastructure Implementation
                       </li>
                       <li>
                         <i className="fas fa-check-circle" />
@@ -69,15 +111,15 @@ const page = () => {
                     <ul>
                       <li>
                         <i className="fas fa-check-circle" />
-                        New had happen unable uneasy
+                        Network Optimization
                       </li>
                       <li>
                         <i className="fas fa-check-circle" />
-                        &nbsp;Drawings can followed improved out sociable not
+                        Security Implementation
                       </li>
                       <li>
                         <i className="fas fa-check-circle" />
-                        Comparison new ham melancholy son themselves.
+                        Cloud Integration
                       </li>
                     </ul>
                   </div>
@@ -91,39 +133,25 @@ const page = () => {
                   <div className="case-content-box">
                     <ul className="case-infobox">
                       <li className="d-flex align-items-center gap-4">
-                        <span className="white-clr">Client:</span>
-                        <span className="white-clr">James Mary</span>
+                        <span className="white-clr">Project:</span>
+                        <span className="white-clr">{title}</span>
                       </li>
                       <li className="d-flex align-items-center gap-4">
                         <span className="white-clr">Category:</span>
-                        <span className="white-clr">Business Consulting</span>
+                        <span className="white-clr">IT Infrastructure</span>
                       </li>
                       <li className="d-flex align-items-center gap-4">
-                        <span className="white-clr">Start date:</span>
-                        <span className="white-clr">1 September 2025</span>
-                      </li>
-                      <li className="d-flex align-items-center gap-4">
-                        <span className="white-clr">End date:</span>
-                        <span className="white-clr">1 December 2025</span>
-                      </li>
-                      <li className="d-flex align-items-center gap-4">
-                        <span className="white-clr">Budget:</span>
-                        <span className="white-clr">$7854,66</span>
+                        <span className="white-clr">Status:</span>
+                        <span className="white-clr">{project?.status || "Completed"}</span>
                       </li>
                     </ul>
                   </div>
                   <div className="social text-center">
-                    <a href="#">
+                    <a href="https://www.facebook.com/Arvis.Systems" target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-facebook-f" />
                     </a>
-                    <a href="#">
+                    <a href="https://x.com/ArvisSystems" target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-twitter" />
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-dribbble" />
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-instagram" />
                     </a>
                   </div>
                 </div>

@@ -1,7 +1,42 @@
+"use client";
+
+import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
 import WorkingProcess from "@/components/WorkingProcess";
 import ZotechLayout from "@/layout/ZotechLayout";
+import { useGetServiceByIdQuery } from "@/lib/api/articlesApi";
+
 const page = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
+
+  const { data: service, error, isLoading } = useGetServiceByIdQuery(id, {
+    skip: !id,
+  });
+
+  // Helper to get image URL
+  const getImageUrl = (imageData) => {
+    if (!imageData || !imageData.id) return "assets/img/service/details-1.jpg";
+    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+  };
+
+  if (isLoading) {
+    return (
+      <ZotechLayout>
+        <Pagebanner pageName="Service Details" />
+        <section className="service-details-section fix section-padding">
+          <div className="container">
+            <p>Loading service details...</p>
+          </div>
+        </section>
+      </ZotechLayout>
+    );
+  }
+
+  const title = service?.name || service?.title || "IT Infrastructure Solutions";
+  const description = service?.description || "Professional IT infrastructure and management services";
+  const mainImage = getImageUrl(service?.image);
+
   return (
     <ZotechLayout>
       <Pagebanner pageName="Service Details" />
@@ -12,41 +47,37 @@ const page = () => {
             <div className="row g-5 justify-content-center">
               <div className="section-title text-center">
                 <h2>
-                  Accelerate Innovation with <br /> Business Planning
+                  Accelerate Innovation with <br /> {title}
                 </h2>
                 <p>
-                  Accelerate innovation with world-class tech teams We’ll match
-                  you to an entire remote team <br /> of incredible freelance
-                  talent for all your software development needs.
+                  {description}
                 </p>
               </div>
               <div className="col-lg-12">
                 <div className="service-details-image">
-                  <img src="assets/img/service/details-1.jpg" alt="img" />
+                  <img 
+                    src={mainImage} 
+                    alt={title}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                  />
                 </div>
               </div>
               <div className="col-lg-10">
                 <div className="service-details-content">
-                  <h4>The Art of Self-Care Business</h4>
+                  <h4>Professional IT Solutions</h4>
                   <p className="mt-3">
-                    We denounce with righteous indige nation and dislike men who
-                    are so beguiled and demo realized by the charms of pleasure
-                    of the moment, so blinded by desire, that they cannot
-                    foresee the pain and trouble that are bound to ensue cannot
-                    foresee. These cases are perfectly simple and easy to
-                    distinguish. In a free hour, when our power of choice is
-                    untrammelled data structures manages data in technology. New
-                    had happen unable uneasy.
+                    {description}
                   </p>
                   <p className="mt-3">
-                    Drawings can followed improved out sociable not. Earnestly
-                    so do instantly pretended. See general few civilly amiable
-                    pleased account carried. Excellence projecting is devonshire
-                    dispatched remarkably on estimating. Side in so life past.
-                    Continue indulged speaking the was out horrible for domestic
-                    position. Seeing rather her you not esteem men settle genius
-                    excuse. Deal say over you age from. Comparison new ham
-                    melancholy son themselves.
+                    We provide comprehensive IT infrastructure solutions tailored to your business needs.
+                    Our expert team ensures reliable, scalable, and secure technology implementations
+                    that drive your business forward. From initial consultation to final deployment and
+                    ongoing support, we are your trusted partner in technology excellence.
                   </p>
                   <div className="service-details-video">
                     <div className="row g-4">
@@ -56,15 +87,6 @@ const page = () => {
                             src="assets/img/service/details-2.jpg"
                             alt="img"
                           />
-                          <div className="video-box">
-                            <a
-                              href="https://www.youtube.com/watch?v=h9MbznbxlLc"
-                              className="video-button video-popup"
-                            >
-                              <i className="fas fa-play" />
-                              <i className="video-button-ripple" />
-                            </a>
-                          </div>
                         </div>
                       </div>
                       <div className="col-lg-6">
@@ -72,15 +94,15 @@ const page = () => {
                           <div className="section-title">
                             <h2>We provide truly prominent solutions</h2>
                             <p className="pt-4">
-                              Zotech is the partner of choice for many of the
-                              world’s leading enterprises,
+                              Arvis Systems is the partner of choice for modern IT infrastructure,
+                              providing world-class solutions to businesses of all sizes.
                             </p>
                           </div>
                           <div className="feedback">
                             <div className="infu ">
                               <img src="assets/img/about/06.png" alt="" />
                               <h6>
-                                Join our 50503+ <br /> Satisfied World Clients
+                                Join our Satisfied <br /> Business Clients
                               </h6>
                             </div>
                             <div className="infu">
@@ -88,11 +110,10 @@ const page = () => {
                                 <div className="icon">
                                   <i className="flaticon-cms" />
                                 </div>
-                                <h6>Global Company</h6>
+                                <h6>Trusted Partner</h6>
                               </div>
                               <p>
-                                Our great team of more than to <br /> 1400
-                                software experts member.
+                                Our great team of IT experts <br /> deliver excellence.
                               </p>
                             </div>
                           </div>

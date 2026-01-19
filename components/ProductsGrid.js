@@ -131,27 +131,28 @@ const getProductPrice = (product) => {
 };
 
 const ProductsGrid = () => {
-  const { data, error, isLoading } = useGetProductsQuery({
-    sort: ["-date_created"],
-    fields: ["*", "category.*"],
-  });
+  const { data: products, error, isLoading } = useGetProductsQuery();
 
-  const products = data?.data || data || [];
+  const productList = products || [];
 
   // Debug: Log the response to understand the structure
-  if (data && !isLoading) {
+  if (products && !isLoading) {
     console.log("Products API Response:", {
-      data,
-      productsCount: products.length,
-      products,
-      isArray: Array.isArray(products),
-      firstProduct: products[0],
+      productsCount: productList.length,
+      products: productList,
+      firstProduct: productList[0],
     });
   }
 
   if (error) {
     console.error("Products API Error:", error);
   }
+
+  // Update getImageUrl for GraphQL
+  const getImageUrlGraphQL = (imageData) => {
+    if (!imageData || !imageData.id) return "assets/img/service/01.jpg";
+    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+  };
 
   if (isLoading) {
     return (
@@ -197,7 +198,7 @@ const ProductsGrid = () => {
     );
   }
 
-  if (!products.length) {
+  if (!productList.length) {
     return (
       <div className="row product-grid">
         <div className="col-12 text-center">
@@ -209,18 +210,14 @@ const ProductsGrid = () => {
 
   return (
     <div className="row g-4 product-grid">
-      {products.map((product, index) => {
-        const title = getProductTitle(product);
-        const description = getProductDescription(product);
-        const category = getProductCategory(product);
-        const price = getProductPrice(product);
-        const formattedPrice = formatPrice(price, product.currency);
+      {productList.map((product, index) => {
+        const title = product.name || product.title || "Untitled Product";
+        const description = product.description || "";
+        const category = product.category || "Technology";
+        const price = product.price;
+        const formattedPrice = price ? formatPrice(price, "USD") : null;
         const productId = product.id || index;
-        const sku = normalizeText(
-          product.sku || product.code || product.product_code
-        );
-        const imageUrl = getImageUrl(product);
-        const brandLogoUrl = getBrandLogoUrl(product);
+        const imageUrl = product.image ? getImageUrlGraphQL(product.image) : "assets/img/service/01.jpg";
         return (
           <div
             key={productId}
@@ -232,19 +229,15 @@ const ProductsGrid = () => {
                 {category ? (
                   <span className="product-badge">{category}</span>
                 ) : null}
-                <img src={imageUrl} alt={title} />
+                <img src={imageUrl} alt={title} style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center'
+                }} />
               </div>
               <div className="product-content">
-                <div className="product-title-row">
-                  {brandLogoUrl ? (
-                    <img
-                      src={brandLogoUrl}
-                      alt={`${title} brand logo`}
-                      className="product-brand-inline"
-                    />
-                  ) : null}
-                  <h4 className="product-title">{title}</h4>
-                </div>
+                <h4 className="product-title">{title}</h4>
                 {description ? (
                   <p className="product-description">{description}</p>
                 ) : (
@@ -255,9 +248,8 @@ const ProductsGrid = () => {
                 )}
                 <div className="product-meta">
                   <div className="product-price">
-                    {formattedPrice ? formattedPrice : "Contact for price"}
+                    {formattedPrice || "Contact for price"}
                   </div>
-                  {sku ? <span className="product-code">{sku}</span> : null}
                 </div>
                 <div className="mt-3">
                   <Link

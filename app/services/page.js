@@ -1,9 +1,24 @@
+"use client";
+
 import Pagebanner from "@/components/Pagebanner";
 import Pricing from "@/components/Pricing";
 import WorkingProcess from "@/components/WorkingProcess";
 import ZotechLayout from "@/layout/ZotechLayout";
 import Link from "next/link";
+import { useGetServicesQuery } from "@/lib/api/articlesApi";
+
 const page = () => {
+  const { data: services, error, isLoading } = useGetServicesQuery();
+
+  // Helper to get image URL
+  const getImageUrl = (imageData) => {
+    if (!imageData || !imageData.id) return "assets/img/service/08.jpg";
+    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+  };
+
+  const servicesList = services || [];
+  const delays = ["200ms", "400ms", "600ms", "800ms"];
+
   return (
     <ZotechLayout>
       <Pagebanner pageName="Our Services" />
@@ -15,269 +30,92 @@ const page = () => {
               <span>OUR SERVICES</span>
             </div>
             <h2>
-              Preparing for Your Success, We <br /> Provide&nbsp;Truly IT
+              Preparing for Your Success, We <br /> Provide Truly IT
               Solutions.
             </h2>
           </div>
           <div className="service-inner text-center overflow-hidden mt-4 pt-3">
-            <div className="row gy-xxl-5">
-              <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="signle-service-item wow fadeInUp"
-                  data-wow-delay="200ms"
-                >
-                  <div
-                    className="service-bg bg-cover"
-                    style={{
-                      backgroundImage: "url(assets/img/service/08.jpg)",
-                    }}
-                  />
-                  <div className="icon">
-                    <i className="flaticon-web-development" />
-                  </div>
-                  <div className="line mb-4" />
-                  <h4>
-                    <Link href="services-details">Web Development</Link>
-                  </h4>
-                  <p className="pt-3">
-                    Back up your database, store in a safe and secure place
-                    while still maintaining.
-                  </p>
-                  <Link href="services-details" className="infu-btn">
-                    Read More
-                    <i className="far fa-long-arrow-right" />
-                  </Link>
-                </div>
+            {isLoading ? (
+              <div className="text-center py-5">
+                <p>Loading services...</p>
               </div>
-              <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="signle-service-item wow fadeInUp"
-                  data-wow-delay="400ms"
-                >
-                  <div
-                    className="service-bg bg-cover"
-                    style={{
-                      backgroundImage: "url(assets/img/service/08.jpg)",
-                    }}
-                  />
-                  <div className="icon">
-                    <i className="flaticon-lock" />
-                  </div>
-                  <div className="line mb-4" />
-                  <h4>
-                    <Link href="services-details">Cyber Security</Link>
-                  </h4>
-                  <p className="pt-3">
-                    Back up your database, store in a safe and secure place
-                    while still maintaining.
-                  </p>
-                  <Link href="services-details" className="infu-btn">
-                    Read More
-                    <i className="far fa-long-arrow-right" />
-                  </Link>
-                </div>
+            ) : (
+              <div className="row gy-xxl-5">
+                {servicesList.length > 0 ? (
+                  servicesList.map((service, index) => (
+                    <div key={service.id} className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
+                      <div
+                        className="signle-service-item wow fadeInUp"
+                        data-wow-delay={delays[index % 4]}
+                      >
+                        <div
+                          className="service-bg bg-cover"
+                          style={{
+                            backgroundImage: `url(${getImageUrl(service.image)})`,
+                          }}
+                        />
+                        <div className="icon">
+                          <i className={service.icon || "flaticon-web-development"} />
+                        </div>
+                        <div className="line mb-4" />
+                        <h4>
+                          <Link href={`/services-details?id=${service.id}`}>
+                            {service.name || service.title}
+                          </Link>
+                        </h4>
+                        <p className="pt-3">
+                          {service.description || "Professional IT infrastructure solutions."}
+                        </p>
+                        <Link href={`/services-details?id=${service.id}`} className="infu-btn">
+                          Read More
+                          <i className="far fa-long-arrow-right" />
+                        </Link>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  // Fallback services if no data
+                  <>
+                    {[
+                      { icon: "flaticon-web-development", title: "Data Center Solutions", description: "Enterprise-grade data center infrastructure and management." },
+                      { icon: "flaticon-lock", title: "UPS Systems", description: "Reliable uninterruptible power supply solutions." },
+                      { icon: "flaticon-user-experience", title: "Cooling Systems", description: "Advanced cooling solutions for IT infrastructure." },
+                      { icon: "flaticon-strategy", title: "Network Infrastructure", description: "Comprehensive network design and implementation." },
+                      { icon: "flaticon-maintenance", title: "Cabling Solutions", description: "Professional structured cabling services." },
+                      { icon: "flaticon-engineering", title: "CCTV Systems", description: "Security and surveillance system installation." },
+                      { icon: "flaticon-management", title: "Security Solutions", description: "Comprehensive IT security and monitoring." },
+                      { icon: "flaticon-connection", title: "IT Consulting", description: "Expert consultation for IT infrastructure projects." },
+                    ].map((service, index) => (
+                      <div key={index} className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
+                        <div
+                          className="signle-service-item wow fadeInUp"
+                          data-wow-delay={delays[index % 4]}
+                        >
+                          <div
+                            className="service-bg bg-cover"
+                            style={{
+                              backgroundImage: "url(assets/img/service/08.jpg)",
+                            }}
+                          />
+                          <div className="icon">
+                            <i className={service.icon} />
+                          </div>
+                          <div className="line mb-4" />
+                          <h4>
+                            <Link href="/services-details">{service.title}</Link>
+                          </h4>
+                          <p className="pt-3">{service.description}</p>
+                          <Link href="/services-details" className="infu-btn">
+                            Read More
+                            <i className="far fa-long-arrow-right" />
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                )}
               </div>
-              <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="signle-service-item wow fadeInUp"
-                  data-wow-delay="600ms"
-                >
-                  <div
-                    className="service-bg bg-cover"
-                    style={{
-                      backgroundImage: "url(assets/img/service/08.jpg)",
-                    }}
-                  />
-                  <div className="icon">
-                    <i className="flaticon-user-experience" />
-                  </div>
-                  <div className="line mb-4" />
-                  <h4>
-                    <Link href="services-details">UI/UX Design</Link>
-                  </h4>
-                  <p className="pt-3">
-                    Back up your database, store in a safe and secure place
-                    while still maintaining.
-                  </p>
-                  <Link href="services-details" className="infu-btn">
-                    Read More
-                    <i className="far fa-long-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-              <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="signle-service-item wow fadeInUp"
-                  data-wow-delay="800ms"
-                >
-                  <div
-                    className="service-bg bg-cover"
-                    style={{
-                      backgroundImage: "url(assets/img/service/08.jpg)",
-                    }}
-                  />
-                  <div className="icon">
-                    <i className="flaticon-strategy" />
-                  </div>
-                  <div className="line mb-4" />
-                  <h4>
-                    <Link href="services-details">Business Planning</Link>
-                  </h4>
-                  <p className="pt-3">
-                    Back up your database, store in a safe and secure place
-                    while still maintaining.
-                  </p>
-                  <Link href="services-details" className="infu-btn">
-                    Read More
-                    <i className="far fa-long-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-              <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="signle-service-item wow fadeInUp"
-                  data-wow-delay="200ms"
-                >
-                  <div
-                    className="service-bg bg-cover"
-                    style={{
-                      backgroundImage: "url(assets/img/service/08.jpg)",
-                    }}
-                  />
-                  <div className="icon">
-                    <i className="flaticon-maintenance" />
-                  </div>
-                  <div className="line mb-4" />
-                  <h4>
-                    <Link href="services-details">Management</Link>
-                  </h4>
-                  <p className="pt-3">
-                    Back up your database, store in a safe and secure place
-                    while still maintaining.
-                  </p>
-                  <Link href="services-details" className="infu-btn">
-                    Read More
-                    <i className="far fa-long-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-              <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="signle-service-item wow fadeInUp"
-                  data-wow-delay="400ms"
-                >
-                  <div
-                    className="service-bg bg-cover"
-                    style={{
-                      backgroundImage: "url(assets/img/service/08.jpg)",
-                    }}
-                  />
-                  <div className="icon">
-                    <i className="flaticon-engineering" />
-                  </div>
-                  <div className="line mb-4" />
-                  <h4>
-                    <Link href="services-details">Data Science</Link>
-                  </h4>
-                  <p className="pt-3">
-                    Back up your database, store in a safe and secure place
-                    while still maintaining.
-                  </p>
-                  <Link href="services-details" className="infu-btn">
-                    Read More
-                    <i className="far fa-long-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-              <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="signle-service-item wow fadeInUp"
-                  data-wow-delay="600ms"
-                >
-                  <div
-                    className="service-bg bg-cover"
-                    style={{
-                      backgroundImage: "url(assets/img/service/08.jpg)",
-                    }}
-                  />
-                  <div className="icon">
-                    <i className="flaticon-management" />
-                  </div>
-                  <div className="line mb-4" />
-                  <h4>
-                    <Link href="services-details">Pro Technology</Link>
-                  </h4>
-                  <p className="pt-3">
-                    Back up your database, store in a safe and secure place
-                    while still maintaining.
-                  </p>
-                  <Link href="services-details" className="infu-btn">
-                    Read More
-                    <i className="far fa-long-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-              <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="signle-service-item wow fadeInUp"
-                  data-wow-delay="800ms"
-                >
-                  <div
-                    className="service-bg bg-cover"
-                    style={{
-                      backgroundImage: "url(assets/img/service/08.jpg)",
-                    }}
-                  />
-                  <div className="icon">
-                    <i className="flaticon-connection" />
-                  </div>
-                  <div className="line mb-4" />
-                  <h4>
-                    <Link href="services-details">IT Consultant</Link>
-                  </h4>
-                  <p className="pt-3">
-                    Back up your database, store in a safe and secure place
-                    while still maintaining.
-                  </p>
-                  <Link href="services-details" className="infu-btn">
-                    Read More
-                    <i className="far fa-long-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div
-              className="page-nav-wrap mt-5 text-center wow fadeInUp"
-              data-wow-delay=".3s"
-            >
-              <ul>
-                <li>
-                  <a className="page-numbers" href="#">
-                    <i className="far fa-angle-right" />
-                  </a>
-                </li>
-                <li>
-                  <a className="page-numbers" href="#">
-                    01
-                  </a>
-                </li>
-                <li>
-                  <a className="page-numbers" href="#">
-                    02
-                  </a>
-                </li>
-                <li>
-                  <a className="page-numbers" href="#">
-                    03
-                  </a>
-                </li>
-                <li>
-                  <a className="page-numbers" href="#">
-                    <i className="far fa-angle-right" />
-                  </a>
-                </li>
-              </ul>
-            </div>
+            )}
           </div>
         </div>
       </section>

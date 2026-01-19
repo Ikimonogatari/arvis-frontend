@@ -6,12 +6,8 @@ import { useGetArticlesQuery } from "@/lib/api/articlesApi";
 const Blog = ({
   wrapperClass = "blog-wrapper blog-1 section-padding section-bg about-page-blog",
 }) => {
-  // Fetch articles from Directus API
-  const { data, error, isLoading } = useGetArticlesQuery({
-    limit: 3,
-    sort: ['-date_created'], // Sort by date created descending
-    fields: ['*'], // Get all fields
-  });
+  // Fetch articles from GraphQL API
+  const { data: articles, error, isLoading } = useGetArticlesQuery();
 
   // Format date helper function
   const formatDate = (dateString) => {
@@ -24,28 +20,22 @@ const Blog = ({
     });
   };
 
-  // Get image URL from Directus
-  const getImageUrl = (image) => {
-    if (!image) return 'assets/img/blog/01.jpg'; // Fallback image
+  // Get image URL from GraphQL response
+  const getImageUrl = (imageData) => {
+    if (!imageData) return 'assets/img/blog/01.jpg'; // Fallback image
     
-    // If image is a string (UUID), construct Directus URL
-    if (typeof image === 'string') {
-      const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055';
-      return `${baseUrl}/assets/${image}`;
+    // GraphQL returns image as an object with id property
+    if (imageData.id) {
+      return `http://217.154.145.65:8055/assets/${imageData.id}`;
     }
     
-    // If image is an object with id property
-    if (image.id) {
-      const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055';
-      return `${baseUrl}/assets/${image.id}`;
+    // Fallback for string UUIDs (legacy support)
+    if (typeof imageData === 'string') {
+      return `http://217.154.145.65:8055/assets/${imageData}`;
     }
     
     return 'assets/img/blog/01.jpg'; // Fallback
   };
-
-  // Extract articles from Directus response
-  // Directus typically returns { data: [...] } or just an array
-  const articles = data?.data || data || [];
 
   // Loading state
   if (isLoading) {
@@ -148,14 +138,16 @@ const Blog = ({
         <div className="blog-inner">
           <div className="row">
             {displayArticles.length > 0 ? (
-              displayArticles.map((article, index) => {
-                const imageUrl = getImageUrl(article.image || article.featured_image);
-                const articleDate = formatDate(article.date_created || article.date || article.created_at);
-                const category = article.category || article.tags?.[0] || 'Technology';
-                const excerpt = article.excerpt || article.description || article.content?.substring(0, 100) + '...' || "Accelerate innovation with world-class tech teams We'll match you to an entire remote team of incredible";
-                const title = article.title || article.name || 'Article Title';
+              displayArticles.slice(0, 3).map((article, index) => {
+                // Use image field first for list pages
+                const imageToUse = article.image;
+                const imageUrl = getImageUrl(imageToUse);
+                const articleDate = formatDate(article.date_created || article.date_updated);
+                const category = 'Technology'; // Default category
+                const excerpt = article.description || article.body?.substring(0, 100) + '...' || "Accelerate innovation with world-class tech teams We'll match you to an entire remote team of incredible";
+                const title = article.title || 'Article Title';
                 const articleId = article.id || index;
-                const articleSlug = article.slug || `blogs-details?id=${articleId}`;
+                const articleSlug = `blogs-details?id=${articleId}`;
 
                 return (
                   <div
@@ -165,8 +157,26 @@ const Blog = ({
                   >
                     <div className="single-blog-item">
                       <div className="image">
-                        <img src={imageUrl} alt={title} />
-                        <img src={imageUrl} alt={title} />
+                        <img 
+                          src={imageUrl} 
+                          alt={title}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'center'
+                          }}
+                        />
+                        <img 
+                          src={imageUrl} 
+                          alt={title}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'center'
+                          }}
+                        />
                       </div>
                       <div className="content">
                         <ul>
