@@ -2,7 +2,6 @@ import AboutMe from "@/components/AboutMe";
 import Blog from "@/components/Blog";
 import ChooseUs from "@/components/ChooseUs";
 import Pagebanner from "@/components/Pagebanner";
-import Pricing from "@/components/Pricing";
 import BrandSlider from "@/components/slider/BrandSlider";
 import TextSlider, { TextSlider2 } from "@/components/slider/TextSlider";
 import { TeamMember2 } from "@/components/TeamMember";
@@ -43,7 +42,7 @@ const page = () => {
         </div>
       </section>
       {/* Pricing Section Start */}
-      <section className="pricing-wrapper pricing-1 style-2 section-padding pb-0">
+      {/* <section className="pricing-wrapper pricing-1 style-2 section-padding pb-0">
         <div className="container">
           <div className="section-title text-center">
             <div className="sub-title">
@@ -55,7 +54,7 @@ const page = () => {
           </div>
           <Pricing />
         </div>
-      </section>
+      </section> */}
       {/* Brand Section Start */}
       <section className="brand-wrapper brand-1 style-3 section-padding">
         <div className="shape">

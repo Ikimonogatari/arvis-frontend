@@ -1,18 +1,20 @@
-"use client"
+"use client";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Counter from "@/components/Counter";
+import HomeServicesSlider from "@/components/HomeServicesSlider";
 import BrandSlider from "@/components/slider/BrandSlider";
 import CaseStudySlider from "@/components/slider/CaseStudySlider";
 import Testimonial from "@/components/slider/Testimonial";
 import { TeamMember2 } from "@/components/TeamMember";
+import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 import ZotechLayout from "@/layout/ZotechLayout";
-import HomeServicesSlider from "@/components/HomeServicesSlider";
 import Link from "next/link";
 import { Fragment } from "react";
-import { useSafeTranslations } from "@/hooks/useSafeTranslations";
+
 const page = () => {
-  const t = useSafeTranslations("home-aboutUs");
+  const t = useSafeTranslations("home");
+
   return (
     <Fragment>
       <ZotechLayout header={1} footer={1}>
@@ -31,28 +33,24 @@ const page = () => {
             <div className="row">
               <div className="col-xl-6 col-lg-6 col-md-12 col-12">
                 <div className="hero-content pe-xl-3 text-lg-start text-center ">
-                  <h1>Empowering Ideas with Technological Excellence</h1>
-                  <p>
-                    In today's competitive business, the demand for efficient
-                    and cost-effective IT solutions has never been more
-                    critical.
-                  </p>
+                  <h1>{t("hero.title")}</h1>
+                  <p>{t("hero.subtitle")}</p>
                   <div className="hero-button mt-4">
-                    <Link href="causes" className="theme-btn">
-                      Explore More
+                    <Link href="services" className="theme-btn">
+                      {t("hero.exploreMore")}
                     </Link>
                   </div>
                   <div className="feedback d-flex mt-xl-5">
                     <div className="infu">
                       <img src="assets/img/google.png" alt />
                       <p>
-                        <span>4.8</span>From&nbsp;799+&nbsp;reviews
+                        <span>4.8</span>{t("hero.rating")}
                       </p>
                     </div>
                     <div className="infu">
                       <img src="assets/img/rating.png" alt />
                       <p>
-                        <span>4.9</span>From&nbsp;200+&nbsp;reviews
+                        <span>4.9</span>{t("hero.satisfied")}
                       </p>
                     </div>
                   </div>
@@ -79,22 +77,22 @@ const page = () => {
               >
                 <div className="single-feature-item">
                   <div className="icon">
-                    <i className="flaticon-web-development" />
+                    <i className="flaticon-server" />
                   </div>
                   <h4>
                     <Link href="services-details">
-                      Custom Software Development
+                      {t("features.feature1.title")}
                     </Link>
                   </h4>
-                  <p>At Zotech, our mission is to you empower businesses.</p>
+                  <p>{t("features.feature1.description")}</p>
                   <ul>
                     <li>
                       <i className="fas fa-check-circle" />
-                      Career progression
+                      {t("features.feature1.list1")}
                     </li>
                     <li>
                       <i className="fas fa-check-circle" />
-                      Career progression
+                      {t("features.feature1.list2")}
                     </li>
                   </ul>
                 </div>
@@ -105,22 +103,22 @@ const page = () => {
               >
                 <div className="single-feature-item">
                   <div className="icon">
-                    <i className="flaticon-mobile-app" />
+                    <i className="flaticon-energy" />
                   </div>
                   <h4>
                     <Link href="services-details">
-                      Web and Mobile Development
+                      {t("features.feature2.title")}
                     </Link>
                   </h4>
-                  <p>At Zotech, our mission is to you empower businesses.</p>
+                  <p>{t("features.feature2.description")}</p>
                   <ul>
                     <li>
                       <i className="fas fa-check-circle" />
-                      Career progression
+                      {t("features.feature2.list1")}
                     </li>
                     <li>
                       <i className="fas fa-check-circle" />
-                      Career progression
+                      {t("features.feature2.list2")}
                     </li>
                   </ul>
                 </div>
@@ -131,22 +129,22 @@ const page = () => {
               >
                 <div className="single-feature-item">
                   <div className="icon">
-                    <i className="flaticon-cms" />
+                    <i className="flaticon-cyber-security" />
                   </div>
                   <h4>
                     <Link href="services-details">
-                      Business and IT Consultancy
+                      {t("features.feature3.title")}
                     </Link>
                   </h4>
-                  <p>At Zotech, our mission is to you empower businesses.</p>
+                  <p>{t("features.feature3.description")}</p>
                   <ul>
                     <li>
                       <i className="fas fa-check-circle" />
-                      Career progression
+                      {t("features.feature3.list1")}
                     </li>
                     <li>
                       <i className="fas fa-check-circle" />
-                      Career progression
+                      {t("features.feature3.list2")}
                     </li>
                   </ul>
                 </div>
@@ -157,20 +155,22 @@ const page = () => {
               >
                 <div className="single-feature-item">
                   <div className="icon">
-                    <i className="flaticon-graphic-design" />
+                    <i className="flaticon-settings" />
                   </div>
                   <h4>
-                    <Link href="services-details">Advance Tool and Design</Link>
+                    <Link href="services-details">
+                      {t("features.feature4.title")}
+                    </Link>
                   </h4>
-                  <p>At Zotech, our mission is to you empower businesses.</p>
+                  <p>{t("features.feature4.description")}</p>
                   <ul>
                     <li>
                       <i className="fas fa-check-circle" />
-                      Career progression
+                      {t("features.feature4.list1")}
                     </li>
                     <li>
                       <i className="fas fa-check-circle" />
-                      Career progression
+                      {t("features.feature4.list2")}
                     </li>
                   </ul>
                 </div>
@@ -208,18 +208,18 @@ const page = () => {
                 <div className="about-content mt-4 ms-xxl-4">
                   <div className="section-title">
                     <div className="sub-title">
-                      <span>{t("aboutUs")}</span>
+                      <span>{t("about.subTitle")}</span>
                     </div>
                     <h2 className="split-text right">
-                      {t("title")}
+                      {t("about.title")}
                     </h2>
                   </div>
                   <p>
-                    {t("description")}
+                    {t("about.description")}
                   </p>
                   <ul>
-                    {Array.isArray(t("statistics")) &&
-                      t("statistics").map((item, index) => (
+                    {Array.isArray(t("about.list")) &&
+                      t("about.list").map((item, index) => (
                         <li key={index}>
                           <i className="fas fa-check-circle" />
                           {item}
@@ -228,13 +228,13 @@ const page = () => {
                   </ul>
 
                   <div className="about-infu">
-                    <a href className="theme-btn black-btn">
-                      {t("moreAboutUs")}
-                    </a>
+                    <Link href="about" className="theme-btn black-btn">
+                      {t("about.moreAboutUs")}
+                    </Link>
                     <div className="contact-us">
                       <img src="assets/img/about/03.png" alt />
                       <div className="text">
-                        <span>{t("callToAsk")}</span>
+                        <span>{t("about.callToAsk")}</span>
                         <h4>+976-75750077</h4>
                       </div>
                     </div>
@@ -245,13 +245,7 @@ const page = () => {
           </div>
         </section>
         {/* Service Section Start */}
-        <section className=
-        
-        
-        
-        
-        
-        "service-wrapper service-1 section-bg section-padding">
+        <section className="service-wrapper service-1 section-bg section-padding">
           <div className="shapes">
             <img className="shape-1" src="assets/img/shape/shape-1.png" alt />
             <img className="shape-2" src="assets/img/world.png" alt />
@@ -266,16 +260,15 @@ const page = () => {
                   <div className="countbox">
                     <h3>
                       <span className="count">
-                        <Counter end={24} />
+                        <Counter end={10} />
                       </span>
                       +
                     </h3>
-                    <p>Years of Experience</p>
+                    <p>{t("services.yearsExperience")}</p>
                   </div>
                   <div className="section-title mt-4">
                     <h2 className="split-text left">
-                      We run all kinds of&nbsp;IT <br /> services&nbsp;that vow
-                      your success
+                      {t("services.title")}
                     </h2>
                   </div>
                 </div>
@@ -285,8 +278,7 @@ const page = () => {
                 >
                   <div className="title">
                     <h3>
-                      Accelerate innovation with world-class tech teams We’ll
-                      match you to an entire remote technology
+                      {t("services.description")}
                     </h3>
                   </div>
                   <div className="progress-items">
@@ -297,7 +289,7 @@ const page = () => {
                       />
                     </div>
                     <div className="point">
-                      <p>IT Management</p>
+                      <p>{t("services.progress1")}</p>
                       <span>86%</span>
                     </div>
                   </div>
@@ -309,7 +301,7 @@ const page = () => {
                       />
                     </div>
                     <div className="point">
-                      <p>Data Security</p>
+                      <p>{t("services.progress2")}</p>
                       <span>90%</span>
                     </div>
                   </div>
@@ -329,30 +321,25 @@ const page = () => {
             <div className="about-content wow fadeInUp" data-wow-delay="300ms">
               <div className="section-title text-center">
                 <div className="sub-title sub-title2">
-                  <span className="text-white">ABOUT OUR COMPANY</span>
+                  <span className="text-white">{t("about2.subTitle")}</span>
                 </div>
                 <h2 className="text-white split-text right">
-                  Technological Applications <br /> Play a Role in Improving Our{" "}
-                  <br />
-                  Community
+                  {t("about2.title")}
                 </h2>
               </div>
               <p className="text-center">
-                In today's competitive business, the demand for efficient and
-                cost-
-                <br />
-                effective IT solutions has never been more critical.
+                {t("about2.description")}
               </p>
               <div className="infu text-center d-flex align-items-center justify-content-center">
                 <Link href="about" className="theme-btn">
-                  Get Started Now
+                  {t("about2.getStarted")}
                 </Link>
                 <div className="contact-us d-flex ">
                   <a href>
                     <i className="fal fa-envelope" />
                   </a>
                   <div className="text text-start">
-                    <span>Our Gmail</span>
+                    <span>{t("about2.emailUs")}</span>
                     <h4>info@arvisys.com</h4>
                   </div>
                 </div>
@@ -385,37 +372,32 @@ const page = () => {
                 <div className="choose-us-content ms-xl-4 ps-xl-1">
                   <div className="section-title">
                     <div className="sub-title">
-                      <span>WHY CHOOSE US</span>
+                      <span>{t("chooseUs.subTitle")}</span>
                     </div>
                     <h2 className="split-text right">
-                      We provide truly prominent IT solutions for your success
+                      {t("chooseUs.title")}
                     </h2>
                   </div>
                   <p className="mt-4 pe-xl-5 me-xl-3 text-center text-md-start">
-                    Zotech is the partner of choice for many of the world’s
-                    leading enterprises, SMEs and technology challengers. We
-                    help businesses elevate their value through custom software
-                    development, product design, QA and consultancy services.
+                    {t("chooseUs.description")}
                   </p>
                   <div className="icon-box d-flex mt-4 pt-3 text-center text-md-start">
                     <div className="single-icon-box">
                       <div className="icon">
                         <i className="flaticon-world" />
                       </div>
-                      <h4>Global Company</h4>
+                      <h4>{t("chooseUs.box1Title")}</h4>
                       <p>
-                        Our great team of more than to 1400 software experts
-                        member.
+                        {t("chooseUs.box1Desc")}
                       </p>
                     </div>
                     <div className="single-icon-box">
                       <div className="icon">
                         <i className="flaticon-medal-1" />
                       </div>
-                      <h4>Award Wining</h4>
+                      <h4>{t("chooseUs.box2Title")}</h4>
                       <p>
-                        Our great team of more than to 1400 software experts
-                        member.
+                        {t("chooseUs.box2Desc")}
                       </p>
                     </div>
                   </div>
@@ -427,16 +409,16 @@ const page = () => {
                         </span>
                         %
                       </h2>
-                      <p>Successful Clients</p>
+                      <p>{t("chooseUs.count1")}</p>
                     </div>
                     <div className="single-count">
                       <h2>
                         <span className="count">
-                          <Counter end={6795} />
+                          <Counter end={50} />
                         </span>
                         +
                       </h2>
-                      <p>Completed Projects</p>
+                      <p>{t("chooseUs.count2")}</p>
                     </div>
                   </div>
                 </div>
@@ -464,13 +446,12 @@ const page = () => {
             <div className="section-title-area">
               <div className="section-title ">
                 <div className="sub-title">
-                  <span>LATEST CASE STUDY</span>
+                  <span>{t("caseStudy.subTitle")}</span>
                 </div>
-                <h2 className="split-text left">Introduce Our Projects</h2>
+                <h2 className="split-text left">{t("caseStudy.title")}</h2>
               </div>
               <p className="text-center text-md-start">
-                SMEs and technology challengers. We help businesses elevate
-                <br /> their value through custom software development
+                {t("caseStudy.description")}
               </p>
             </div>
           </div>
@@ -487,12 +468,11 @@ const page = () => {
           <div className="container ">
             <div className="section-title text-center">
               <div className="sub-title">
-                <span>OUR TESTIMONIAL</span>
+                <span>{t("testimonials.subTitle")}</span>
               </div>
-              <h2 className="split-text left">What our clients say about us</h2>
+              <h2 className="split-text left">{t("testimonials.title")}</h2>
               <p>
-                Accelerate innovation with world-class tech teams We’ll match{" "}
-                <br /> you to an entire remote team of incredible
+                {t("testimonials.description")}
               </p>
             </div>
             <div className="testimonial-inner overflow-hidden">
@@ -523,10 +503,10 @@ const page = () => {
           <div className="container">
             <div className="section-title text-center">
               <div className="sub-title sub-title2">
-                <span className="text-white">WORKING PROCESS</span>
+                <span className="text-white">{t("process.subTitle")}</span>
               </div>
               <h2 className="text-white split-text left">
-                Get your it solutions in 3 <br /> easy steps
+                {t("process.title")}
               </h2>
             </div>
             <div className="process-items d-grid justify-content-between">
@@ -538,11 +518,9 @@ const page = () => {
                 <div className="image">
                   <img src="assets/img/process/01.jpg" alt />
                 </div>
-                <h4>Understanding Story</h4>
+                <h4>{t("process.step1Title")}</h4>
                 <p>
-                  We help businesses achieve strategic technology
-                  transformation, minimising the totality of their end-to-end
-                  business
+                  {t("process.step1Desc")}
                 </p>
               </div>
               <div
@@ -553,11 +531,9 @@ const page = () => {
                 <div className="image">
                   <img src="assets/img/process/02.jpg" alt />
                 </div>
-                <h4>Start Working</h4>
+                <h4>{t("process.step2Title")}</h4>
                 <p>
-                  We help businesses achieve strategic technology
-                  transformation, minimising the totality of their end-to-end
-                  business
+                  {t("process.step2Desc")}
                 </p>
               </div>
               <div
@@ -568,11 +544,9 @@ const page = () => {
                 <div className="image">
                   <img src="assets/img/process/03.jpg" alt />
                 </div>
-                <h4>Review &amp; Fixing</h4>
+                <h4>{t("process.step3Title")}</h4>
                 <p>
-                  We help businesses achieve strategic technology
-                  transformation, minimising the totality of their end-to-end
-                  business
+                  {t("process.step3Desc")}
                 </p>
               </div>
             </div>
@@ -619,14 +593,14 @@ const page = () => {
                 <div className="col-xl-6 col-lg-6 col-12">
                   <div className="section-title">
                     <div className="sub-title sub-title2">
-                      <span className="text-white">START WITH US</span>
+                      <span className="text-white">{t("cta.subTitle")}</span>
                     </div>
                     <h2 className="text-white">
-                      We’re Delivering Best Customer Experience
+                      {t("cta.title")}
                     </h2>
                   </div>
-                  <Link href="about" className="theme-btn mt-4">
-                    Get Started Now
+                  <Link href="contact" className="theme-btn mt-4">
+                    {t("cta.button")}
                   </Link>
                 </div>
                 <div className="col-xl-6 col-lg-6 col-12">

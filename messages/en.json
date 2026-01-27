@@ -457,6 +457,104 @@
       "government": "Government",
       "other": "Other"
     }
+  },
+  "home": {
+    "hero": {
+      "title": "Turnkey IT Infrastructure & Engineering Solutions",
+      "subtitle": "From data centers to security systems, we deliver end-to-end solutions designed, installed, and supported to international standards.",
+      "exploreMore": "Explore Solutions",
+      "rating": "From 50+ Projects",
+      "satisfied": "100% Satisfaction"
+    },
+    "features": {
+      "feature1": {
+        "title": "Data Center Solutions",
+        "description": "Turnkey design and build for server rooms and data centers.",
+        "list1": "Capacity Sizing",
+        "list2": "Cooling & Power"
+      },
+      "feature2": {
+        "title": "Power & Cooling",
+        "description": "Reliable UPS, power protection, and industrial cooling systems.",
+        "list1": "Runtime Calculation",
+        "list2": "Energy Efficiency"
+      },
+      "feature3": {
+        "title": "Network & Security",
+        "description": "High-performance networking and comprehensive IT security.",
+        "list1": "Secure Design",
+        "list2": "Threat Prevention"
+      },
+      "feature4": {
+        "title": "Infrastructure & CCTV",
+        "description": "Structured cabling and advanced surveillance systems.",
+        "list1": "Certified Cabling",
+        "list2": "Remote Monitoring"
+      }
+    },
+    "about": {
+      "subTitle": "ABOUT ARVISYS",
+      "title": "Engineering Excellence in IT Infrastructure",
+      "description": "We specialize in providing comprehensive engineering solutions for information technology, telecommunications, and power supply. Our turnkey approach ensures that every project—from design to handover—meets rigorous international standards and your specific business needs.",
+      "list": [
+        "Certified Engineering Team",
+        "International Standards",
+        "End-to-End Support",
+        "Proven Track Record"
+      ],
+      "moreAboutUs": "More About Us",
+      "callToAsk": "Call for inquiries"
+    },
+    "services": {
+      "yearsExperience": "Years of Excellence",
+      "title": "Comprehensive IT Services for Your Business Success",
+      "description": "Accelerate your infrastructure reliability with our world-class engineering team.",
+      "progress1": "IT Infrastructure",
+      "progress2": "System Security"
+    },
+    "about2": {
+      "subTitle": "OUR MISSION",
+      "title": "Technological Solutions for a Safer, More Efficient Future",
+      "description": "In a rapidly evolving digital landscape, we provide the robust foundation your business needs to operate securely and efficiently.",
+      "getStarted": "Get Started Now",
+      "emailUs": "Email Us"
+    },
+    "chooseUs": {
+      "subTitle": "WHY CHOOSE US",
+      "title": "Prominent IT Solutions Built on Reliability",
+      "description": "Arvisys is the partner of choice for enterprises requiring mission-critical infrastructure. We elevate your business value through precise engineering, quality installation, and dedicated support.",
+      "box1Title": "Turnkey Solutions",
+      "box1Desc": "Complete project lifecycle handling from design to commission.",
+      "box2Title": "Expert Team",
+      "box2Desc": "Highly qualified engineers delivering standard-compliant results.",
+      "count1": "Successful Projects",
+      "count2": "Happy Clients"
+    },
+    "caseStudy": {
+      "subTitle": "LATEST PROJECTS",
+      "title": "Our Recent Implementations",
+      "description": "See how we've helped businesses upgrade their infrastructure with modern, reliable solutions."
+    },
+    "process": {
+      "subTitle": "WORKING PROCESS",
+      "title": "Your Solution in 3 Easy Steps",
+      "step1Title": "Assessment & Design",
+      "step1Desc": "We analyze your requirements and design a tailored solution that meets industry standards.",
+      "step2Title": "Implementation",
+      "step2Desc": "Professional installation and configuration by our certified engineering team.",
+      "step3Title": "Testing & Support",
+      "step3Desc": "Rigorous testing, commissioning, handover, and ongoing maintenance support."
+    },
+    "testimonials": {
+      "subTitle": "OUR TESTIMONIALS",
+      "title": "What our clients say",
+      "description": "Trusted by major organizations for critical infrastructure projects."
+    },
+    "cta": {
+      "subTitle": "START WITH US",
+      "title": "Building the Future of Your IT Infrastructure",
+      "button": "Get Started Now"
+    }
   }
 }
 
