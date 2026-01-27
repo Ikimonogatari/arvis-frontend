@@ -5,7 +5,7 @@ import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useGetArticleByIdQuery } from "@/lib/api/articlesApi";
+import { useGetArticleByIdQuery } from "@/lib/api/directusApi";
 
 const BlogDetailsContent = () => {
   const searchParams = useSearchParams();

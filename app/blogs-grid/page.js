@@ -3,7 +3,7 @@
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import Link from "next/link";
-import { useGetArticlesQuery } from "@/lib/api/articlesApi";
+import { useGetArticlesQuery } from "@/lib/api/directusApi";
 
 const page = () => {
   const { data: articles, error, isLoading } = useGetArticlesQuery();

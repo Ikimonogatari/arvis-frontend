@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useGetTeamMembersQuery } from "@/lib/api/articlesApi";
+import { useGetTeamMembersQuery } from "@/lib/api/directusApi";
 
 const TeamMember = () => {
   const { data: teamMembers, error, isLoading } = useGetTeamMembersQuery();

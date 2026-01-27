@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useGetArticlesQuery } from "@/lib/api/articlesApi";
+import { useGetArticlesQuery } from "@/lib/api/directusApi";
 
 const Blog = ({
   wrapperClass = "blog-wrapper blog-1 section-padding section-bg about-page-blog",

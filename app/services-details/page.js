@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
 import WorkingProcess from "@/components/WorkingProcess";
 import ZotechLayout from "@/layout/ZotechLayout";
-import { useGetServiceByIdQuery } from "@/lib/api/articlesApi";
+import { useGetServiceByIdQuery } from "@/lib/api/directusApi";
 
 const ServiceDetailsContent = () => {
   const searchParams = useSearchParams();

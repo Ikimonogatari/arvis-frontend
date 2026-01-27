@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
-import { useGetProjectByIdQuery } from "@/lib/api/articlesApi";
+import { useGetProjectByIdQuery } from "@/lib/api/directusApi";
 
 const ProjectDetailsContent = () => {
   const searchParams = useSearchParams();

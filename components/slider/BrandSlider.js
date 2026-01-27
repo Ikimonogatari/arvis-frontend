@@ -1,7 +1,7 @@
 "use client";
 import { sliderProps } from "@/utility/sliderProps";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useGetPartnersQuery } from "@/lib/api/articlesApi";
+import { useGetPartnersQuery } from "@/lib/api/directusApi";
 
 const BrandSlider = () => {
   const { data: partners, error, isLoading } = useGetPartnersQuery();

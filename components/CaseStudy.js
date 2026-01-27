@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Nav, Tab } from "react-bootstrap";
-import { useGetProjectsQuery } from "@/lib/api/articlesApi";
+import { useGetProjectsQuery } from "@/lib/api/directusApi";
 
 const CaseStudy = ({
   wrapperClass = "case-study-wrapper case-study-2  section-padding pb-0",

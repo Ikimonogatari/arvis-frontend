@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
-import { useGetTeamMemberByIdQuery } from "@/lib/api/articlesApi";
+import { useGetTeamMemberByIdQuery } from "@/lib/api/directusApi";
 
 const TeamDetailsContent = () => {
   const t = useSafeTranslations("footer");

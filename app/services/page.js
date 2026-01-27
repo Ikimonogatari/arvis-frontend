@@ -5,7 +5,7 @@ import Pricing from "@/components/Pricing";
 import WorkingProcess from "@/components/WorkingProcess";
 import ZotechLayout from "@/layout/ZotechLayout";
 import Link from "next/link";
-import { useGetServicesQuery } from "@/lib/api/articlesApi";
+import { useGetServicesQuery } from "@/lib/api/directusApi";
 
 const page = () => {
   const { data: services, error, isLoading } = useGetServicesQuery();

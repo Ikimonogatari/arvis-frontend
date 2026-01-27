@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
-import { useGetServicesQuery } from "@/lib/api/articlesApi";
+import { useGetServicesQuery } from "@/lib/api/directusApi";
 
 const HomeServicesSlider = () => {
   const t = useSafeTranslations("services");

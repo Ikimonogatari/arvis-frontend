@@ -3,7 +3,7 @@
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import Link from "next/link";
-import { useGetTeamMembersQuery } from "@/lib/api/articlesApi";
+import { useGetTeamMembersQuery } from "@/lib/api/directusApi";
 
 const page = () => {
   const { data: teamMembers, error, isLoading } = useGetTeamMembersQuery();

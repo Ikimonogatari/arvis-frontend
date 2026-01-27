@@ -2,7 +2,7 @@
 import { sliderProps } from "@/utility/sliderProps";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useGetProjectsQuery } from "@/lib/api/articlesApi";
+import { useGetProjectsQuery } from "@/lib/api/directusApi";
 
 const CaseStudySlider = () => {
   // Fetch projects from GraphQL API

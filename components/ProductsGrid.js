@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetProductsQuery } from "@/lib/api/articlesApi";
+import { useGetProductsQuery } from "@/lib/api/directusApi";
 import Link from "next/link";
 
 const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
