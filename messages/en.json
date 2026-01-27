@@ -555,6 +555,13 @@
       "title": "Building the Future of Your IT Infrastructure",
       "button": "Get Started Now"
     }
+  },
+  "team": {
+    "subTitle": "OUR TEAM MEMBER",
+    "title": "Meet with Our Expert",
+    "description": "Accelerate innovation with world-class tech teams We'll match you to an entire remote team of incredible freelance.",
+    "noMembers": "No team members found.",
+    "defaultRole": "Team Member"
   }
 }
 
