@@ -347,7 +347,7 @@ const Menu = () => {
           </li>
           <li>
             <a href="#">
-              {t("newsResources")}
+              {t("newsEvents")}
               <i className="fas fa-angle-down" />
             </a>
             <ul className="submenu">
@@ -356,6 +356,12 @@ const Menu = () => {
               </li>
               <li>
                 <Link href="/blog-news">{t("menu.blogNews")}</Link>
+              </li>
+              <li>
+                <Link href="/events-grid">{t("menu.eventsGrid")}</Link>
+              </li>
+              <li>
+                <Link href="/events-news">{t("menu.eventsNews")}</Link>
               </li>
             </ul>
           </li>
@@ -458,28 +464,32 @@ const MobileMenu = () => {
                         <Link href="/eshop">{t("eshop")}</Link>
                       </li>
                       <li>
-                        <a
-                          href="#"
-                          onClick={() => activeMenuSet("NewsResources")}
-                        >
-                          {t("newsResources")}
+                        <a href="#" onClick={() => activeMenuSet("NewsEvents")}>
+                          {t("newsEvents")}
                           <i className="fas fa-angle-down" />
                         </a>
-                        <ul
-                          className="submenu"
-                          style={activeLi("NewsResources")}
-                        >
+                        <ul className="submenu" style={activeLi("NewsEvents")}>
                           <li>
                             <Link href="/blogs-grid">{t("menu.blogGrid")}</Link>
                           </li>
                           <li>
                             <Link href="/blog-news">{t("menu.blogNews")}</Link>
                           </li>
+                          <li>
+                            <Link href="/events-grid">
+                              {t("menu.eventsGrid")}
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/events-news">
+                              {t("menu.eventsNews")}
+                            </Link>
+                          </li>
                         </ul>
                         <a
                           className="mean-expand"
                           href="#"
-                          onClick={() => activeMenuSet("NewsResources")}
+                          onClick={() => activeMenuSet("NewsEvents")}
                         >
                           <i className="far fa-plus" />
                         </a>

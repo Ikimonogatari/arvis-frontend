@@ -72,6 +72,7 @@
     "projects": "Projects",
     "eshop": "E-shop",
     "newsResources": "News & Resources",
+    "newsEvents": "News & Events",
     "contact": "Contact Us",
     "requestQuote": "Request a Quote",
     "pages": "Pages",
@@ -97,6 +98,9 @@
       "blogGrid": "Blog Grid",
       "blogNews": "Blog & News",
       "blogDetails": "Blog Details",
+      "eventsGrid": "Events Grid",
+      "eventsNews": "Events & News",
+      "eventsDetails": "Event Details",
       "home01": "Home 01",
       "home02": "Home 02",
       "home03": "Home 03",
@@ -382,7 +386,7 @@
     }
   },
   "home-aboutUs": {
-    "aboutUs":"About Us",
+    "aboutUs": "About Us",
     "title": "Bringing technological advancements to your business",
     "description": "Since 20XX, our company has been offering engineering solutions in sectors such as information technology, telecommunications, and power supply. We provide comprehensive, turnkey solutions that fully meet the needs and requirements of our customers, adhering to international standards. Our services include design, installation, and maintenance, all performed with the highest quality standards.",
     "statistics": [
@@ -392,7 +396,7 @@
       "100% Customer satisfaction"
     ],
     "moreAboutUs": "More About Us",
-    "callToAsk": "Call to ask any question"    
+    "callToAsk": "Call to ask any question"
   },
   "breadcrumb": {
     "About Company": "About Company",
@@ -564,4 +568,3 @@
     "defaultRole": "Team Member"
   }
 }
-

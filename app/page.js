@@ -2,11 +2,12 @@
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Counter from "@/components/Counter";
+import HeroArticleSlider from "@/components/HeroArticleSlider";
 import HomeServicesSlider from "@/components/HomeServicesSlider";
+import { TeamMember2 } from "@/components/TeamMember";
 import BrandSlider from "@/components/slider/BrandSlider";
 import CaseStudySlider from "@/components/slider/CaseStudySlider";
 import Testimonial from "@/components/slider/Testimonial";
-import { TeamMember2 } from "@/components/TeamMember";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 import ZotechLayout from "@/layout/ZotechLayout";
 import Link from "next/link";
@@ -18,55 +19,8 @@ const page = () => {
   return (
     <Fragment>
       <ZotechLayout header={1} footer={1}>
-        {/* Hero Section Start */}
-        <section className="hero-wrapper hero-1 mx-xl-5">
-          <div className="shape">
-            <img className="shape-1" src="assets/img/world.png" alt />
-          </div>
-          <div
-            className="hero-bg bg-cover"
-            style={{
-              backgroundImage: 'url("assets/img/hero/hero-1-1-bg.png")',
-            }}
-          ></div>
-          <div className="container">
-            <div className="row">
-              <div className="col-xl-6 col-lg-6 col-md-12 col-12">
-                <div className="hero-content pe-xl-3 text-lg-start text-center ">
-                  <h1>{t("hero.title")}</h1>
-                  <p>{t("hero.subtitle")}</p>
-                  <div className="hero-button mt-4">
-                    <Link href="services" className="theme-btn">
-                      {t("hero.exploreMore")}
-                    </Link>
-                  </div>
-                  <div className="feedback d-flex mt-xl-5">
-                    <div className="infu">
-                      <img src="assets/img/google.png" alt />
-                      <p>
-                        <span>4.8</span>{t("hero.rating")}
-                      </p>
-                    </div>
-                    <div className="infu">
-                      <img src="assets/img/rating.png" alt />
-                      <p>
-                        <span>4.9</span>{t("hero.satisfied")}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-xl-6 col-lg-6 col-md-12 col-12  wow fadeInUp"
-                data-wow-delay="300ms"
-              >
-                <div className="hero-image">
-                  <img src="assets/img/hero/hero-1.png" alt />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Hero Section Start - Swipeable Articles */}
+        <HeroArticleSlider />
         {/* features Section Start */}
         <section className="features-wrapper features-1">
           <div className="container">
@@ -210,13 +164,9 @@ const page = () => {
                     <div className="sub-title">
                       <span>{t("about.subTitle")}</span>
                     </div>
-                    <h2 className="split-text right">
-                      {t("about.title")}
-                    </h2>
+                    <h2 className="split-text right">{t("about.title")}</h2>
                   </div>
-                  <p>
-                    {t("about.description")}
-                  </p>
+                  <p>{t("about.description")}</p>
                   <ul>
                     {Array.isArray(t("about.list")) &&
                       t("about.list").map((item, index) => (
@@ -267,9 +217,7 @@ const page = () => {
                     <p>{t("services.yearsExperience")}</p>
                   </div>
                   <div className="section-title mt-4">
-                    <h2 className="split-text left">
-                      {t("services.title")}
-                    </h2>
+                    <h2 className="split-text left">{t("services.title")}</h2>
                   </div>
                 </div>
                 <div
@@ -277,9 +225,7 @@ const page = () => {
                   data-wow-delay="300ms"
                 >
                   <div className="title">
-                    <h3>
-                      {t("services.description")}
-                    </h3>
+                    <h3>{t("services.description")}</h3>
                   </div>
                   <div className="progress-items">
                     <div className="progress">
@@ -327,9 +273,7 @@ const page = () => {
                   {t("about2.title")}
                 </h2>
               </div>
-              <p className="text-center">
-                {t("about2.description")}
-              </p>
+              <p className="text-center">{t("about2.description")}</p>
               <div className="infu text-center d-flex align-items-center justify-content-center">
                 <Link href="about" className="theme-btn">
                   {t("about2.getStarted")}
@@ -374,9 +318,7 @@ const page = () => {
                     <div className="sub-title">
                       <span>{t("chooseUs.subTitle")}</span>
                     </div>
-                    <h2 className="split-text right">
-                      {t("chooseUs.title")}
-                    </h2>
+                    <h2 className="split-text right">{t("chooseUs.title")}</h2>
                   </div>
                   <p className="mt-4 pe-xl-5 me-xl-3 text-center text-md-start">
                     {t("chooseUs.description")}
@@ -387,18 +329,14 @@ const page = () => {
                         <i className="flaticon-world" />
                       </div>
                       <h4>{t("chooseUs.box1Title")}</h4>
-                      <p>
-                        {t("chooseUs.box1Desc")}
-                      </p>
+                      <p>{t("chooseUs.box1Desc")}</p>
                     </div>
                     <div className="single-icon-box">
                       <div className="icon">
                         <i className="flaticon-medal-1" />
                       </div>
                       <h4>{t("chooseUs.box2Title")}</h4>
-                      <p>
-                        {t("chooseUs.box2Desc")}
-                      </p>
+                      <p>{t("chooseUs.box2Desc")}</p>
                     </div>
                   </div>
                   <div className="count-box">
@@ -471,9 +409,7 @@ const page = () => {
                 <span>{t("testimonials.subTitle")}</span>
               </div>
               <h2 className="split-text left">{t("testimonials.title")}</h2>
-              <p>
-                {t("testimonials.description")}
-              </p>
+              <p>{t("testimonials.description")}</p>
             </div>
             <div className="testimonial-inner overflow-hidden">
               <Testimonial />
@@ -519,9 +455,7 @@ const page = () => {
                   <img src="assets/img/process/01.jpg" alt />
                 </div>
                 <h4>{t("process.step1Title")}</h4>
-                <p>
-                  {t("process.step1Desc")}
-                </p>
+                <p>{t("process.step1Desc")}</p>
               </div>
               <div
                 className="single-process-item text-center wow fadeInUp"
@@ -532,9 +466,7 @@ const page = () => {
                   <img src="assets/img/process/02.jpg" alt />
                 </div>
                 <h4>{t("process.step2Title")}</h4>
-                <p>
-                  {t("process.step2Desc")}
-                </p>
+                <p>{t("process.step2Desc")}</p>
               </div>
               <div
                 className="single-process-item text-center mt-xxl-5 pt-xxl-4 wow fadeInUp"
@@ -545,9 +477,7 @@ const page = () => {
                   <img src="assets/img/process/03.jpg" alt />
                 </div>
                 <h4>{t("process.step3Title")}</h4>
-                <p>
-                  {t("process.step3Desc")}
-                </p>
+                <p>{t("process.step3Desc")}</p>
               </div>
             </div>
           </div>
@@ -574,44 +504,6 @@ const page = () => {
         <Contact wrapperClass="contact-us-wrapper contact-us-1 section-padding" />
         {/* Blog Section Start */}
         <Blog wrapperClass="blog-wrapper blog-1 section-padding section-bg" />
-        {/* Cta Section Start */}
-        <section className="cta-wrapper cta-1">
-          <div className="container">
-            <div
-              className="cta-inner bg-cover wow fadeInUp"
-              data-wow-delay="300ms"
-            >
-              <div className="shape">
-                <img
-                  className="shape-1"
-                  src="assets/img/cta/cta-shape-1.png"
-                  alt
-                />
-                <img className="shape-2" src="assets/img/world.png" alt />
-              </div>
-              <div className="row align-items-center">
-                <div className="col-xl-6 col-lg-6 col-12">
-                  <div className="section-title">
-                    <div className="sub-title sub-title2">
-                      <span className="text-white">{t("cta.subTitle")}</span>
-                    </div>
-                    <h2 className="text-white">
-                      {t("cta.title")}
-                    </h2>
-                  </div>
-                  <Link href="contact" className="theme-btn mt-4">
-                    {t("cta.button")}
-                  </Link>
-                </div>
-                <div className="col-xl-6 col-lg-6 col-12">
-                  <div className="images">
-                    <img src="assets/img/cta/cta-1.png" alt />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </ZotechLayout>
     </Fragment>
   );
