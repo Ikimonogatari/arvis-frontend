@@ -36,7 +36,7 @@ const Preloader = () => {
         <div className="spinner"></div>
         <div className="logo-loading-wrapper">
           <img
-            src="assets/img/logo/white-logo.png"
+            src="assets/img/arvis-logo.png"
             alt="Arvis Systems Logo"
             className="logo-loading"
           />
