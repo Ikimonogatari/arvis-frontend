@@ -1,27 +1,25 @@
 :root {
-    --body: #fff;
-    --black: #000;
-    --black-2: #020842;
-    --white: #fff;
-    --white-2: #EAF0FF;
-    --white-3: rgba(255, 255, 255, 0.75);
-    --theme: #0066CC;
-    --theme-2: #004499;
-    --theme-3: #0E1449;
-    --theme-4: #A347FF;
-    --theme-5: #ff0404;
-    --header: #000D27;
-    --base: #C7D31C;
-    --text: #49515B;
-    --text-2: #636D6C;
-    --border: rgba(255, 255, 255, 0.12);
-    --border-2: rgba(4, 11, 41, 0.17);
-    --ratting: #F8BC26;
-    --bg: #F3F8FF;
+  --body: #fff;
+  --black: #000;
+  --black-2: #003396;
+  --white: #fff;
+  --white-2: #eaf0ff;
+  --white-3: rgba(255, 255, 255, 0.75);
+  --theme: #0066cc;
+  --theme-2: #004499;
+  --theme-3: #0e1449;
+  --theme-4: #a347ff;
+  --theme-5: #003396;
+  --header: #000d27;
+  --base: #c7d31c;
+  --text: #49515b;
+  --text-2: #636d6c;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-2: rgba(4, 11, 41, 0.17);
+  --ratting: #f8bc26;
+  --bg: #f3f8ff;
 
-
-    ---box-shadow: 11px 15px 79.9px 48px rgba(10, 6, 68, 0.05);
-
+  ---box-shadow: 11px 15px 79.9px 48px rgba(10, 6, 68, 0.05);
 }
 
 // Theme Color - Defualt Colors

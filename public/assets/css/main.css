@@ -11,15 +11,15 @@ Version: 1.0.0
 :root {
   --body: #fff;
   --black: #000;
-  --black-2: #020842;
+  --black-2: #003396;
   --white: #fff;
   --white-2: #eaf0ff;
   --white-3: rgba(255, 255, 255, 0.75);
-  --theme: #0066CC;
+  --theme: #0066cc;
   --theme-2: #004499;
   --theme-3: #0e1449;
   --theme-4: #a347ff;
-  --theme-5: #ff0404;
+  --theme-5: #003396;
   --header: #000d27;
   --base: #c7d31c;
   --text: #49515b;
@@ -299,7 +299,11 @@ p {
   }
 }
 .preloader .animation-preloader .txt-loading {
-  font: bold 5em "Montserrat", serif, "DM Sans", sans-serif;
+  font:
+    bold 5em "Montserrat",
+    serif,
+    "DM Sans",
+    sans-serif;
   text-align: center;
   user-select: none;
 }
@@ -321,7 +325,10 @@ p {
 .preloader .animation-preloader .txt-loading .letters-loading.letter-rvis {
   color: var(--theme-5);
 }
-.preloader .animation-preloader .txt-loading .letters-loading.letter-rvis::before {
+.preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading.letter-rvis::before {
   color: var(--theme-5);
 }
 .preloader
@@ -575,12 +582,21 @@ input.main-search-input::placeholder {
   height: 6px;
   z-index: 10000001;
   background-color: var(--theme-2);
-  -webkit-transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
-    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  -o-transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
-    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
-    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  -webkit-transition:
+    width 0.3s ease-in-out,
+    height 0.3s ease-in-out,
+    margin 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  -o-transition:
+    width 0.3s ease-in-out,
+    height 0.3s ease-in-out,
+    margin 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  transition:
+    width 0.3s ease-in-out,
+    height 0.3s ease-in-out,
+    margin 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
 }
 
 .cursor-inner.cursor-hover {
@@ -627,7 +643,7 @@ input.main-search-input::placeholder {
   background: linear-gradient(
     84deg,
     rgba(0, 102, 204, 0.12) 0%,
-    rgba(255, 4, 4, 0.12) 100%
+    rgba(0, 51, 150, 0.12) 100%
   );
   margin-bottom: 15px;
   border-radius: 4px;
@@ -636,7 +652,7 @@ input.main-search-input::placeholder {
   background: linear-gradient(
     84deg,
     rgba(0, 102, 204, 0.12) 0%,
-    rgba(255, 4, 4, 0.12) 100%
+    rgba(0, 51, 150, 0.12) 100%
   );
 }
 .section-title .sub-title.white-sub-title {
@@ -647,7 +663,7 @@ input.main-search-input::placeholder {
   font-weight: 600;
   line-height: 22px;
   letter-spacing: 0.26px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -1348,7 +1364,7 @@ input.main-search-input::placeholder {
 }
 .topbar.style-2 {
   background-color: var(--white);
-  border: 1px solid rgba(2, 8, 66, 0.13);
+  border: 1px solid rgba(0, 51, 150, 0.13);
 }
 @media (max-width: 1399px) {
   .topbar.style-2 {
@@ -1400,7 +1416,7 @@ input.main-search-input::placeholder {
   content: "";
   height: 50px;
   width: 2px;
-  background: rgba(2, 8, 66, 0.13);
+  background: rgba(0, 51, 150, 0.13);
   left: -30px;
   right: auto;
   top: 50%;
@@ -1779,7 +1795,7 @@ input.main-search-input::placeholder {
 .header-2.style-3 .header-main .search-icon::after {
   height: 80px;
   width: 2px;
-  background: rgba(2, 8, 66, 0.13);
+  background: rgba(0, 51, 150, 0.13);
 }
 .header-2.style-3 .header-main .has-homemenu {
   left: 0;
@@ -1886,9 +1902,15 @@ input.main-search-input::placeholder {
   -ms-transform: translateX(calc(100% + 80px));
   -o-transform: translateX(calc(100% + 80px));
   transform: translateX(calc(100% + 80px));
-  -webkit-transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out;
-  -moz-transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out;
-  transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out;
+  -webkit-transition:
+    transform 0.45s ease-in-out,
+    opacity 0.45s ease-in-out;
+  -moz-transition:
+    transform 0.45s ease-in-out,
+    opacity 0.45s ease-in-out;
+  transition:
+    transform 0.45s ease-in-out,
+    opacity 0.45s ease-in-out;
   z-index: 99999;
   overflow-y: scroll;
   overscroll-behavior-y: contain;
@@ -2036,7 +2058,7 @@ input.main-search-input::placeholder {
   background: linear-gradient(
     89deg,
     rgba(0, 102, 204, 0.75) 15.79%,
-    rgba(255, 4, 4, 0.75) 91.12%
+    rgba(0, 51, 150, 0.75) 91.12%
   );
   z-index: -1;
 }
@@ -2612,7 +2634,7 @@ input.main-search-input::placeholder {
   width: 100%;
   height: 100%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 0 rgba(255, 4, 4, 0.4);
+  box-shadow: 0 0 0 0 rgba(0, 51, 150, 0.4);
   animation: popupVideo 3s infinite;
   border-radius: 50%;
 }
@@ -2913,7 +2935,7 @@ input.main-search-input::placeholder {
   border-radius: 12px;
   background: var(--white);
   padding: 40px;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   transition: all 0.4s ease-in-out;
   cursor: pointer;
 }
@@ -3107,7 +3129,7 @@ input.main-search-input::placeholder {
   height: 130px;
   border-radius: 12px;
   background: var(--white);
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   gap: 15px;
   display: flex;
   align-items: center;
@@ -3144,7 +3166,7 @@ input.main-search-input::placeholder {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   font-size: 17px;
   color: var(--white);
   position: absolute;
@@ -3503,7 +3525,7 @@ input.main-search-input::placeholder {
   transform: translate(-50%, -50%);
 }
 .about-3 .about-images .experience h2 {
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -3565,7 +3587,7 @@ input.main-search-input::placeholder {
   border-radius: 4px;
   background: var(--white);
   margin-top: 30px;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
 }
 .about-3 .about-content .text::after {
   position: absolute;
@@ -3577,7 +3599,7 @@ input.main-search-input::placeholder {
   height: 100%;
   content: "";
   border-radius: 4px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   left: -3px;
   z-index: -1;
 }
@@ -3634,7 +3656,7 @@ input.main-search-input::placeholder {
   gap: 35px;
   border-radius: 6px;
   background: var(--white);
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   padding: 15px 40px;
   max-width: 615px;
   margin-top: 25px;
@@ -3703,7 +3725,7 @@ input.main-search-input::placeholder {
   font-weight: 700;
   line-height: 120px;
   letter-spacing: -2.8px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -3970,7 +3992,7 @@ input.main-search-input::placeholder {
   padding-left: 60px;
   font-size: 17px;
   font-weight: 700;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4026,7 +4048,7 @@ input.main-search-input::placeholder {
 }
 .service-3 .single-service-item .icon {
   font-size: 50px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4055,7 +4077,7 @@ input.main-search-input::placeholder {
 .service-3 .single-service-item:hover h2 {
   -webkit-text-stroke-width: 0;
   -webkit-text-stroke-color: transparent;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4135,7 +4157,7 @@ input.main-search-input::placeholder {
   height: 70px;
   transform: rotate(-45deg);
   border-radius: 12px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4160,10 +4182,10 @@ input.main-search-input::placeholder {
   width: 130px;
   height: 4px;
   margin: 0 auto;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
 }
 .service-4 .signle-service-item .infu-btn {
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4226,7 +4248,7 @@ input.main-search-input::placeholder {
 .service-5 .signle-service-item {
   border-radius: 12px;
   background-color: var(--white);
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   display: flex;
   align-items: center;
   padding: 40px 10px 50px 45px;
@@ -4406,7 +4428,7 @@ input.main-search-input::placeholder {
   cursor: pointer;
   width: 80px;
   height: 80px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   transition: all 0.4s ease-in-out;
   color: var(--white);
   z-index: 11;
@@ -4431,7 +4453,7 @@ input.main-search-input::placeholder {
   width: 100%;
   height: 100%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 0 rgba(255, 4, 4, 0.4);
+  box-shadow: 0 0 0 0 rgba(0, 51, 150, 0.4);
   animation: popupVideo 3s infinite;
   border-radius: 50%;
 }
@@ -4552,7 +4574,7 @@ input.main-search-input::placeholder {
   display: inline-block;
 }
 .choose-us-1 .choose-us-content .icon-box .single-icon-box h4 {
-  color: #020842;
+  color: #003396;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.2px;
@@ -4570,7 +4592,7 @@ input.main-search-input::placeholder {
   padding: 15px 65px;
   padding-bottom: 35px;
   border-radius: 12px;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
 }
 @media (max-width: 575px) {
   .choose-us-1 .choose-us-content .count-box {
@@ -4657,7 +4679,7 @@ input.main-search-input::placeholder {
   }
 }
 .choose-us-2 .choose-us-images .experience h2 {
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4712,7 +4734,7 @@ input.main-search-input::placeholder {
 }
 .choose-us-3 .choose-us-content .reviews .infu .head .icon {
   font-size: 40px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4759,7 +4781,7 @@ input.main-search-input::placeholder {
 }
 .choose-us-3 .choose-us-images .single-choose-item .icon {
   font-size: 43px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -4797,7 +4819,8 @@ input.main-search-input::placeholder {
   width: 100%;
   height: 0%;
   position: absolute;
-  background: linear-gradient(rgba(0, 3, 37, 0.56), rgba(0, 3, 37, 0.56)),
+  background:
+    linear-gradient(rgba(0, 3, 37, 0.56), rgba(0, 3, 37, 0.56)),
     url("../../assets/img/why-choose/05.png");
   filter: grayscale(50%);
   transition: 0.4s;
@@ -5449,7 +5472,7 @@ input.main-search-input::placeholder {
 .case-study-1.style-2 .single-case-item .content .icon {
   position: absolute;
   right: -21px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   color: var(--white);
 }
 .case-study-1.style-2 .swiper-dot .swiper-pagination-bullet {
@@ -5547,7 +5570,7 @@ input.main-search-input::placeholder {
 }
 .case-study-2 .case-study-grid .single-case-item .hover .title h4 {
   border-radius: 0px 4px 4px 0px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   color: var(--white);
   padding: 5px 15px 5px 25px;
   margin-top: 6px;
@@ -5561,7 +5584,7 @@ input.main-search-input::placeholder {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   color: var(--white);
   margin-right: 45px;
   margin-top: 45px;
@@ -5603,10 +5626,10 @@ input.main-search-input::placeholder {
   border: 1px solid var(--theme);
 }
 .case-study-2 .nav .nav-link.active {
-  border-image: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  border-image: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   border-image-slice: 1;
   color: var(--white) !important;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
 }
 
 .page-nav-wrap ul li {
@@ -5874,7 +5897,7 @@ input.main-search-input::placeholder {
   height: 261px;
   border-radius: 12px;
   background: var(--white);
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   margin-top: 170px;
 }
 .team-2 .single-team-item .shape-1 {
@@ -6042,7 +6065,7 @@ input.main-search-input::placeholder {
   border-radius: 12px;
   border-left: 2px solid #004499;
   background: #fff;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
 }
 .team-details-wrapper .team-details-contact .team-content-box .team-infobox li {
   color: var(--text);
@@ -6143,7 +6166,7 @@ input.main-search-input::placeholder {
 .testimonial-1 .signle-testimonial-item {
   background-color: var(--white);
   border-radius: 12px;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   margin: 0 155px;
   padding: 40px;
   padding-right: 60px;
@@ -6455,7 +6478,7 @@ input.main-search-input::placeholder {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   font-size: 20px;
   font-weight: 700;
   color: var(--white);
@@ -6572,7 +6595,7 @@ input.main-search-input::placeholder {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 7px 11px 50px 50px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 50px rgba(0, 51, 150, 0.03);
   font-size: 37px;
   background: var(--white);
   color: var(--theme);
@@ -6649,7 +6672,7 @@ input.main-search-input::placeholder {
   cursor: pointer;
   width: 100px;
   height: 100px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   transition: all 0.4s ease-in-out;
   z-index: 11;
   left: 50%;
@@ -6668,7 +6691,7 @@ input.main-search-input::placeholder {
   width: 100%;
   height: 100%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 0 rgba(255, 4, 4, 0.4);
+  box-shadow: 0 0 0 0 rgba(0, 51, 150, 0.4);
   animation: popupVideo 3s infinite;
   border-radius: 50%;
 }
@@ -7818,7 +7841,7 @@ p.sticky-label {
 }
 .blog-1 .blog-inner .single-blog-item .content ul li {
   font-weight: 500;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -8087,7 +8110,7 @@ p.sticky-label {
 }
 .pricing-1 .icon-box .icon {
   font-size: 43px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -8124,7 +8147,7 @@ p.sticky-label {
   font-weight: 800;
   line-height: 69px;
   letter-spacing: -1.2px;
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -8182,7 +8205,7 @@ p.sticky-label {
   display: flex;
   align-items: center;
   flex-direction: column;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   margin-top: 30px;
 }
 .pricing-1.style-2 .single-pricing-item::after {
@@ -8282,7 +8305,7 @@ p.sticky-label {
   margin-top: -110px;
 }
 .funfact-1 .funfact-inner {
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   padding: 50px 70px;
   border-radius: 20px;
   display: flex;
@@ -8444,7 +8467,7 @@ p.sticky-label {
   width: 92px;
   height: 84px;
   background: #fff;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -8454,7 +8477,7 @@ p.sticky-label {
   font-size: 49px;
 }
 .funfact-2 .funfact-inner .signle-funfact-item .icon i {
-  background: linear-gradient(84deg, #0066CC 0%, #004499 100%);
+  background: linear-gradient(84deg, #0066cc 0%, #004499 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -9142,7 +9165,7 @@ p.sticky-label {
   background-color: var(--white);
   border-radius: 12px;
   padding: 50px;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   margin-left: -5px;
 }
 @media (max-width: 991px) {
@@ -9342,7 +9365,7 @@ p.sticky-label {
   padding-top: 50px;
   border-radius: 12px;
   background: var(--white);
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
 }
 @media (max-width: 450px) {
   .contact-us-2 .contact-us-inner {
@@ -9524,7 +9547,7 @@ p.sticky-label {
   padding: 30px 35px;
   transition: all 0.3s ease-in-out;
   gap: 20px;
-  box-shadow: 7px 11px 50px 52px rgba(2, 8, 66, 0.03);
+  box-shadow: 7px 11px 50px 52px rgba(0, 51, 150, 0.03);
   border-radius: 12px;
   position: relative;
   transition: all 0.4s ease-in-out;
@@ -9789,7 +9812,7 @@ p.sticky-label {
   background: linear-gradient(
     84deg,
     rgba(0, 102, 204, 0.5) 0%,
-    rgba(255, 4, 4, 0.5) 100%
+    rgba(0, 51, 150, 0.5) 100%
   );
   -webkit-transform: rotateX(90deg);
   transform: rotateX(90deg);
@@ -9832,18 +9855,30 @@ p.sticky-label {
   position: relative;
   overflow: hidden;
 }
-.footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img img {
+.footer-widgets-1.style-3
+  .single-footer-widget
+  .gallery
+  .footer-gallery-img
+  img {
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
 }
 @media (max-width: 1199px) {
-  .footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img img {
+  .footer-widgets-1.style-3
+    .single-footer-widget
+    .gallery
+    .footer-gallery-img
+    img {
     width: 100%;
     display: block;
   }
 }
-.footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img .content {
+.footer-widgets-1.style-3
+  .single-footer-widget
+  .gallery
+  .footer-gallery-img
+  .content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9853,7 +9888,11 @@ p.sticky-label {
   top: 0;
   left: 0;
   color: #fff;
-  background: linear-gradient(84deg, rgba(0, 102, 204, 0.5) 0%, rgba(255, 4, 4, 0.5) 100%);
+  background: linear-gradient(
+    84deg,
+    rgba(0, 102, 204, 0.5) 0%,
+    rgba(255, 4, 4, 0.5) 100%
+  );
   -webkit-transform: rotateX(90deg);
   transform: rotateX(90deg);
   -webkit-transform-origin: 0 50%;
@@ -9862,7 +9901,11 @@ p.sticky-label {
   transition: all 500ms ease;
   border-radius: 5px;
 }
-.footer-widgets-1.style-3 .single-footer-widget .gallery .footer-gallery-img:hover .content {
+.footer-widgets-1.style-3
+  .single-footer-widget
+  .gallery
+  .footer-gallery-img:hover
+  .content {
   -webkit-transform: rotateX(0);
   transform: rotateX(0);
 }
