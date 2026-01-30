@@ -1,6 +1,5 @@
 "use client";
 
-import PriceRanger from "./PriceRanger";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
 
 const Contact = ({
@@ -24,9 +23,7 @@ const Contact = ({
               <div className="sub-title">
                 <span>{tContact("subtitle")}</span>
               </div>
-              <h2 className="split-text right">
-                {tContact("heading1")}
-              </h2>
+              <h2 className="split-text right">{tContact("heading1")}</h2>
             </div>
             <div className="contact-us-content pt-4 mt-3">
               <div className="infu-box d-flex align-items-center">
@@ -99,7 +96,9 @@ const Contact = ({
                   <div className="col-lg-6">
                     <div className="form-clt">
                       <div className="nice-select" tabIndex={0}>
-                        <span className="current">{tContact("form.subject")}</span>
+                        <span className="current">
+                          {tContact("form.subject")}
+                        </span>
                         <ul className="list">
                           <li data-value="general" className="option selected">
                             {tContact("subjects.general")}
@@ -164,9 +163,7 @@ export const Contact2 = () => {
           <div className="sub-title">
             <span>{tContact("subtitle")}</span>
           </div>
-          <h2 className="split-text right">
-            {tContact("heading2")}
-          </h2>
+          <h2 className="split-text right">{tContact("heading2")}</h2>
         </div>
         <div className="contact-us-inner">
           <div className="row g-5">
@@ -209,7 +206,11 @@ export const Contact2 = () => {
                     >
                       <span>{tContact("form.yourEmail")}</span>
                       <div className="form-clt">
-                        <input type="email" name="email" placeholder={tContact("form.yourEmail")} />
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder={tContact("form.yourEmail")}
+                        />
                       </div>
                     </div>
                     <div
@@ -245,17 +246,33 @@ export const Contact2 = () => {
                     {tContact("form.companyType")}
                   </span>
                   <div className="categories-items mt-2">
-                    <div className="single-item">{tContact("companyTypes.itCompany")}</div>
-                    <div className="single-item">{tContact("companyTypes.manufacturing")}</div>
-                    <div className="single-item">{tContact("companyTypes.retail")}</div>
-                    <div className="single-item">{tContact("companyTypes.healthcare")}</div>
-                    <div className="single-item">{tContact("companyTypes.education")}</div>
-                    <div className="single-item">{tContact("companyTypes.government")}</div>
-                    <div className="single-item">{tContact("companyTypes.other")}</div>
+                    <div className="single-item">
+                      {tContact("companyTypes.itCompany")}
+                    </div>
+                    <div className="single-item">
+                      {tContact("companyTypes.manufacturing")}
+                    </div>
+                    <div className="single-item">
+                      {tContact("companyTypes.retail")}
+                    </div>
+                    <div className="single-item">
+                      {tContact("companyTypes.healthcare")}
+                    </div>
+                    <div className="single-item">
+                      {tContact("companyTypes.education")}
+                    </div>
+                    <div className="single-item">
+                      {tContact("companyTypes.government")}
+                    </div>
+                    <div className="single-item">
+                      {tContact("companyTypes.other")}
+                    </div>
                   </div>
                 </div>
                 <div className="checked-box mt-4 pt-3">
-                  <span className="fw-semibold">{tContact("form.needFromUs")}</span>
+                  <span className="fw-semibold">
+                    {tContact("form.needFromUs")}
+                  </span>
                   <div className="checked-box-items mt-2">
                     <div className="form-check">
                       <input
@@ -263,7 +280,9 @@ export const Contact2 = () => {
                         type="checkbox"
                         defaultValue
                       />
-                      <label className="form-check-label">{tServices("services.dataCenter")}</label>
+                      <label className="form-check-label">
+                        {tServices("services.dataCenter")}
+                      </label>
                     </div>
                     <div className="form-check">
                       <input
@@ -281,7 +300,9 @@ export const Contact2 = () => {
                         type="checkbox"
                         defaultValue
                       />
-                      <label className="form-check-label">{tServices("services.cooling")}</label>
+                      <label className="form-check-label">
+                        {tServices("services.cooling")}
+                      </label>
                     </div>
                     <div className="form-check">
                       <input
@@ -289,7 +310,9 @@ export const Contact2 = () => {
                         type="checkbox"
                         defaultValue
                       />
-                      <label className="form-check-label">{tServices("services.network")}</label>
+                      <label className="form-check-label">
+                        {tServices("services.network")}
+                      </label>
                     </div>
                     <div className="form-check">
                       <input
@@ -297,7 +320,9 @@ export const Contact2 = () => {
                         type="checkbox"
                         defaultValue
                       />
-                      <label className="form-check-label">{tServices("services.cabling")}</label>
+                      <label className="form-check-label">
+                        {tServices("services.cabling")}
+                      </label>
                     </div>
                     <div className="form-check">
                       <input
@@ -305,7 +330,9 @@ export const Contact2 = () => {
                         type="checkbox"
                         defaultValue
                       />
-                      <label className="form-check-label">{tServices("services.cctv")}</label>
+                      <label className="form-check-label">
+                        {tServices("services.cctv")}
+                      </label>
                     </div>
                     <div className="form-check">
                       <input
@@ -313,7 +340,9 @@ export const Contact2 = () => {
                         type="checkbox"
                         defaultValue
                       />
-                      <label className="form-check-label">{tServices("services.security")}</label>
+                      <label className="form-check-label">
+                        {tServices("services.security")}
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -324,11 +353,7 @@ export const Contact2 = () => {
               data-wow-delay="300ms"
             >
               <div className="contact-right ps-xl-5 ms-xl-3">
-                <PriceRanger />
-                <div
-                  className="col-lg-12 wow fadeInUp mt-4"
-                  data-wow-delay=".8"
-                >
+                <div className="col-lg-12 wow fadeInUp" data-wow-delay=".8">
                   <span>{tContact("form.yourMessage")}</span>
                   <div className="form-clt-big form-clt">
                     <textarea
