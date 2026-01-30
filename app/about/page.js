@@ -41,20 +41,6 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* Pricing Section Start */}
-      {/* <section className="pricing-wrapper pricing-1 style-2 section-padding pb-0">
-        <div className="container">
-          <div className="section-title text-center">
-            <div className="sub-title">
-              <span>PRICING PLAN</span>
-            </div>
-            <h2>
-              Pricing That Suits <br /> Your Needs
-            </h2>
-          </div>
-          <Pricing />
-        </div>
-      </section> */}
       {/* Brand Section Start */}
       <section className="brand-wrapper brand-1 style-3 section-padding">
         <div className="shape">

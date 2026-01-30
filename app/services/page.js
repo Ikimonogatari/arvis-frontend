@@ -1,11 +1,10 @@
 "use client";
 
 import Pagebanner from "@/components/Pagebanner";
-import Pricing from "@/components/Pricing";
 import WorkingProcess from "@/components/WorkingProcess";
 import ZotechLayout from "@/layout/ZotechLayout";
-import Link from "next/link";
 import { useGetServicesQuery } from "@/lib/api/directusApi";
+import Link from "next/link";
 
 const page = () => {
   const { data: services, error, isLoading } = useGetServicesQuery();
@@ -30,8 +29,7 @@ const page = () => {
               <span>OUR SERVICES</span>
             </div>
             <h2>
-              Preparing for Your Success, We <br /> Provide Truly IT
-              Solutions.
+              Preparing for Your Success, We <br /> Provide Truly IT Solutions.
             </h2>
           </div>
           <div className="service-inner text-center overflow-hidden mt-4 pt-3">
@@ -43,7 +41,10 @@ const page = () => {
               <div className="row gy-xxl-5">
                 {servicesList.length > 0 ? (
                   servicesList.map((service, index) => (
-                    <div key={service.id} className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
+                    <div
+                      key={service.id}
+                      className="col-xxl-3 col-xl-4 col-lg-6 col-md-6"
+                    >
                       <div
                         className="signle-service-item wow fadeInUp"
                         data-wow-delay={delays[index % 4]}
@@ -55,7 +56,11 @@ const page = () => {
                           }}
                         />
                         <div className="icon">
-                          <i className={service.icon || "flaticon-web-development"} />
+                          <i
+                            className={
+                              service.icon || "flaticon-web-development"
+                            }
+                          />
                         </div>
                         <div className="line mb-4" />
                         <h4>
@@ -64,9 +69,13 @@ const page = () => {
                           </Link>
                         </h4>
                         <p className="pt-3">
-                          {service.description || "Professional IT infrastructure solutions."}
+                          {service.description ||
+                            "Professional IT infrastructure solutions."}
                         </p>
-                        <Link href={`/services-details?id=${service.id}`} className="infu-btn">
+                        <Link
+                          href={`/services-details?id=${service.id}`}
+                          className="infu-btn"
+                        >
                           Read More
                           <i className="far fa-long-arrow-right" />
                         </Link>
@@ -77,16 +86,59 @@ const page = () => {
                   // Fallback services if no data
                   <>
                     {[
-                      { icon: "flaticon-web-development", title: "Data Center Solutions", description: "Enterprise-grade data center infrastructure and management." },
-                      { icon: "flaticon-lock", title: "UPS Systems", description: "Reliable uninterruptible power supply solutions." },
-                      { icon: "flaticon-user-experience", title: "Cooling Systems", description: "Advanced cooling solutions for IT infrastructure." },
-                      { icon: "flaticon-strategy", title: "Network Infrastructure", description: "Comprehensive network design and implementation." },
-                      { icon: "flaticon-maintenance", title: "Cabling Solutions", description: "Professional structured cabling services." },
-                      { icon: "flaticon-engineering", title: "CCTV Systems", description: "Security and surveillance system installation." },
-                      { icon: "flaticon-management", title: "Security Solutions", description: "Comprehensive IT security and monitoring." },
-                      { icon: "flaticon-connection", title: "IT Consulting", description: "Expert consultation for IT infrastructure projects." },
+                      {
+                        icon: "flaticon-web-development",
+                        title: "Data Center Solutions",
+                        description:
+                          "Enterprise-grade data center infrastructure and management.",
+                      },
+                      {
+                        icon: "flaticon-lock",
+                        title: "UPS Systems",
+                        description:
+                          "Reliable uninterruptible power supply solutions.",
+                      },
+                      {
+                        icon: "flaticon-user-experience",
+                        title: "Cooling Systems",
+                        description:
+                          "Advanced cooling solutions for IT infrastructure.",
+                      },
+                      {
+                        icon: "flaticon-strategy",
+                        title: "Network Infrastructure",
+                        description:
+                          "Comprehensive network design and implementation.",
+                      },
+                      {
+                        icon: "flaticon-maintenance",
+                        title: "Cabling Solutions",
+                        description:
+                          "Professional structured cabling services.",
+                      },
+                      {
+                        icon: "flaticon-engineering",
+                        title: "CCTV Systems",
+                        description:
+                          "Security and surveillance system installation.",
+                      },
+                      {
+                        icon: "flaticon-management",
+                        title: "Security Solutions",
+                        description:
+                          "Comprehensive IT security and monitoring.",
+                      },
+                      {
+                        icon: "flaticon-connection",
+                        title: "IT Consulting",
+                        description:
+                          "Expert consultation for IT infrastructure projects.",
+                      },
                     ].map((service, index) => (
-                      <div key={index} className="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
+                      <div
+                        key={index}
+                        className="col-xxl-3 col-xl-4 col-lg-6 col-md-6"
+                      >
                         <div
                           className="signle-service-item wow fadeInUp"
                           data-wow-delay={delays[index % 4]}
@@ -102,7 +154,9 @@ const page = () => {
                           </div>
                           <div className="line mb-4" />
                           <h4>
-                            <Link href="/services-details">{service.title}</Link>
+                            <Link href="/services-details">
+                              {service.title}
+                            </Link>
                           </h4>
                           <p className="pt-3">{service.description}</p>
                           <Link href="/services-details" className="infu-btn">
@@ -117,20 +171,6 @@ const page = () => {
               </div>
             )}
           </div>
-        </div>
-      </section>
-      {/* Pricing Section Start */}
-      <section className="pricing-wrapper pricing-1 style-2 section-padding">
-        <div className="container">
-          <div className="section-title text-center">
-            <div className="sub-title">
-              <span>PRICING PLAN</span>
-            </div>
-            <h2>
-              Pricing That Suits <br /> Your Needs
-            </h2>
-          </div>
-          <Pricing />
         </div>
       </section>
       {/* Process Section Start */}
