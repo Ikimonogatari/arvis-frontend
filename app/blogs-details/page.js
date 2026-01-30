@@ -1,23 +1,27 @@
 "use client";
 
-import { Suspense } from "react";
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
+import { useGetArticleByIdQuery } from "@/lib/api/directusApi";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useGetArticleByIdQuery } from "@/lib/api/directusApi";
+import { Suspense } from "react";
 
 const BlogDetailsContent = () => {
   const searchParams = useSearchParams();
   const articleId = searchParams.get("id");
-  
+
   // Ensure we always have an ID, default to "1" if not provided
   const idToFetch = articleId || "1";
-  
-  const { data: article, error, isLoading } = useGetArticleByIdQuery(idToFetch, {
+
+  const {
+    data: article,
+    error,
+    isLoading,
+  } = useGetArticleByIdQuery(idToFetch, {
     skip: !idToFetch, // Skip if no ID
   });
-  
+
   // Helper function to get image URL from GraphQL response
   const getImageUrl = (imageData) => {
     if (!imageData || !imageData.id) {
@@ -25,7 +29,7 @@ const BlogDetailsContent = () => {
     }
     return `http://217.154.145.65:8055/assets/${imageData.id}`;
   };
-  
+
   // Debug logging
   if (typeof window !== "undefined") {
     console.log("Article ID from URL:", articleId);
@@ -36,16 +40,26 @@ const BlogDetailsContent = () => {
   }
 
   // Extract related articles
-  const relatedArticles = article?.related_articles?.map(
-    (rel) => rel.related_article_id
-  ).filter(Boolean) || [];
-  
+  const relatedArticles =
+    article?.related_articles
+      ?.map((rel) => rel.related_article_id)
+      .filter(Boolean) || [];
+
   // Get cover image URL (use cover_image first, then image, then fallback)
   const coverImageUrl = getImageUrl(article?.cover_image || article?.image);
 
+  const pageTitle = article ? article.title || "Blog Details" : "Blog Details";
+  const breadcrumbs = article
+    ? [
+        { label: "Home", href: "/" },
+        { label: "Blog Grid", href: "/blogs-grid" },
+        { label: article.title || "Blog Details" },
+      ]
+    : undefined;
+
   return (
     <ZotechLayout>
-      <Pagebanner pageName="Blog Details" />
+      <Pagebanner pageName={pageTitle} breadcrumbs={breadcrumbs} />
       <section className="blog-wrapper section-padding">
         <div className="container">
           <div className="news-area">
@@ -83,20 +97,30 @@ const BlogDetailsContent = () => {
                           <h3 className="mt-0">{article.title}</h3>
                           {article.body && (
                             <div className="mt-4">
-                              {article.body.split("\n").map((paragraph, index) => (
-                                <p key={index} className={index > 0 ? "mt-4" : ""}>
-                                  {paragraph}
-                                </p>
-                              ))}
+                              {article.body
+                                .split("\n")
+                                .map((paragraph, index) => (
+                                  <p
+                                    key={index}
+                                    className={index > 0 ? "mt-4" : ""}
+                                  >
+                                    {paragraph}
+                                  </p>
+                                ))}
                             </div>
                           )}
                           {!article.body && article.description && (
                             <div className="mt-4">
-                              {article.description.split("\n").map((paragraph, index) => (
-                                <p key={index} className={index > 0 ? "mt-4" : ""}>
-                                  {paragraph}
-                                </p>
-                              ))}
+                              {article.description
+                                .split("\n")
+                                .map((paragraph, index) => (
+                                  <p
+                                    key={index}
+                                    className={index > 0 ? "mt-4" : ""}
+                                  >
+                                    {paragraph}
+                                  </p>
+                                ))}
                             </div>
                           )}
                         </div>
@@ -135,29 +159,46 @@ const BlogDetailsContent = () => {
 
                     {/* Related Articles Section */}
                     {relatedArticles.length > 0 && (
-                      <div className="related-articles mt-5 wow fadeInUp" data-wow-delay="400ms">
+                      <div
+                        className="related-articles mt-5 wow fadeInUp"
+                        data-wow-delay="400ms"
+                      >
                         <h3 className="mb-4">Related Articles</h3>
                         <div className="row">
                           {relatedArticles.map((relatedArticle) => {
-                            const relatedImageUrl = getImageUrl(relatedArticle.cover_image || relatedArticle.image);
+                            const relatedImageUrl = getImageUrl(
+                              relatedArticle.cover_image ||
+                                relatedArticle.image,
+                            );
                             return (
-                              <div key={relatedArticle.id} className="col-lg-6 col-md-6 col-12 mb-4">
+                              <div
+                                key={relatedArticle.id}
+                                className="col-lg-6 col-md-6 col-12 mb-4"
+                              >
                                 <div className="single-blog-item">
                                   {relatedImageUrl && (
                                     <div className="image">
-                                      <img src={relatedImageUrl} alt={relatedArticle.title} />
+                                      <img
+                                        src={relatedImageUrl}
+                                        alt={relatedArticle.title}
+                                      />
                                     </div>
                                   )}
                                   <div className="content">
                                     <h4>
-                                      <Link href={`/blogs-details?id=${relatedArticle.id}`}>
+                                      <Link
+                                        href={`/blogs-details?id=${relatedArticle.id}`}
+                                      >
                                         {relatedArticle.title}
                                       </Link>
                                     </h4>
                                     {relatedArticle.description && (
                                       <p>
                                         {relatedArticle.description.length > 150
-                                          ? relatedArticle.description.substring(0, 150) + "..."
+                                          ? relatedArticle.description.substring(
+                                              0,
+                                              150,
+                                            ) + "..."
                                           : relatedArticle.description}
                                       </p>
                                     )}
@@ -165,7 +206,8 @@ const BlogDetailsContent = () => {
                                       href={`/blogs-details?id=${relatedArticle.id}`}
                                       className="link-btn"
                                     >
-                                      Read More <i className="far fa-long-arrow-right" />
+                                      Read More{" "}
+                                      <i className="far fa-long-arrow-right" />
                                     </Link>
                                   </div>
                                 </div>
@@ -191,14 +233,23 @@ const BlogDetailsContent = () => {
                       <h5 className="mt-3">Arvis Systems</h5>
                       <p className="mt-1">IT Solutions Provider</p>
                       <p className="mt-3">
-                        Professional IT infrastructure solutions for data centers,
-                        power protection, cooling, networking, and security.
+                        Professional IT infrastructure solutions for data
+                        centers, power protection, cooling, networking, and
+                        security.
                       </p>
                       <div className="social-link mt-3">
-                        <a href="https://www.facebook.com/Arvis.Systems" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href="https://www.facebook.com/Arvis.Systems"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <i className="fab fa-facebook-f" />
                         </a>
-                        <a href="https://x.com/ArvisSystems" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href="https://x.com/ArvisSystems"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <i className="fab fa-twitter" />
                         </a>
                       </div>
@@ -232,16 +283,18 @@ const BlogDetailsContent = () => {
 
 const page = () => {
   return (
-    <Suspense fallback={
-      <ZotechLayout>
-        <Pagebanner pageName="Blog Details" />
-        <section className="blog-details-section fix section-padding">
-          <div className="container">
-            <p>Loading...</p>
-          </div>
-        </section>
-      </ZotechLayout>
-    }>
+    <Suspense
+      fallback={
+        <ZotechLayout>
+          <Pagebanner pageName="Blog Details" />
+          <section className="blog-details-section fix section-padding">
+            <div className="container">
+              <p>Loading...</p>
+            </div>
+          </section>
+        </ZotechLayout>
+      }
+    >
       <BlogDetailsContent />
     </Suspense>
   );

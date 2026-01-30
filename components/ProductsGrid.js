@@ -85,7 +85,7 @@ const normalizeText = (value) => {
 
 const getProductTitle = (product) =>
   normalizeText(
-    product.title || product.name || product.product_name || product.product
+    product.title || product.name || product.product_name || product.product,
   ) || "Untitled Product";
 
 const getProductDescription = (product) =>
@@ -93,7 +93,7 @@ const getProductDescription = (product) =>
     product.short_description ||
       product.description ||
       product.summary ||
-      product.excerpt
+      product.excerpt,
   ) || "";
 
 const getProductCategory = (product) => {
@@ -112,7 +112,7 @@ const getProductCategory = (product) => {
     return `Category ${product.category[0]}`;
   }
   return normalizeText(
-    product.category || product.type || product.brand || product.collection
+    product.category || product.type || product.brand || product.collection,
   );
 };
 
@@ -214,27 +214,35 @@ const ProductsGrid = () => {
         const title = product.name || product.title || "Untitled Product";
         const description = product.description || "";
         const category = product.category || "Technology";
-        const price = product.price;
-        const formattedPrice = price ? formatPrice(price, "USD") : null;
         const productId = product.id || index;
-        const imageUrl = product.image ? getImageUrlGraphQL(product.image) : "assets/img/service/01.jpg";
+        const imageUrl = product.image
+          ? getImageUrlGraphQL(product.image)
+          : "assets/img/service/01.jpg";
         return (
           <div
             key={productId}
             className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
             data-wow-delay={`${(index % 4) * 100 + 200}ms`}
           >
-            <div className="product-card">
+            <Link
+              href={`/products-details?id=${productId}`}
+              className="product-card d-block text-decoration-none"
+              style={{ color: "inherit" }}
+            >
               <div className="product-image">
                 {category ? (
                   <span className="product-badge">{category}</span>
                 ) : null}
-                <img src={imageUrl} alt={title} style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center'
-                }} />
+                <img
+                  src={imageUrl}
+                  alt={title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
+                />
               </div>
               <div className="product-content">
                 <h4 className="product-title">{title}</h4>
@@ -246,21 +254,8 @@ const ProductsGrid = () => {
                     infrastructure.
                   </p>
                 )}
-                <div className="product-meta">
-                  <div className="product-price">
-                    {formattedPrice || "Contact for price"}
-                  </div>
-                </div>
-                <div className="mt-3">
-                  <Link
-                    href="/quote"
-                    className="theme-btn trasparent-btn-2 black-btn"
-                  >
-                    <span>Request Quote</span>
-                  </Link>
-                </div>
               </div>
-            </div>
+            </Link>
           </div>
         );
       })}

@@ -1,16 +1,20 @@
 "use client";
 
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
 import { useGetProjectByIdQuery } from "@/lib/api/directusApi";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const ProjectDetailsContent = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  const { data: project, error, isLoading } = useGetProjectByIdQuery(id, {
+  const {
+    data: project,
+    error,
+    isLoading,
+  } = useGetProjectByIdQuery(id, {
     skip: !id,
   });
 
@@ -33,13 +37,21 @@ const ProjectDetailsContent = () => {
     );
   }
 
-  const title = project?.name || project?.title || "Software Development Analysis";
-  const description = project?.description || "Accelerate innovation with world-class tech teams";
+  const title =
+    project?.name || project?.title || "Software Development Analysis";
+  const description =
+    project?.description || "Accelerate innovation with world-class tech teams";
   const mainImage = getImageUrl(project?.image);
+
+  const breadcrumbs = [
+    { label: "Home", href: "/" },
+    { label: "Our Projects", href: "/projects" },
+    { label: title },
+  ];
 
   return (
     <ZotechLayout>
-      <Pagebanner pageName="Projects Details" />
+      <Pagebanner pageName={title} breadcrumbs={breadcrumbs} />
       <section className="project-details-section fix section-padding">
         <div className="container">
           <div className="project-details-wrapper">
@@ -47,21 +59,19 @@ const ProjectDetailsContent = () => {
               <div className="col-xxl-8 col-lg-12">
                 <div className="project-details-content pe-xl-4">
                   <div className="project-details-image">
-                    <img 
-                      src={mainImage} 
+                    <img
+                      src={mainImage}
                       alt={title}
                       style={{
-                        width: '100%',
-                        height: 'auto',
-                        objectFit: 'cover',
-                        objectPosition: 'center'
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover",
+                        objectPosition: "center",
                       }}
                     />
                   </div>
                   <h3 className="mt-4">{title}</h3>
-                  <p className="mb-3">
-                    {description}
-                  </p>
+                  <p className="mb-3">{description}</p>
                   <p>
                     Building a powerful brand is essential to standing out in
                     today's competitive market. Our Brand Development service
@@ -143,15 +153,25 @@ const ProjectDetailsContent = () => {
                       </li>
                       <li className="d-flex align-items-center gap-4">
                         <span className="white-clr">Status:</span>
-                        <span className="white-clr">{project?.status || "Completed"}</span>
+                        <span className="white-clr">
+                          {project?.status || "Completed"}
+                        </span>
                       </li>
                     </ul>
                   </div>
                   <div className="social text-center">
-                    <a href="https://www.facebook.com/Arvis.Systems" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.facebook.com/Arvis.Systems"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-facebook-f" />
                     </a>
-                    <a href="https://x.com/ArvisSystems" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://x.com/ArvisSystems"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-twitter" />
                     </a>
                   </div>
@@ -167,16 +187,18 @@ const ProjectDetailsContent = () => {
 
 const page = () => {
   return (
-    <Suspense fallback={
-      <ZotechLayout>
-        <Pagebanner pageName="Projects Details" />
-        <section className="project-details-section fix section-padding">
-          <div className="container">
-            <p>Loading...</p>
-          </div>
-        </section>
-      </ZotechLayout>
-    }>
+    <Suspense
+      fallback={
+        <ZotechLayout>
+          <Pagebanner pageName="Projects Details" />
+          <section className="project-details-section fix section-padding">
+            <div className="container">
+              <p>Loading...</p>
+            </div>
+          </section>
+        </ZotechLayout>
+      }
+    >
       <ProjectDetailsContent />
     </Suspense>
   );

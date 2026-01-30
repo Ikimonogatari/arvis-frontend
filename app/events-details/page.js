@@ -73,9 +73,18 @@ const EventDetailsContent = () => {
     ? formatDate(event.event_date || event.date_created)
     : "";
 
+  const pageTitle = eventContent ? eventContent.title : "Event Details";
+  const breadcrumbs = eventContent
+    ? [
+        { label: "Home", href: "/" },
+        { label: "Events Grid", href: "/events-grid" },
+        { label: eventContent.title },
+      ]
+    : undefined;
+
   return (
     <ZotechLayout>
-      <Pagebanner pageName="Event Details" />
+      <Pagebanner pageName={pageTitle} breadcrumbs={breadcrumbs} />
       <section className="blog-wrapper section-padding">
         <div className="container">
           <div className="news-area">

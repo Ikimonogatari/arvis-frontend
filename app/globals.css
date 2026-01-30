@@ -515,10 +515,7 @@ img.mfp-img {
   right: -24px;
 }
 
-/* Header Navigation Fixes */
-/* Reduce spacing between navigation items to prevent wrapping */
-/* Header Navigation Fixes - UNIFIED STYLES FOR ALL LANGUAGES */
-/* Consistent spacing for everyone */
+/* Header Navigation Fixes - MN nav text slightly smaller so it matches EN visual size (Cyrillic reads larger at same px) */
 .header-1 .main-menu nav ul li {
   margin-right: 15px !important;
 }
@@ -527,21 +524,36 @@ img.mfp-img {
   margin-right: 0 !important;
 }
 
-/* Consistent font size for everyone (English & Mongolian) */
+/* Base nav link size - Mongolian slightly smaller to match visual size (Cyrillic reads larger at same px) */
 .header-1 .main-menu nav ul li a {
-  font-size: 13.5px !important;
+  font-size: 16px !important;
   font-weight: 600 !important;
   letter-spacing: -0.3px !important;
   padding: 10px 0 !important;
   white-space: nowrap !important;
 }
 
-/* Consistent button style */
+.language-mn .header-1 .main-menu nav ul li a {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.3px !important;
+  padding: 10px 0 !important;
+  white-space: nowrap !important;
+}
+
 .header-button .theme-btn {
   white-space: nowrap !important;
   padding-left: 14px !important;
   padding-right: 14px !important;
-  font-size: 13.5px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.language-mn .header-button .theme-btn {
+  white-space: nowrap !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
 }
 
@@ -571,25 +583,52 @@ img.mfp-img {
 }
 
 .header-1 .main-menu nav ul li .submenu li a {
-  font-size: 13.5px !important; /* Slightly larger in dropdown is fine */
+  font-size: 15px !important;
   padding: 12px 20px !important;
   display: block !important;
   width: 100% !important;
   letter-spacing: normal !important;
 }
 
-/* Responsive adjustments for smaller screens */
+.language-mn .header-1 .main-menu nav ul li .submenu li a {
+  font-size: 13px !important;
+  padding: 12px 20px !important;
+  display: block !important;
+  width: 100% !important;
+  letter-spacing: normal !important;
+}
+
+/* Mobile/offcanvas nav - MN slightly smaller to match EN visual size */
+.language-mn .mean-container .mean-nav ul li a {
+  font-size: 14px !important;
+}
+
+.language-mn .mean-container .mean-nav ul li li a {
+  font-size: 13px !important;
+}
+
+/* Responsive - MN kept 1–2px smaller so it matches EN visually */
 @media (max-width: 1400px) {
   .header-1 .main-menu nav ul li {
     margin-right: 10px !important;
   }
 
   .header-1 .main-menu nav ul li a {
-    font-size: 12px !important;
+    font-size: 15px !important;
+  }
+
+  .language-mn .header-1 .main-menu nav ul li a {
+    font-size: 13px !important;
   }
 
   .header-button .theme-btn {
-    font-size: 12px !important;
+    font-size: 15px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .language-mn .header-button .theme-btn {
+    font-size: 13px !important;
     padding-left: 14px !important;
     padding-right: 14px !important;
   }
@@ -601,7 +640,11 @@ img.mfp-img {
   }
 
   .header-1 .main-menu nav ul li a {
-    font-size: 11.5px !important;
+    font-size: 14px !important;
+  }
+
+  .language-mn .header-1 .main-menu nav ul li a {
+    font-size: 12px !important;
   }
 }
 

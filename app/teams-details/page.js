@@ -1,18 +1,22 @@
 "use client";
 
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
 import Pagebanner from "@/components/Pagebanner";
-import ZotechLayout from "@/layout/ZotechLayout";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
+import ZotechLayout from "@/layout/ZotechLayout";
 import { useGetTeamMemberByIdQuery } from "@/lib/api/directusApi";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const TeamDetailsContent = () => {
   const t = useSafeTranslations("footer");
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  const { data: member, error, isLoading } = useGetTeamMemberByIdQuery(id, {
+  const {
+    data: member,
+    error,
+    isLoading,
+  } = useGetTeamMemberByIdQuery(id, {
     skip: !id,
   });
 
@@ -37,28 +41,36 @@ const TeamDetailsContent = () => {
 
   const name = member?.name || "Team Member";
   const role = member?.role || member?.position || "IT Specialist";
-  const bio = member?.bio || "Professional IT expert with extensive experience in technology solutions.";
+  const bio =
+    member?.bio ||
+    "Professional IT expert with extensive experience in technology solutions.";
   const email = member?.email || "info@arvisys.com";
   const phone = member?.phone || "+976-75750077";
   const memberImage = getImageUrl(member?.image);
 
+  const breadcrumbs = [
+    { label: "Home", href: "/" },
+    { label: "Our Team", href: "/team" },
+    { label: name },
+  ];
+
   return (
     <ZotechLayout>
-      <Pagebanner pageName="Team Details" />
+      <Pagebanner pageName={name} breadcrumbs={breadcrumbs} />
       <section className="team-details-section fix section-padding pb-0">
         <div className="container">
           <div className="team-details-wrapper">
             <div className="row">
               <div className="col-lg-4 wow fadeInUp" data-wow-delay=".3s">
                 <div className="team-image">
-                  <img 
-                    src={memberImage} 
+                  <img
+                    src={memberImage}
                     alt={name}
                     style={{
-                      width: '100%',
-                      height: 'auto',
-                      objectFit: 'cover',
-                      objectPosition: 'center'
+                      width: "100%",
+                      height: "auto",
+                      objectFit: "cover",
+                      objectPosition: "center",
                     }}
                   />
                 </div>
@@ -84,43 +96,68 @@ const TeamDetailsContent = () => {
                       </li>
                       <li className="d-flex align-items-center gap-4">
                         <span className="white-clr">Location:</span>
-                        <span className="white-clr">
-                          {t("addressText")}
-                        </span>
+                        <span className="white-clr">{t("addressText")}</span>
                       </li>
                     </ul>
                   </div>
                   <div className="social">
                     {member?.social_facebook && (
-                      <a href={member.social_facebook} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={member.social_facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fab fa-facebook-f" />
                       </a>
                     )}
                     {member?.social_twitter && (
-                      <a href={member.social_twitter} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={member.social_twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fab fa-twitter" />
                       </a>
                     )}
                     {member?.social_linkedin && (
-                      <a href={member.social_linkedin} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={member.social_linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fab fa-linkedin-in" />
                       </a>
                     )}
                     {member?.social_instagram && (
-                      <a href={member.social_instagram} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={member.social_instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fab fa-instagram" />
                       </a>
                     )}
-                    {!member?.social_facebook && !member?.social_twitter && !member?.social_linkedin && !member?.social_instagram && (
-                      <>
-                        <a href="https://www.facebook.com/Arvis.Systems" target="_blank" rel="noopener noreferrer">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                        <a href="https://x.com/ArvisSystems" target="_blank" rel="noopener noreferrer">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </>
-                    )}
+                    {!member?.social_facebook &&
+                      !member?.social_twitter &&
+                      !member?.social_linkedin &&
+                      !member?.social_instagram && (
+                        <>
+                          <a
+                            href="https://www.facebook.com/Arvis.Systems"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i className="fab fa-facebook-f" />
+                          </a>
+                          <a
+                            href="https://x.com/ArvisSystems"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i className="fab fa-twitter" />
+                          </a>
+                        </>
+                      )}
                   </div>
                 </div>
               </div>
@@ -148,16 +185,18 @@ const TeamDetailsContent = () => {
 
 const page = () => {
   return (
-    <Suspense fallback={
-      <ZotechLayout>
-        <Pagebanner pageName="Team Details" />
-        <section className="team-details-section fix section-padding pb-0">
-          <div className="container">
-            <p>Loading...</p>
-          </div>
-        </section>
-      </ZotechLayout>
-    }>
+    <Suspense
+      fallback={
+        <ZotechLayout>
+          <Pagebanner pageName="Team Details" />
+          <section className="team-details-section fix section-padding pb-0">
+            <div className="container">
+              <p>Loading...</p>
+            </div>
+          </section>
+        </ZotechLayout>
+      }
+    >
       <TeamDetailsContent />
     </Suspense>
   );

@@ -1,15 +1,23 @@
 "use client";
 
-import Link from "next/link";
 import { useSafeTranslations } from "@/hooks/useSafeTranslations";
+import Link from "next/link";
 
-const Pagebanner = ({ pageName }) => {
+/**
+ * @param {string} pageName - Main heading (h1) and fallback last breadcrumb
+ * @param {{ label: string, href?: string }[]} [breadcrumbs] - Optional. e.g. [{ label: "Home", href: "/" }, { label: "Blog", href: "/blogs-grid" }, { label: "Article Title" }]
+ */
+const Pagebanner = ({ pageName, breadcrumbs }) => {
   const t = useSafeTranslations("header");
   const tBreadcrumb = useSafeTranslations("breadcrumb");
-  
-  // Get translated page name if it exists, otherwise use the provided pageName
+
   const translatedPageName = tBreadcrumb(pageName) || pageName;
-  
+
+  const items =
+    Array.isArray(breadcrumbs) && breadcrumbs.length > 0
+      ? breadcrumbs
+      : [{ label: t("home"), href: "/" }, { label: translatedPageName }];
+
   return (
     <div
       className="breadcrumb-wrapper bg-cover"
@@ -22,13 +30,20 @@ const Pagebanner = ({ pageName }) => {
               {translatedPageName}
             </h1>
             <ul className="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-              <li>
-                <Link href="/">{t("home")}</Link>
-              </li>
-              <li>
-                <i className="far fa-angle-double-right" />
-              </li>
-              <li>{translatedPageName}</li>
+              {items.map((item, index) => (
+                <li key={index}>
+                  {index > 0 && <i className="far fa-angle-double-right" />}
+                  {item.href ? (
+                    <Link href={item.href}>
+                      {item.label === "Home"
+                        ? t("home")
+                        : tBreadcrumb(item.label) || item.label}
+                    </Link>
+                  ) : (
+                    <span>{tBreadcrumb(item.label) || item.label}</span>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

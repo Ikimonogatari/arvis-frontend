@@ -342,9 +342,11 @@ const Menu = () => {
           <li>
             <Link href="/projects">{t("projects")}</Link>
           </li>
+          {/* E-shop nav hidden for now
           <li>
             <Link href="/eshop">{t("eshop")}</Link>
           </li>
+          */}
           <li>
             <a href="#">
               {t("newsEvents")}
@@ -460,9 +462,11 @@ const MobileMenu = () => {
                       <li>
                         <Link href="/projects">{t("projects")}</Link>
                       </li>
+                      {/* E-shop nav hidden for now
                       <li>
                         <Link href="/eshop">{t("eshop")}</Link>
                       </li>
+                      */}
                       <li>
                         <a href="#" onClick={() => activeMenuSet("NewsEvents")}>
                           {t("newsEvents")}
