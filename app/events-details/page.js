@@ -21,12 +21,15 @@ const EventDetailsContent = () => {
     skip: !idToFetch,
   });
 
+  const directusUrl =
+    process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
+
   // Helper function to get image URL from GraphQL response
   const getImageUrl = (imageData) => {
     if (!imageData || !imageData.id) {
       return "assets/img/blog/details-1.jpg";
     }
-    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+    return `${directusUrl}/assets/${imageData.id}`;
   };
 
   // Get event content from translations

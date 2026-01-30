@@ -7,9 +7,12 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
+const directusUrl =
+  process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
+
 const getImageUrl = (imageData) => {
   if (!imageData || !imageData.id) return "assets/img/service/01.jpg";
-  return `http://217.154.145.65:8055/assets/${imageData.id}`;
+  return `${directusUrl}/assets/${imageData.id}`;
 };
 
 const getProductContent = (product) => {

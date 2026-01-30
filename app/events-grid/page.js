@@ -5,6 +5,9 @@ import ZotechLayout from "@/layout/ZotechLayout";
 import { useGetEventsQuery } from "@/lib/api/directusApi";
 import Link from "next/link";
 
+const directusUrl =
+  process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
+
 const page = () => {
   const { data: events, error, isLoading } = useGetEventsQuery();
 
@@ -16,8 +19,7 @@ const page = () => {
     if (!imageData.id) {
       return "assets/img/blog/01.jpg"; // Fallback image
     }
-    const imageUrl = `http://217.154.145.65:8055/assets/${imageData.id}`;
-    return imageUrl;
+    return `${directusUrl}/assets/${imageData.id}`;
   };
 
   // Get event content from translations

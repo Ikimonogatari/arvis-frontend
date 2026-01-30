@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useGetArticlesQuery } from "@/lib/api/directusApi";
+import Link from "next/link";
 
 const Blog = ({
   wrapperClass = "blog-wrapper blog-1 section-padding section-bg about-page-blog",
@@ -11,30 +11,33 @@ const Blog = ({
 
   // Format date helper function
   const formatDate = (dateString) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
+    return date.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
     });
   };
 
+  const directusUrl =
+    process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
+
   // Get image URL from GraphQL response
   const getImageUrl = (imageData) => {
-    if (!imageData) return 'assets/img/blog/01.jpg'; // Fallback image
-    
+    if (!imageData) return "assets/img/blog/01.jpg"; // Fallback image
+
     // GraphQL returns image as an object with id property
     if (imageData.id) {
-      return `http://217.154.145.65:8055/assets/${imageData.id}`;
+      return `${directusUrl}/assets/${imageData.id}`;
     }
-    
+
     // Fallback for string UUIDs (legacy support)
-    if (typeof imageData === 'string') {
-      return `http://217.154.145.65:8055/assets/${imageData}`;
+    if (typeof imageData === "string") {
+      return `${directusUrl}/assets/${imageData}`;
     }
-    
-    return 'assets/img/blog/01.jpg'; // Fallback
+
+    return "assets/img/blog/01.jpg"; // Fallback
   };
 
   // Loading state
@@ -74,7 +77,7 @@ const Blog = ({
 
   // Error state
   if (error) {
-    console.error('Error fetching articles:', error);
+    console.error("Error fetching articles:", error);
     return (
       <section className={wrapperClass}>
         <div className="shape">
@@ -112,7 +115,7 @@ const Blog = ({
   const displayArticles = articles.length > 0 ? articles : [];
 
   // Animation delays
-  const delays = ['200ms', '400ms', '600ms'];
+  const delays = ["200ms", "400ms", "600ms"];
 
   return (
     <section className={wrapperClass}>
@@ -142,10 +145,15 @@ const Blog = ({
                 // Use image field first for list pages
                 const imageToUse = article.image;
                 const imageUrl = getImageUrl(imageToUse);
-                const articleDate = formatDate(article.date_created || article.date_updated);
-                const category = 'Technology'; // Default category
-                const excerpt = article.description || article.body?.substring(0, 100) + '...' || "Accelerate innovation with world-class tech teams We'll match you to an entire remote team of incredible";
-                const title = article.title || 'Article Title';
+                const articleDate = formatDate(
+                  article.date_created || article.date_updated,
+                );
+                const category = "Technology"; // Default category
+                const excerpt =
+                  article.description ||
+                  article.body?.substring(0, 100) + "..." ||
+                  "Accelerate innovation with world-class tech teams We'll match you to an entire remote team of incredible";
+                const title = article.title || "Article Title";
                 const articleId = article.id || index;
                 const articleSlug = `blogs-details?id=${articleId}`;
 
@@ -153,28 +161,28 @@ const Blog = ({
                   <div
                     key={articleId}
                     className="col-xl-4 col-lg-6 col-md-12 wow fadeInUp"
-                    data-wow-delay={delays[index] || '200ms'}
+                    data-wow-delay={delays[index] || "200ms"}
                   >
                     <div className="single-blog-item">
                       <div className="image">
-                        <img 
-                          src={imageUrl} 
+                        <img
+                          src={imageUrl}
                           alt={title}
                           style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            objectPosition: 'center'
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            objectPosition: "center",
                           }}
                         />
-                        <img 
-                          src={imageUrl} 
+                        <img
+                          src={imageUrl}
                           alt={title}
                           style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            objectPosition: 'center'
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            objectPosition: "center",
                           }}
                         />
                       </div>
@@ -188,9 +196,7 @@ const Blog = ({
                           <li>{articleDate}</li>
                         </ul>
                         <h3>
-                          <Link href={articleSlug}>
-                            {title}
-                          </Link>
+                          <Link href={articleSlug}>{title}</Link>
                         </h3>
                         <p>{excerpt}</p>
                         <Link href={articleSlug} className="link-btn">

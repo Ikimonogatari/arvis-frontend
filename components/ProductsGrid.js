@@ -151,7 +151,7 @@ const ProductsGrid = () => {
   // Update getImageUrl for GraphQL
   const getImageUrlGraphQL = (imageData) => {
     if (!imageData || !imageData.id) return "assets/img/service/01.jpg";
-    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+    return `${baseUrl}/assets/${imageData.id}`;
   };
 
   if (isLoading) {

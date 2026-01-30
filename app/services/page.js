@@ -6,13 +6,16 @@ import ZotechLayout from "@/layout/ZotechLayout";
 import { useGetServicesQuery } from "@/lib/api/directusApi";
 import Link from "next/link";
 
+const directusUrl =
+  process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
+
 const page = () => {
   const { data: services, error, isLoading } = useGetServicesQuery();
 
   // Helper to get image URL
   const getImageUrl = (imageData) => {
     if (!imageData || !imageData.id) return "assets/img/service/08.jpg";
-    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+    return `${directusUrl}/assets/${imageData.id}`;
   };
 
   const servicesList = services || [];

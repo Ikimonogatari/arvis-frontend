@@ -2,8 +2,11 @@
 
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
-import Link from "next/link";
 import { useGetArticlesQuery } from "@/lib/api/directusApi";
+import Link from "next/link";
+
+const directusUrl =
+  process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
 
 const page = () => {
   const { data: articles, error, isLoading } = useGetArticlesQuery();
@@ -11,17 +14,12 @@ const page = () => {
   // Helper function to get image URL from GraphQL response
   const getImageUrl = (imageData) => {
     if (!imageData) {
-      console.log("No imageData provided");
       return "assets/img/blog/01.jpg"; // Fallback image
     }
     if (!imageData.id) {
-      console.log("ImageData exists but no id:", imageData);
       return "assets/img/blog/01.jpg"; // Fallback image
     }
-    const imageUrl = `http://217.154.145.65:8055/assets/${imageData.id}`;
-    console.log("Image data:", imageData);
-    console.log("Constructed image URL:", imageUrl);
-    return imageUrl;
+    return `${directusUrl}/assets/${imageData.id}`;
   };
 
   return (
@@ -60,16 +58,17 @@ const page = () => {
               <div className="row">
                 {articles && articles.length > 0 ? (
                   articles.map((article, index) => {
-                    const delay = `${(index % 3 + 1) * 200}ms`;
+                    const delay = `${((index % 3) + 1) * 200}ms`;
                     const description = article.description || "";
-                    const truncatedDescription = description.length > 100 
-                      ? description.substring(0, 100) + "..." 
-                      : description;
-                    
+                    const truncatedDescription =
+                      description.length > 100
+                        ? description.substring(0, 100) + "..."
+                        : description;
+
                     // Use image field for list pages
                     const imageToUse = article.image;
                     const imageUrl = getImageUrl(imageToUse);
-                    
+
                     // Debug for first article
                     if (index === 0 && typeof window !== "undefined") {
                       console.log("=== Article Image Debug ===");
@@ -88,28 +87,31 @@ const page = () => {
                       >
                         <div className="single-blog-item">
                           <div className="image">
-                            <img 
-                              src={imageUrl} 
+                            <img
+                              src={imageUrl}
                               alt={article.title}
                               style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                objectPosition: 'center'
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "center",
                               }}
                               onError={(e) => {
-                                console.error("Image failed to load:", imageUrl);
+                                console.error(
+                                  "Image failed to load:",
+                                  imageUrl,
+                                );
                                 e.target.src = "assets/img/blog/01.jpg";
                               }}
                             />
-                            <img 
-                              src={imageUrl} 
+                            <img
+                              src={imageUrl}
                               alt={article.title}
                               style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                objectPosition: 'center'
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "center",
                               }}
                               onError={(e) => {
                                 e.target.src = "assets/img/blog/01.jpg";
@@ -130,9 +132,16 @@ const page = () => {
                                 {article.title}
                               </Link>
                             </h3>
-                            <p>{truncatedDescription || "Read more about this article..."}</p>
-                            <Link href={`/blogs-details?id=${article.id}`} className="link-btn">
-                              Read More <i className="far fa-long-arrow-right" />
+                            <p>
+                              {truncatedDescription ||
+                                "Read more about this article..."}
+                            </p>
+                            <Link
+                              href={`/blogs-details?id=${article.id}`}
+                              className="link-btn"
+                            >
+                              Read More{" "}
+                              <i className="far fa-long-arrow-right" />
                             </Link>
                           </div>
                         </div>

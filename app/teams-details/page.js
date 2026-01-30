@@ -20,10 +20,13 @@ const TeamDetailsContent = () => {
     skip: !id,
   });
 
+  const directusUrl =
+    process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
+
   // Helper to get image URL
   const getImageUrl = (imageData) => {
     if (!imageData || !imageData.id) return "assets/img/team/details-1.jpg";
-    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+    return `${directusUrl}/assets/${imageData.id}`;
   };
 
   if (isLoading) {

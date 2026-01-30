@@ -1,7 +1,10 @@
 "use client";
+import { useGetProjectsQuery } from "@/lib/api/directusApi";
 import Link from "next/link";
 import { Nav, Tab } from "react-bootstrap";
-import { useGetProjectsQuery } from "@/lib/api/directusApi";
+
+const directusUrl =
+  process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
 
 const CaseStudy = ({
   wrapperClass = "case-study-wrapper case-study-2  section-padding pb-0",
@@ -11,37 +14,48 @@ const CaseStudy = ({
   // Helper to get image URL
   const getImageUrl = (imageData) => {
     if (!imageData || !imageData.id) return "assets/img/case/09.jpg";
-    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+    return `${directusUrl}/assets/${imageData.id}`;
   };
 
   const projectList = projects || [];
 
   // Render project item
   const renderProjectItem = (project, index) => {
-    const styles = ["style-1", "style-2", "style-2", "style-2", "style-2", "style-1"];
+    const styles = [
+      "style-1",
+      "style-2",
+      "style-2",
+      "style-2",
+      "style-2",
+      "style-1",
+    ];
     const styleClass = styles[index % styles.length] || "style-2";
-    
+
     return (
       <div
         key={project.id}
         className={`single-case-item ${styleClass} filter-item branding wow fadeInUp`}
         data-wow-delay=".5s"
       >
-        <img 
-          src={getImageUrl(project.image)} 
+        <img
+          src={getImageUrl(project.image)}
           alt={project.name || project.title}
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center'
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
           }}
         />
         <div className="hover d-flex align-items-center justify-content-between">
           <div className="title">
             <span>PROJECT</span>
             <h4>{project.name || project.title || "Project"}</h4>
-            <h4>{project.description ? project.description.substring(0, 40) + '...' : ""}</h4>
+            <h4>
+              {project.description
+                ? project.description.substring(0, 40) + "..."
+                : ""}
+            </h4>
           </div>
           <Link href={`/projects-details?id=${project.id}`} className="icon">
             <i className="far fa-long-arrow-right" />
@@ -53,7 +67,10 @@ const CaseStudy = ({
 
   // Fallback projects data
   const fallbackProjects = [
-    { img: "assets/img/case/09.jpg", title: "Every software solution be integrated" },
+    {
+      img: "assets/img/case/09.jpg",
+      title: "Every software solution be integrated",
+    },
     { img: "assets/img/case/10.jpg", title: "IT infrastructure management" },
     { img: "assets/img/case/11.jpg", title: "Data center solutions" },
     { img: "assets/img/case/12.jpg", title: "Network optimization" },
@@ -63,9 +80,16 @@ const CaseStudy = ({
 
   // Render fallback project item
   const renderFallbackItem = (item, index) => {
-    const styles = ["style-1", "style-2", "style-2", "style-2", "style-2", "style-1"];
+    const styles = [
+      "style-1",
+      "style-2",
+      "style-2",
+      "style-2",
+      "style-2",
+      "style-1",
+    ];
     const styleClass = styles[index % styles.length] || "style-2";
-    
+
     return (
       <div
         key={index}
@@ -116,16 +140,28 @@ const CaseStudy = ({
           <Tab.Content className="tab-content">
             <Tab.Pane eventKey="all" id="all" className="tab-pane fade ">
               <div className="case-study-grid">
-                {projectList.length > 0 
-                  ? projectList.slice(0, 3).map((project, index) => renderProjectItem(project, index))
-                  : fallbackProjects.slice(0, 3).map((item, index) => renderFallbackItem(item, index))
-                }
+                {projectList.length > 0
+                  ? projectList
+                      .slice(0, 3)
+                      .map((project, index) =>
+                        renderProjectItem(project, index),
+                      )
+                  : fallbackProjects
+                      .slice(0, 3)
+                      .map((item, index) => renderFallbackItem(item, index))}
               </div>
               <div className="case-study-grid">
-                {projectList.length > 0 
-                  ? projectList.slice(3, 6).map((project, index) => renderProjectItem(project, index + 3))
-                  : fallbackProjects.slice(3, 6).map((item, index) => renderFallbackItem(item, index + 3))
-                }
+                {projectList.length > 0
+                  ? projectList
+                      .slice(3, 6)
+                      .map((project, index) =>
+                        renderProjectItem(project, index + 3),
+                      )
+                  : fallbackProjects
+                      .slice(3, 6)
+                      .map((item, index) =>
+                        renderFallbackItem(item, index + 3),
+                      )}
               </div>
             </Tab.Pane>
           </Tab.Content>

@@ -2,8 +2,11 @@
 
 import Pagebanner from "@/components/Pagebanner";
 import ZotechLayout from "@/layout/ZotechLayout";
-import Link from "next/link";
 import { useGetTeamMembersQuery } from "@/lib/api/directusApi";
+import Link from "next/link";
+
+const directusUrl =
+  process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
 
 const page = () => {
   const { data: teamMembers, error, isLoading } = useGetTeamMembersQuery();
@@ -11,7 +14,7 @@ const page = () => {
   // Helper to get image URL
   const getImageUrl = (imageData) => {
     if (!imageData || !imageData.id) return "assets/img/team/05.jpg";
-    return `http://217.154.145.65:8055/assets/${imageData.id}`;
+    return `${directusUrl}/assets/${imageData.id}`;
   };
 
   const membersList = teamMembers || [];
@@ -46,55 +49,80 @@ const page = () => {
                   data-wow-delay={delays[index % 4]}
                 >
                   <div className="single-team-item">
-                    <img className="shape-1" src="assets/img/shape/shape-11.png" alt />
+                    <img
+                      className="shape-1"
+                      src="assets/img/shape/shape-11.png"
+                      alt
+                    />
                     <div className="team-image">
-                      <img 
-                        src={getImageUrl(member.image)} 
+                      <img
+                        src={getImageUrl(member.image)}
                         alt={member.name}
                         style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                          objectPosition: 'center'
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: "center",
                         }}
                       />
                     </div>
                     <div className="content">
                       <p>{member.role || member.position || "Team Member"}</p>
                       <h4>
-                        <Link href={`/teams-details?id=${member.id}`}>{member.name}</Link>
+                        <Link href={`/teams-details?id=${member.id}`}>
+                          {member.name}
+                        </Link>
                       </h4>
                       <div className="social d-flex align-items-center justify-content-center">
                         {member.social_facebook && (
-                          <a href={member.social_facebook} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={member.social_facebook}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <i className="fab fa-facebook-f" />
                           </a>
                         )}
                         {member.social_twitter && (
-                          <a href={member.social_twitter} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={member.social_twitter}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <i className="fab fa-twitter" />
                           </a>
                         )}
                         {member.social_linkedin && (
-                          <a href={member.social_linkedin} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={member.social_linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <i className="fab fa-linkedin-in" />
                           </a>
                         )}
                         {member.social_instagram && (
-                          <a href={member.social_instagram} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={member.social_instagram}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <i className="fab fa-instagram" />
                           </a>
                         )}
-                        {!member.social_facebook && !member.social_twitter && !member.social_linkedin && !member.social_instagram && (
-                          <>
-                            <a href="#">
-                              <i className="fab fa-facebook-f" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-twitter" />
-                            </a>
-                          </>
-                        )}
+                        {!member.social_facebook &&
+                          !member.social_twitter &&
+                          !member.social_linkedin &&
+                          !member.social_instagram && (
+                            <>
+                              <a href="#">
+                                <i className="fab fa-facebook-f" />
+                              </a>
+                              <a href="#">
+                                <i className="fab fa-twitter" />
+                              </a>
+                            </>
+                          )}
                       </div>
                     </div>
                   </div>

@@ -9,11 +9,14 @@ const HeroArticleSlider = () => {
   const t = useSafeTranslations("home");
   const { data: articles, error, isLoading } = useGetArticlesQuery();
 
+  const directusUrl =
+    process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
+
   // Get image URL from GraphQL response
   const getImageUrl = (imageData) => {
     if (!imageData) return "assets/img/hero/hero-1-1-bg.png";
     if (imageData.id) {
-      return `http://217.154.145.65:8055/assets/${imageData.id}`;
+      return `${directusUrl}/assets/${imageData.id}`;
     }
     return "assets/img/hero/hero-1-1-bg.png";
   };

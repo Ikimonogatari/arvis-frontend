@@ -1,7 +1,10 @@
 "use client";
+import { useGetPartnersQuery } from "@/lib/api/directusApi";
 import { sliderProps } from "@/utility/sliderProps";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useGetPartnersQuery } from "@/lib/api/directusApi";
+
+const directusUrl =
+  process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
 
 const BrandSlider = () => {
   const { data: partners, error, isLoading } = useGetPartnersQuery();
@@ -9,7 +12,7 @@ const BrandSlider = () => {
   // Helper to get logo URL
   const getLogoUrl = (logoData) => {
     if (!logoData || !logoData.id) return "assets/img/brand/01.png";
-    return `http://217.154.145.65:8055/assets/${logoData.id}`;
+    return `${directusUrl}/assets/${logoData.id}`;
   };
 
   // Fallback brands if no data
@@ -30,26 +33,24 @@ const BrandSlider = () => {
       className="swiper brand-slider mt-4 pt-3"
     >
       <div className="swiper-wrapper">
-        {displayPartners.length > 0 ? (
-          displayPartners.map((partner) => (
-            <SwiperSlide key={partner.id} className="swiper-slide">
-              <div className="brand-logo">
-                <img 
-                  src={getLogoUrl(partner.logo)} 
-                  alt={partner.name || "Partner"} 
-                />
-              </div>
-            </SwiperSlide>
-          ))
-        ) : (
-          fallbackBrands.map((brand, index) => (
-            <SwiperSlide key={index} className="swiper-slide">
-              <div className="brand-logo">
-                <img src={brand} alt="Partner" />
-              </div>
-            </SwiperSlide>
-          ))
-        )}
+        {displayPartners.length > 0
+          ? displayPartners.map((partner) => (
+              <SwiperSlide key={partner.id} className="swiper-slide">
+                <div className="brand-logo">
+                  <img
+                    src={getLogoUrl(partner.logo)}
+                    alt={partner.name || "Partner"}
+                  />
+                </div>
+              </SwiperSlide>
+            ))
+          : fallbackBrands.map((brand, index) => (
+              <SwiperSlide key={index} className="swiper-slide">
+                <div className="brand-logo">
+                  <img src={brand} alt="Partner" />
+                </div>
+              </SwiperSlide>
+            ))}
       </div>
     </Swiper>
   );
@@ -61,7 +62,7 @@ export const BrandSlider2 = () => {
 
   const getLogoUrl = (logoData) => {
     if (!logoData || !logoData.id) return "assets/img/brand/07.png";
-    return `http://217.154.145.65:8055/assets/${logoData.id}`;
+    return `${directusUrl}/assets/${logoData.id}`;
   };
 
   const fallbackBrands = [
@@ -78,26 +79,24 @@ export const BrandSlider2 = () => {
   return (
     <Swiper {...sliderProps.BrandSlider} className="swiper brand-slider">
       <div className="swiper-wrapper">
-        {displayPartners.length > 0 ? (
-          displayPartners.map((partner) => (
-            <SwiperSlide key={partner.id} className="swiper-slide">
-              <div className="brand-logo">
-                <img 
-                  src={getLogoUrl(partner.logo)} 
-                  alt={partner.name || "Partner"} 
-                />
-              </div>
-            </SwiperSlide>
-          ))
-        ) : (
-          fallbackBrands.map((brand, index) => (
-            <SwiperSlide key={index} className="swiper-slide">
-              <div className="brand-logo">
-                <img src={brand} alt="Partner" />
-              </div>
-            </SwiperSlide>
-          ))
-        )}
+        {displayPartners.length > 0
+          ? displayPartners.map((partner) => (
+              <SwiperSlide key={partner.id} className="swiper-slide">
+                <div className="brand-logo">
+                  <img
+                    src={getLogoUrl(partner.logo)}
+                    alt={partner.name || "Partner"}
+                  />
+                </div>
+              </SwiperSlide>
+            ))
+          : fallbackBrands.map((brand, index) => (
+              <SwiperSlide key={index} className="swiper-slide">
+                <div className="brand-logo">
+                  <img src={brand} alt="Partner" />
+                </div>
+              </SwiperSlide>
+            ))}
       </div>
     </Swiper>
   );
