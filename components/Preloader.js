@@ -8,24 +8,18 @@ const Preloader = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Show loader on route change
     setLoad(true);
     setDisplayLoaded(true);
 
-    // Hide loader after animation
-    const timer1 = setTimeout(() => {
-      setLoad(false);
-    }, 1000);
-
-    const timer2 = setTimeout(() => {
-      setDisplayLoaded(false);
-    }, 1500);
+    const timer1 = setTimeout(() => setLoad(false), 1000);
+    const timer2 = setTimeout(() => setDisplayLoaded(false), 1500);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
   }, [pathname]);
+
   return (
     <div
       id="preloader"
@@ -33,7 +27,6 @@ const Preloader = () => {
       style={{ display: displayLoaded ? "flex" : "none" }}
     >
       <div className="animation-preloader">
-        <div className="spinner"></div>
         <div className="logo-loading-wrapper">
           <img
             src="assets/img/arvis-logo.png"
@@ -41,7 +34,10 @@ const Preloader = () => {
             className="logo-loading"
           />
         </div>
-        <p className="text-center">Loading</p>
+        <div className="preloader-progress">
+          <div className="preloader-progress-bar" />
+        </div>
+        <p className="preloader-text">Loading</p>
       </div>
       <div className="loader">
         <div className="row">

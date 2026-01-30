@@ -1,6 +1,5 @@
 "use client";
 import Blog from "@/components/Blog";
-import Contact from "@/components/Contact";
 import Counter from "@/components/Counter";
 import HeroArticleSlider from "@/components/HeroArticleSlider";
 import HomeServicesSlider from "@/components/HomeServicesSlider";
@@ -500,8 +499,6 @@ const page = () => {
             </div>
           </div>
         </div>
-        {/* Contact Section Start */}
-        <Contact wrapperClass="contact-us-wrapper contact-us-1 section-padding" />
         {/* Blog Section Start */}
         <Blog wrapperClass="blog-wrapper blog-1 section-padding section-bg" />
       </ZotechLayout>

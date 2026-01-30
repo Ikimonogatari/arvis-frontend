@@ -212,137 +212,216 @@
   transform: scale(1.1);
 }
 
-/* Preloader Logo Animation - Professional & Elegant */
+/* Preloader – polished logo & layout */
+.preloader .animation-preloader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
 .preloader .animation-preloader .logo-loading-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2em auto;
-  height: 120px;
+  margin: 0 auto 1.25em;
+  height: 160px;
   position: relative;
   perspective: 1000px;
 }
 
 .preloader .animation-preloader .logo-loading {
-  height: 90px;
+  height: 120px;
   width: auto;
-  max-width: 320px;
+  max-width: 400px;
   object-fit: contain;
   display: block;
   position: relative;
   z-index: 2;
-  animation: logoProfessional 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  filter: drop-shadow(0 8px 32px rgba(0, 51, 150, 0.3))
-    drop-shadow(0 0 40px rgba(0, 102, 204, 0.2));
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation:
+    logoEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    logoIdle 2.5s ease-in-out 1.2s infinite;
+  filter: drop-shadow(0 6px 24px rgba(0, 51, 150, 0.25))
+    drop-shadow(0 0 32px rgba(0, 102, 204, 0.15));
   will-change: transform, opacity, filter;
 }
 
-/* Professional logo animation - slide in from left to right, no floating */
-@keyframes logoProfessional {
+/* One smooth entrance: scale + fade, then hold */
+@keyframes logoEntrance {
   0% {
-    transform: translateX(-100px);
+    transform: scale(0.92) translateY(8px);
     opacity: 0;
-    filter: drop-shadow(0 4px 16px rgba(0, 51, 150, 0.2))
-      drop-shadow(0 0 20px rgba(0, 102, 204, 0.1));
-  }
-  30% {
-    transform: translateX(0px);
-    opacity: 1;
-    filter: drop-shadow(0 8px 32px rgba(0, 51, 150, 0.3))
-      drop-shadow(0 0 40px rgba(0, 102, 204, 0.2));
+    filter: drop-shadow(0 2px 12px rgba(0, 51, 150, 0.15))
+      drop-shadow(0 0 16px rgba(0, 102, 204, 0.08));
   }
   100% {
-    transform: translateX(0px);
+    transform: scale(1) translateY(0);
     opacity: 1;
-    filter: drop-shadow(0 8px 32px rgba(0, 51, 150, 0.3))
+    filter: drop-shadow(0 6px 24px rgba(0, 51, 150, 0.25))
+      drop-shadow(0 0 32px rgba(0, 102, 204, 0.15));
+  }
+}
+
+/* Subtle idle pulse */
+@keyframes logoIdle {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 6px 24px rgba(0, 51, 150, 0.25))
+      drop-shadow(0 0 32px rgba(0, 102, 204, 0.15));
+  }
+  50% {
+    transform: scale(1.02) translateY(-2px);
+    filter: drop-shadow(0 8px 28px rgba(0, 51, 150, 0.3))
       drop-shadow(0 0 40px rgba(0, 102, 204, 0.2));
   }
 }
 
-/* Enhanced pulsing glow effect with theme colors */
+/* Soft glow behind logo */
 .preloader .animation-preloader .logo-loading-wrapper::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 240px;
-  height: 240px;
+  width: 300px;
+  height: 300px;
   background: radial-gradient(
     circle,
-    rgba(0, 102, 204, 0.15) 0%,
-    rgba(0, 51, 150, 0.1) 40%,
+    rgba(0, 102, 204, 0.12) 0%,
+    rgba(0, 51, 150, 0.06) 45%,
     transparent 70%
   );
   border-radius: 50%;
-  animation: pulseGlowProfessional 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: pulseGlow 2.2s ease-in-out infinite;
   z-index: 1;
 }
 
-@keyframes pulseGlowProfessional {
+@keyframes pulseGlow {
   0%,
   100% {
-    transform: translate(-50%, -50%) scale(0.85);
-    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.5;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.15);
-    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
   }
 }
 
-/* Refined shimmer effect */
+/* Shimmer pass – more apparent */
 .preloader .animation-preloader .logo-loading-wrapper::after {
   content: "";
   position: absolute;
-  top: 0;
+  top: -15%;
   left: -100%;
-  width: 60%;
-  height: 100%;
+  width: 70%;
+  height: 130%;
   background: linear-gradient(
     90deg,
-    transparent,
-    rgba(0, 102, 204, 0.3),
-    rgba(0, 51, 150, 0.4),
-    rgba(0, 102, 204, 0.3),
-    transparent
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.15) 80%,
+    transparent 100%
   );
-  animation: shimmerProfessional 2.5s ease-in-out infinite;
+  animation: shimmer 2.5s ease-in-out infinite;
   z-index: 3;
   pointer-events: none;
-  transform: skewX(-20deg);
+  transform: skewX(-22deg);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-@keyframes shimmerProfessional {
+@keyframes shimmer {
   0% {
     left: -100%;
-    opacity: 0;
+    opacity: 0.6;
+  }
+  15% {
+    left: -80%;
+    opacity: 1;
   }
   50% {
-    left: 100%;
+    left: 80%;
+    opacity: 1;
+  }
+  85% {
+    left: 180%;
     opacity: 1;
   }
   100% {
-    left: 100%;
-    opacity: 0;
+    left: 180%;
+    opacity: 0.6;
   }
+}
+
+/* Progress bar */
+.preloader .animation-preloader .preloader-progress {
+  width: 160px;
+  height: 3px;
+  background: rgba(0, 51, 150, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 auto 1em;
+}
+
+.preloader .animation-preloader .preloader-progress-bar {
+  height: 100%;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 51, 150, 0.9),
+    rgba(0, 102, 204, 0.9)
+  );
+  border-radius: 3px;
+  animation: progressFill 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes progressFill {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Loading text */
+.preloader .animation-preloader .preloader-text {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: rgba(0, 51, 150, 0.85);
+  margin: 0;
 }
 
 @media (max-width: 767px) {
   .preloader .animation-preloader .logo-loading-wrapper {
-    height: 100px;
-    margin: 1.5em auto;
+    height: 130px;
+    margin: 0 auto 1em;
   }
 
   .preloader .animation-preloader .logo-loading {
-    height: 70px;
-    max-width: 280px;
+    height: 90px;
+    max-width: 320px;
   }
 
   .preloader .animation-preloader .logo-loading-wrapper::before {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .preloader .animation-preloader .preloader-progress {
+    width: 120px;
+  }
+
+  .preloader .animation-preloader .preloader-text {
+    font-size: 11px;
+    letter-spacing: 4px;
   }
 }
 
